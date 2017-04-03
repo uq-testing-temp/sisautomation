@@ -1,19 +1,22 @@
-package stepDefinition.java;
+package stepDefinition;
 
 import org.junit.Assert;
 import org.openqa.selenium.*;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
+
+import cucumber.api.java.After;
+import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class searchSteps {
+public class searchSteps extends DriverFactory{
 
-	WebDriver driver = new ChromeDriver();
-		
+	@Before
+	public void beforeScenario() {
+		driver = new DriverFactory().getDriver();
+	}
+	
 	@Given("^I open mysinet url$")
 	public void setup() throws Throwable {
 		driver.get("https://pswebdev.soe.uq.edu.au:9700/ps/uqsinetsignin.html");
@@ -34,7 +37,7 @@ public class searchSteps {
 	public void click_signin() throws Throwable {
 		driver.findElement(By.xpath("(//input[@value=''])[3]")).click();
 	}
-	
+		
 	@Given("^I navigate to search match$")
 	public void search_match() throws Throwable {
 		driver.get("https://pswebdev.soe.uq.edu.au:9700/psp/ps/EMPLOYEE/HRMS/c/RECRUIT_PROSPECTIVE_STUDENTS.HCR_SM_SEARCH.GBL?PORTALPARAM_PTCNAV=HC_HCR_SM_SEARCH_GBL9&EOPP.SCNode=HRMS&EOPP.SCPortal=EMPLOYEE&EOPP.SCName=HCAD_PROSPECTIVE_STUDENTS&EOPP.SCLabel=Maintain%20Prospects&EOPP.SCPTfname=HCAD_PROSPECTIVE_STUDENTS&FolderPath=PORTAL_ROOT_OBJECT.HCAD_ADMISSIONS_RECRUIT.HCAD_PROSPECTIVE_STUDENTS.HC_HCR_SM_SEARCH_GBL9&IsFolder=false");
@@ -85,5 +88,26 @@ public class searchSteps {
 		Assert.assertTrue(mysearchbox);	
 		
 	}	
+	
+	@Then("^I should see my si-net homepage$")
+	public void i_should_see_my_si_net_homepage() throws Throwable {
+		//driver.switchTo().frame("ptfrmtgtframe");
+		boolean homepage = driver.findElement(By.className("pthomepagetabactive")).isDisplayed();
+		Assert.assertTrue(homepage);
+		
+	}
+	
+	@Then("^I shouldn't see my si-net loginpage$")
+	public void i_shouldnt_see_my_si_net_loginpage() throws Throwable {
+		//driver.switchTo().frame("ptfrmtgtframe");		
+		boolean loginpage = driver.findElement(By.className("PSERRORTEXT")).isDisplayed();
+		Assert.assertTrue(loginpage);
+	}
+	
+	@After
+    public void afterScenario() {
+	  new DriverFactory().destroyDriver();
+	}
+	
 	
 }
