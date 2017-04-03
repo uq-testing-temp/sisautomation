@@ -9,13 +9,13 @@ Background:
 		And I enter password as "UQTRN"
 		And I click signin
 		 
-Scenario: create a search criteria
+Scenario: create and save a search criteria
 	Given I navigate to search match
 		And I select searchType as "Person"
 		And I enter searchParameter as "UQ_SRCH"
 	When I save searchCriteria
 		And I enter nameSearch as "Standard"
 		And I click save
-		And I click on "ReturnToAdvancedSearch" link
-	Then I should see my search label as "standard"
+		And I navigate to search match
+	Then I should see my search label
 		

@@ -37,7 +37,7 @@ formatter.match({
   "location": "searchSteps.setup()"
 });
 formatter.result({
-  "duration": 5970137424,
+  "duration": 4767515145,
   "status": "passed"
 });
 formatter.match({
@@ -50,7 +50,7 @@ formatter.match({
   "location": "searchSteps.enter_username(String)"
 });
 formatter.result({
-  "duration": 139540160,
+  "duration": 93073629,
   "status": "passed"
 });
 formatter.match({
@@ -63,21 +63,21 @@ formatter.match({
   "location": "searchSteps.enter_password(String)"
 });
 formatter.result({
-  "duration": 97193476,
+  "duration": 74973983,
   "status": "passed"
 });
 formatter.match({
   "location": "searchSteps.click_signin()"
 });
 formatter.result({
-  "duration": 1123328871,
+  "duration": 656724266,
   "status": "passed"
 });
 formatter.scenario({
   "line": 12,
-  "name": "create a search criteria",
+  "name": "create and save a search criteria",
   "description": "",
-  "id": "search;create-a-search-criteria",
+  "id": "search;create-and-save-a-search-criteria",
   "type": "scenario",
   "keyword": "Scenario"
 });
@@ -113,19 +113,19 @@ formatter.step({
 });
 formatter.step({
   "line": 19,
-  "name": "I click on \"ReturnToAdvancedSearch\" link",
+  "name": "I navigate to search match",
   "keyword": "And "
 });
 formatter.step({
   "line": 20,
-  "name": "I should see my search label as \"standard\"",
+  "name": "I should see my search label",
   "keyword": "Then "
 });
 formatter.match({
   "location": "searchSteps.search_match()"
 });
 formatter.result({
-  "duration": 1108781583,
+  "duration": 1015208579,
   "status": "passed"
 });
 formatter.match({
@@ -138,31 +138,61 @@ formatter.match({
   "location": "searchSteps.searchType(String)"
 });
 formatter.result({
-  "duration": 315960745,
+  "duration": 309338416,
   "status": "passed"
 });
-formatter.match({});
-formatter.result({
-  "status": "undefined"
+formatter.match({
+  "arguments": [
+    {
+      "val": "UQ_SRCH",
+      "offset": 28
+    }
+  ],
+  "location": "searchSteps.i_enter_searchParameter_as(String)"
 });
-formatter.match({});
 formatter.result({
-  "status": "undefined"
+  "duration": 91314672,
+  "status": "passed"
 });
-formatter.match({});
-formatter.result({
-  "status": "undefined"
+formatter.match({
+  "location": "searchSteps.i_save_searchCriteria()"
 });
-formatter.match({});
 formatter.result({
-  "status": "undefined"
+  "duration": 98854160,
+  "status": "passed"
 });
-formatter.match({});
-formatter.result({
-  "status": "undefined"
+formatter.match({
+  "arguments": [
+    {
+      "val": "Standard",
+      "offset": 23
+    }
+  ],
+  "location": "searchSteps.i_enter_nameSearch_as(String)"
 });
-formatter.match({});
 formatter.result({
-  "status": "undefined"
+  "duration": 2081847485,
+  "status": "passed"
+});
+formatter.match({
+  "location": "searchSteps.i_click_save()"
+});
+formatter.result({
+  "duration": 2095944807,
+  "status": "passed"
+});
+formatter.match({
+  "location": "searchSteps.search_match()"
+});
+formatter.result({
+  "duration": 507570926,
+  "status": "passed"
+});
+formatter.match({
+  "location": "searchSteps.i_should_see_my_search_label()"
+});
+formatter.result({
+  "duration": 2273152919,
+  "status": "passed"
 });
 });
