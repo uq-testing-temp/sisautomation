@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
 
 import cucumber.api.java.en.Given;
 
@@ -52,11 +53,14 @@ public class searchSteps {
 	
 	@Given("^I select searchType as \"([^\"]*)\"$")
 	public void searchType(String typetext) throws Throwable {
+		driver.switchTo().frame("ptifrmtgtframe");
 		//WebElement searchDropDown = driver.findElement(By.xpath("//select[@tabindex='13']"));
 		//WebElement searchDropDown = driver.findElement(By.xpath("//select[@id='HCR_SM_PARM_VW_SM_TYPE']"));
 		WebElement searchDropDown = driver.findElement(By.id("HCR_SM_PARM_VW_SM_TYPE"));
 		//WebElement table = driver.findElement(By.xpath(".//*[@id='win0tblSrchFlds']"));
 		//WebElement rows = table.findElement(By.xpath("//tr/td/[contains(text(), 'HCR_SM_PARM_VW_SM_TYPE')]"));
 		searchDropDown.click();
+		Select drpdiwn = new Select(searchDropDown);
+		drpdiwn.selectByIndex(2);
 	}
 }
