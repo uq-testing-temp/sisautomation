@@ -6,7 +6,7 @@ so that I can get information of the existing records
 Background:
 	Given I open mysinet url
 		
-Scenario Outline: Correct Login
+Scenario Outline: Verify Login
 	When I enter username as "<username>"
 		And I enter password as "<password>"
 		And I click signin

@@ -1,6 +1,7 @@
 package stepDefinition;
 
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.WebDriver;
 
 
@@ -20,7 +21,17 @@ public class DriverFactory {
     private void createNewDriverInstance() {
         String browser = new PropertyReader().readProperty("browser");
         if (browser.equals("chrome")) {
-            driver = new ChromeDriver();
+        	ChromeOptions options = new ChromeOptions();
+        	options.addArguments("test-type");
+        	options.addArguments("start-maximized");
+        	options.addArguments("--js-flags=--expose-gc");  
+        	options.addArguments("--enable-precise-memory-info"); 
+        	options.addArguments("--disable-popup-blocking");
+        	options.addArguments("--disable-default-apps");
+        	options.addArguments("test-type=browser");
+        	options.addArguments("disable-infobars");
+        	driver = new ChromeDriver(options);
+            
         } else {
             System.out.println("I cannot read browser type");
         }
