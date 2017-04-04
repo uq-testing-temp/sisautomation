@@ -20,7 +20,7 @@ public class searchSteps extends DriverFactory{
 	@Given("^I open mysinet url$")
 	public void setup() throws Throwable {
 		driver.get("https://pswebdev.soe.uq.edu.au:9700/ps/uqsinetsignin.html");
-		driver.manage().window().maximize();
+		//driver.manage().window().maximize();
 	}
 	
 	@Given("^I enter username as \"([^\"]*)\"$")
