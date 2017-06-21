@@ -14,6 +14,8 @@ public class DriverFactory {
     }
 
     public void initialize() {
+    	//String chromedriverpath = new PropertyReader().readProperty("chromedriverpath");
+    	//System.setProperty("webdriver.chrome.driver", chromedriverpath);
         if (driver == null)
             createNewDriverInstance();
     }
