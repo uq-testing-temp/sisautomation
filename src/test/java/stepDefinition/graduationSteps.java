@@ -42,18 +42,22 @@ public class graduationSteps extends DriverFactory{
 
 	@Given("^I select Graduation Status as \"([^\"]*)\"$")
 	public void graduationStatus(String graduationStatustext) throws Throwable {
+		Thread.sleep(2000);
 		//driver.switchTo().frame("ptifrmtgtframe");
 		WebElement gsDropDown = driver.findElement(By.id("UQ_GR_STUD_COND_UQ_GRAD_APP_STATUS$0"));
 		gsDropDown.click();
+		Thread.sleep(2000);
 		Select drpdown = new Select(gsDropDown);
-		drpdown.selectByIndex(1);
+		Thread.sleep(2000);
+		drpdown.selectByIndex(4);
+		Thread.sleep(2000);
 	}
 
 	
 	@Then("^I should see my eventID label$")
 	public void i_should_see_my_search_label() throws Throwable {
 		Thread.sleep(2000);
-		//driver.switchTo().frame("ptifrmtgtframe");
+		driver.switchTo().frame("ptifrmtgtframe");
 		WebElement eventIDlabel = driver.findElement(By.id("UQ_GR_STUD_SRCH_CAMPUS_EVENT_NBR_LBL"));
 		boolean label = eventIDlabel.isDisplayed();
 		Assert.assertTrue(label);			
@@ -73,15 +77,15 @@ public class graduationSteps extends DriverFactory{
 		Thread.sleep(2000);
 		//driver.switchTo().frame("ptifrmtgtframe");
 		String uidLabel = driver.findElement(By.id("UQ_GR_STUD_COND_LASTUPDOPRID$0")).getText();
-		Assert.assertTrue(uidLabel=="UQTRN42");			
+		Assert.assertEquals(uidLabel, "UQTRN42");			
 	}
 	
-	@When("^I Search Gratuates$")
+	@When("^I Search Graduates$")
 	public void i_save_searchGratuates() throws Throwable {
 		driver.findElement(By.id("#ICSearch")).click();
 	}
 	
-	@When("^I choose a gratuate$")
+	@When("^I choose a graduate$")
 	public void i_choose_a_gratuate() throws Throwable {
 		Thread.sleep(2000);
 		driver.findElement(By.id("RESULT16$0")).click();
@@ -89,12 +93,14 @@ public class graduationSteps extends DriverFactory{
 	
 	@When("^I add a row$")
 	public void i_add_a_row() throws Throwable {
+		Thread.sleep(2000);
 		driver.findElement(By.id("UQ_DERIVED_GRD_UQ_ADD_PB")).click();
 	}
 	
 	@When("^I save$")
 	public void i_save() throws Throwable {
 		driver.findElement(By.id("#ICSave")).click();
+		Thread.sleep(2000);
 	}
 		
 	@After
