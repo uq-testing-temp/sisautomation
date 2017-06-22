@@ -19,7 +19,7 @@ public class graduationSteps extends DriverFactory{
 
 	@Given("^I navigate to graduations management$")
 	public void management() throws Throwable {
-		driver.get("https://pswebdev.soe.uq.edu.au:9700/psp/ps/EMPLOYEE/HRMS/c/UQ_GRAD_MENU.UQ_GRADUATIONS_MGT.GBL?PORTALPARAM_PTCNAV=UQ_GRADUATIONS_MGT_GBL&EOPP.SCNode=HRMS&EOPP.SCPortal=EMPLOYEE&EOPP.SCName=UQ_GRADUATIONS_MANAGEMENT&EOPP.SCLabel=Graduations%20Management&EOPP.SCPTfname=UQ_GRADUATIONS_MANAGEMENT&FolderPath=PORTAL_ROOT_OBJECT.UQ_MANAGE_GRADUATIONS.UQ_GRADUATIONS_MANAGEMENT.UQ_GRADUATIONS_MGT_GBL&IsFolder=false");
+		driver.get(environment + "/psp/ps/EMPLOYEE/HRMS/c/UQ_GRAD_MENU.UQ_GRADUATIONS_MGT.GBL?PORTALPARAM_PTCNAV=UQ_GRADUATIONS_MGT_GBL&EOPP.SCNode=HRMS&EOPP.SCPortal=EMPLOYEE&EOPP.SCName=UQ_GRADUATIONS_MANAGEMENT&EOPP.SCLabel=Graduations%20Management&EOPP.SCPTfname=UQ_GRADUATIONS_MANAGEMENT&FolderPath=PORTAL_ROOT_OBJECT.UQ_MANAGE_GRADUATIONS.UQ_GRADUATIONS_MANAGEMENT.UQ_GRADUATIONS_MGT_GBL&IsFolder=false");
 	}	
 
 	@Given("^I select Academic Career as \"([^\"]*)\"$")

@@ -8,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 public class DriverFactory {
 
     protected static WebDriver driver;
+    public static final String environment = new PropertyReader().readProperty("environment");
 
     public  DriverFactory() {
         initialize();
