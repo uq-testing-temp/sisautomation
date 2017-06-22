@@ -50,6 +50,7 @@ public class graduationSteps extends DriverFactory{
 		Select drpdown = new Select(gsDropDown);
 		Thread.sleep(2000);
 		drpdown.selectByIndex(4);
+		//drpdown.selectByVisibleText(graduationStatustext);
 		Thread.sleep(2000);
 	}
 
@@ -72,6 +73,7 @@ public class graduationSteps extends DriverFactory{
 		Assert.assertTrue(label);			
 	}
 
+
 	@Then("^I should see my userID label$")
 	public void label() throws Throwable {
 		Thread.sleep(2000);
@@ -85,7 +87,7 @@ public class graduationSteps extends DriverFactory{
 		driver.findElement(By.id("#ICSearch")).click();
 	}
 	
-	@When("^I choose a graduate$")
+	@When("^I choose a graduate \"([^\"]*)\"$")
 	public void i_choose_a_gratuate() throws Throwable {
 		Thread.sleep(2000);
 		driver.findElement(By.id("RESULT16$0")).click();
