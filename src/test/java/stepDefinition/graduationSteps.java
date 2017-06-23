@@ -17,14 +17,8 @@ public class graduationSteps extends DriverFactory{
 		driver = new DriverFactory().getDriver();
 	}
 
-	@Given("^I navigate to graduations management$")
-	public void management() throws Throwable {
-		driver.get(environment + "/psp/ps/EMPLOYEE/HRMS/c/UQ_GRAD_MENU.UQ_GRADUATIONS_MGT.GBL?PORTALPARAM_PTCNAV=UQ_GRADUATIONS_MGT_GBL&EOPP.SCNode=HRMS&EOPP.SCPortal=EMPLOYEE&EOPP.SCName=UQ_GRADUATIONS_MANAGEMENT&EOPP.SCLabel=Graduations%20Management&EOPP.SCPTfname=UQ_GRADUATIONS_MANAGEMENT&FolderPath=PORTAL_ROOT_OBJECT.UQ_MANAGE_GRADUATIONS.UQ_GRADUATIONS_MANAGEMENT.UQ_GRADUATIONS_MGT_GBL&IsFolder=false");
-	}	
-
 	@Given("^I select Academic Career as \"([^\"]*)\"$")
 	public void academicCareer(String academicCareertext) throws Throwable {
-		driver.switchTo().frame("ptifrmtgtframe");
 		WebElement acDropDown = driver.findElement(By.id("UQ_GR_STUD_SRCH_ACAD_CAREER"));
 		acDropDown.click();
 		Select drpdown = new Select(acDropDown);
@@ -33,7 +27,6 @@ public class graduationSteps extends DriverFactory{
 	
 	@Given("^I select Graduation Status search parameter as \"([^\"]*)\"$")
 	public void graduationStatusParameter(String graduationStatustext) throws Throwable {
-		//driver.switchTo().frame("ptifrmtgtframe");
 		WebElement gsDropDown = driver.findElement(By.id("UQ_GR_STUD_SRCH_UQ_GRAD_APP_STATUS"));
 		gsDropDown.click();
 		Select drpdown = new Select(gsDropDown);
@@ -43,23 +36,25 @@ public class graduationSteps extends DriverFactory{
 	@Given("^I select Graduation Status as \"([^\"]*)\"$")
 	public void graduationStatus(String graduationStatustext) throws Throwable {
 		Thread.sleep(2000);
-		//driver.switchTo().frame("ptifrmtgtframe");
 		WebElement gsDropDown = driver.findElement(By.id("UQ_GR_STUD_COND_UQ_GRAD_APP_STATUS$0"));
 		gsDropDown.click();
 		Thread.sleep(2000);
 		Select drpdown = new Select(gsDropDown);
 		Thread.sleep(2000);
 		drpdown.selectByIndex(4);
-		//drpdown.selectByVisibleText(graduationStatustext);
 		Thread.sleep(2000);
 	}
 
+	@Given("^I enter Empl ID as \"([^\"]*)\"$")
+	public void i_enter_empl_id(String idnumber) throws Throwable {
+		Thread.sleep(2000);
+		driver.findElement(By.id("UQ_GR_STUD_SRCH_EMPLID")).sendKeys(idnumber);
+	}	
 	
 	@Then("^I should see my eventID label$")
 	public void i_should_see_my_search_label() throws Throwable {
 		Thread.sleep(2000);
-		driver.switchTo().frame("ptifrmtgtframe");
-		WebElement eventIDlabel = driver.findElement(By.id("UQ_GR_STUD_SRCH_CAMPUS_EVENT_NBR_LBL"));
+		WebElement eventIDlabel =driver.findElement(By.id("UQ_GR_STUD_SRCH_CAMPUS_EVENT_NBR_LBL"));
 		boolean label = eventIDlabel.isDisplayed();
 		Assert.assertTrue(label);			
 	}
@@ -67,30 +62,36 @@ public class graduationSteps extends DriverFactory{
 	@Then("^I should see search results$")
 	public void results() throws Throwable {
 		Thread.sleep(2000);
-		//driver.switchTo().frame("ptifrmtgtframe");
 		WebElement sr = driver.findElement(By.id("RESULT16$0"));
 		boolean label = sr.isDisplayed();
 		Assert.assertTrue(label);			
 	}
 
-
 	@Then("^I should see my userID label$")
 	public void label() throws Throwable {
 		Thread.sleep(2000);
-		//driver.switchTo().frame("ptifrmtgtframe");
 		String uidLabel = driver.findElement(By.id("UQ_GR_STUD_COND_LASTUPDOPRID$0")).getText();
 		Assert.assertEquals(uidLabel, "UQTRN42");			
 	}
+
+	@Then("^I should see graduate ID$")
+	public void i_should_see_graduate_id() throws Throwable {
+		Thread.sleep(2000);
+		WebElement element = driver.findElement(By.id("win0divHCR_PERSON_I_EMPLID"));
+		boolean label = element.isDisplayed();
+		Assert.assertTrue(label);			
+	}
 	
-	@When("^I Search Graduates$")
+	@When("^I click Search$")
 	public void i_save_searchGratuates() throws Throwable {
 		driver.findElement(By.id("#ICSearch")).click();
 	}
 	
 	@When("^I choose a graduate \"([^\"]*)\"$")
-	public void i_choose_a_gratuate() throws Throwable {
+	public void i_choose_a_gratuate(String id) throws Throwable {
 		Thread.sleep(2000);
-		driver.findElement(By.id("RESULT16$0")).click();
+		String graduateID = "RESULT16$" + id;
+		driver.findElement(By.id(graduateID)).click();
 	}
 	
 	@When("^I add a row$")
@@ -104,7 +105,7 @@ public class graduationSteps extends DriverFactory{
 		driver.findElement(By.id("#ICSave")).click();
 		Thread.sleep(2000);
 	}
-		
+
 	@After
     public void afterScenario() {
 	  new DriverFactory().destroyDriver();
