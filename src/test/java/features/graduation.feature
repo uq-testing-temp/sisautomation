@@ -66,30 +66,81 @@ Scenario: Checking minimal academic requirement for eligibility to graduate
 		And I select Graduation Status search parameter as "Conditional"
 	When I click Search
 	Then I should see graduate ID
-	
 
-#Test setup:
-#	Common for all students:
-#		Academid programm: 2000
-#		Academic career: 2000
-#		Graduation status: Conditional
-#		Minimum required: 6
-#	
+# Conditional = a student is "Maybe" eligible for graduation
 #
-#	Student1 
+# Objective:
+#	Check graduation eligibility criteria for students with status "conditional".
+#   Eligibility criteria: pass grade and minimal number of units. 
+#   Oracle: Student eligible if 
+#			 - enrolled units are equal or greater than minimum 
+#            AND 
+#			 - all papers are PASS graded
+
+# Test setup
+#	username "UQTAHME4"
+#	password "IT$1Sa$S"
+#	TE setup:
+#	EventID = 3245
+#	Academic career = undergraduade
+#	Graduation status = Conditional
+#   Minimum units required: 6
+#
+# Test setup steps
+# Navigate to "Records and enrolment > Enroll Students > Enrollment Request
+# Put 
+#  StudentID: 40999614
+#  Academic Career: UGRD
+#  Academic Institution: UQUNI
+#  Term: 6720
+# Request form:
+#  Action: add Grades noPASS (1-3) for all courses -->submit
+#
+# Run the validation process
+#  Navigate Graduation Management > Identify potential Graduates
+#  Run Control ID: TA
+#  EventID: 3245
+#  Term: 6720
+#  EmplID override = 1
+#  EmplID: 40999614
+#  Run (Not save)
+#  Wait for status change from queued to success
+# check the validation process results:
+#  navigate to Graduation Management > Graduation validation and repeat above
+##	Student 1 
 #		Event ID: 6720
 #		Empl ID: 43595923
-#		Grades: none, none, none
-#		Units: 4
+#		Grades: 5, 5
+#		Units enrolled: 4
 #
-#	Student2 
+#	Student 2.1 
 #		ID:
-#		Grades: 5, 5, 6
-#		Units: 6
-#		
+#		Grades: none, none, none
+#		Units enrolled: 6
 #
-#Scenarios:
-#	Student 
-#		
-#Check:
-#	How many units required
+#	Student 2.2
+#		ID:
+#		Grades: 6, 5, none
+#		Units enrolled: 6
+#
+#	Student 2.3
+#		ID:
+#		Grades: 6, 5, 6
+#		Units enrolled: 6
+#				
+#
+# Scenarios:
+#	1 Minimum units requirement: summary of papers should be greater than minimum units required:
+#	1.1 Student1.1 enrolled into and passed 4 papers = not eligible to graduate
+#	
+#	2 Passed grades requirement: (1) Minimum units requirement satisfied AND
+#	2.1 Student2.1 pass no grades = not eligible to graduate
+#	2.2 Student2.2 pass 4 out of 6 = not eligible to graduate
+#	2.3 Student2.3 pass 6 out of 6 = eligible to graduate
+
+#TODO:
+# Objective: system should change status of a student to "Processing error"
+# if number of mimimum units required is much greater than enrolled ones. 
+#
+#
+
