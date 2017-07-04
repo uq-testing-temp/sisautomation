@@ -2,22 +2,28 @@ package stepDefinition;
 
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+
+import util.PropertyReader;
+
+import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 
 
 public class DriverFactory {
 
     protected static WebDriver driver;
-    public static final String environment = new PropertyReader().readProperty("environment");
+    public static final String URL = new PropertyReader().readProperty("URL");
+    public static Logger logger = Logger.getLogger(DriverFactory.class);
+
+
 
     public  DriverFactory() {
         initialize();
     }
 
     public void initialize() {
-    	//String chromedriverpath = new PropertyReader().readProperty("chromedriverpath");
-    	//System.setProperty("webdriver.chrome.driver", chromedriverpath);
-        if (driver == null)
+
+    	if (driver == null)
             createNewDriverInstance();
     }
 
