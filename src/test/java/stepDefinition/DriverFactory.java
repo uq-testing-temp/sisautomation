@@ -1,6 +1,9 @@
 package stepDefinition;
 
 import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.github.bonigarcia.wdm.ChromeDriverManager;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 import util.PropertyReader;
@@ -16,7 +19,6 @@ public class DriverFactory {
     public static Logger logger = Logger.getLogger(DriverFactory.class);
 
 
-
     public  DriverFactory() {
         initialize();
     }
@@ -24,12 +26,23 @@ public class DriverFactory {
     public void initialize() {
 
     	if (driver == null)
-            createNewDriverInstance();
+    		createNewDriverInstance();
+
     }
 
     private void createNewDriverInstance() {
-        String browser = new PropertyReader().readProperty("browser");
+//TODO
+//    	ChromeDriverManager.getInstance().setup(); // Done
+//    	InternetExplorerDriverManager.getInstance().setup();
+//    	OperaDriverManager.getInstance().setup();
+//    	EdgeDriverManager.getInstance().setup();
+//    	PhantomJsDriverManager.getInstance().setup();
+//    	FirefoxDriverManager.getInstance().setup();
+    	
+    	
+    	String browser = new PropertyReader().readProperty("browser");
         if (browser.equals("chrome")) {
+        	ChromeDriverManager.getInstance().setup();
         	ChromeOptions options = new ChromeOptions();
         	options.addArguments("test-type");
         	options.addArguments("start-maximized");
@@ -40,6 +53,7 @@ public class DriverFactory {
         	options.addArguments("test-type=browser");
         	options.addArguments("disable-infobars");
         	driver = new ChromeDriver(options);
+        	
             
         } else {
             System.out.println("I cannot read browser type");

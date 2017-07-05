@@ -77,7 +77,7 @@ formatter.examples({
   "keyword": "Examples"
 });
 formatter.before({
-  "duration": 2953785806,
+  "duration": 3851919109,
   "status": "passed"
 });
 formatter.background({
@@ -96,7 +96,7 @@ formatter.match({
   "location": "loginSteps.i_am_on_login_page()"
 });
 formatter.result({
-  "duration": 1456070267,
+  "duration": 1540012645,
   "status": "passed"
 });
 formatter.scenario({
@@ -152,7 +152,7 @@ formatter.match({
   "location": "loginSteps.enter_username(String)"
 });
 formatter.result({
-  "duration": 72565348,
+  "duration": 90526101,
   "status": "passed"
 });
 formatter.match({
@@ -165,29 +165,29 @@ formatter.match({
   "location": "loginSteps.enter_password(String)"
 });
 formatter.result({
-  "duration": 60595524,
+  "duration": 61486839,
   "status": "passed"
 });
 formatter.match({
   "location": "loginSteps.click_signin()"
 });
 formatter.result({
-  "duration": 934413214,
+  "duration": 2021015615,
   "status": "passed"
 });
 formatter.match({
   "location": "loginSteps.i_should_be_logged_in()"
 });
 formatter.result({
-  "duration": 65044400,
+  "duration": 66141979,
   "status": "passed"
 });
 formatter.after({
-  "duration": 1239996093,
+  "duration": 1238453354,
   "status": "passed"
 });
 formatter.before({
-  "duration": 2406009916,
+  "duration": 2978845365,
   "status": "passed"
 });
 formatter.background({
@@ -206,7 +206,7 @@ formatter.match({
   "location": "loginSteps.i_am_on_login_page()"
 });
 formatter.result({
-  "duration": 1381953021,
+  "duration": 1419137014,
   "status": "passed"
 });
 formatter.scenario({
@@ -262,7 +262,7 @@ formatter.match({
   "location": "loginSteps.enter_username(String)"
 });
 formatter.result({
-  "duration": 79609531,
+  "duration": 82899610,
   "status": "passed"
 });
 formatter.match({
@@ -275,120 +275,25 @@ formatter.match({
   "location": "loginSteps.enter_password(String)"
 });
 formatter.result({
-  "duration": 60920210,
+  "duration": 60586788,
   "status": "passed"
 });
 formatter.match({
   "location": "loginSteps.click_signin()"
 });
 formatter.result({
-  "duration": 585472065,
+  "duration": 541932175,
   "status": "passed"
 });
 formatter.match({
   "location": "loginSteps.i_should_see_an_error()"
 });
 formatter.result({
-  "duration": 45103298,
+  "duration": 52573093,
   "status": "passed"
 });
 formatter.after({
-  "duration": 1066649479,
-  "status": "passed"
-});
-formatter.before({
-  "duration": 2373930427,
-  "status": "passed"
-});
-formatter.background({
-  "line": 6,
-  "name": "",
-  "description": "",
-  "type": "background",
-  "keyword": "Background"
-});
-formatter.step({
-  "line": 7,
-  "name": "I am on login page",
-  "keyword": "Given "
-});
-formatter.match({
-  "location": "loginSteps.i_am_on_login_page()"
-});
-formatter.result({
-  "duration": 1350677470,
-  "status": "passed"
-});
-formatter.scenario({
-  "line": 22,
-  "name": "",
-  "description": "",
-  "id": "graduation;",
-  "type": "scenario",
-  "keyword": "Scenario"
-});
-formatter.step({
-  "line": 24,
-  "name": "I enter username as \"UQTAHME4\"",
-  "keyword": "Given "
-});
-formatter.step({
-  "line": 25,
-  "name": "I enter password as \"IT$1Sa$S\"",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 26,
-  "name": "I click signin",
-  "keyword": "When "
-});
-formatter.step({
-  "line": 27,
-  "name": "I should beLoggedIn",
-  "keyword": "Then "
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "UQTAHME4",
-      "offset": 21
-    }
-  ],
-  "location": "loginSteps.enter_username(String)"
-});
-formatter.result({
-  "duration": 94898052,
-  "status": "passed"
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "IT$1Sa$S",
-      "offset": 21
-    }
-  ],
-  "location": "loginSteps.enter_password(String)"
-});
-formatter.result({
-  "duration": 59034919,
-  "status": "passed"
-});
-formatter.match({
-  "location": "loginSteps.click_signin()"
-});
-formatter.result({
-  "duration": 981298549,
-  "status": "passed"
-});
-formatter.match({
-  "location": "loginSteps.i_should_be_logged_in()"
-});
-formatter.result({
-  "duration": 67260907,
-  "status": "passed"
-});
-formatter.after({
-  "duration": 1237741023,
+  "duration": 1128201069,
   "status": "passed"
 });
 });

@@ -11,7 +11,14 @@ If using eclipse, checkout this repository using import and run below command to
 That will work given Java and maven are installed.
 
 Download the latest chromedriver and put executable on the system path. https://sites.google.com/a/chromium.org/chromedriver/downloads
-
+Update: we use [WebDriverManager](https://github.com/bonigarcia/webdrivermanager) library. This library is aimed to automate the Selenium Webdriver binaries management in runtime for Java.
+It manages all drivers:
+- chromedriver
+- operadriver
+- IEDriverServer.exe
+- MicrosoftWebDriver
+- phantomjs
+- geckodriver
 
 ## Running tests
 

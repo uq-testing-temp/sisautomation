@@ -1,7 +1,6 @@
 package util;
 import java.io.File;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
