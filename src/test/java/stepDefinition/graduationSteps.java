@@ -10,7 +10,7 @@ import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import pageclasses.LoginPage;
+
 import util.CustomFunctions;
 import util.DebugLog;
 import util.PropertyReader;
@@ -97,6 +97,7 @@ public class graduationSteps extends DriverFactory{
 	Thread.sleep(250);
 }
 
+
 @When("^I click Search$")
 	public void i_click_search() throws Throwable {
 		driver.findElement(By.id("#ICSearch")).click();
@@ -114,17 +115,5 @@ public class graduationSteps extends DriverFactory{
 		
 	}
 
-
-@Given("^I am logged in$")
-	public void i_am_logged_in() throws Throwable {           
-		
-		String username= new PropertyReader().readProperty("DEFAULT_USER");
-		String password= new PropertyReader().readProperty("DEFAULT_PASSWORD");
-		
-		LoginPage.navigate();
-		LoginPage.enterUsername(username);
-		LoginPage.enterPassword(password);
-		LoginPage.clickSingin();
-}
 
 }

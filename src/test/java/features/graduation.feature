@@ -4,7 +4,7 @@
 	
 	Background:
 		Given I am logged in
-			
+@smoke			
 	Scenario: Able to see graduation management search results
 		Given I navigate to Manage Graduations
 		  And I select Academic Career as "Undergraduate"

@@ -28,17 +28,11 @@ public class loginSteps extends DriverFactory{
 	}
 	
 	
-//	@Given("^I am logged in$")
-//	public void i_am_logged_in() throws Throwable {           
-//		
-//		String username= new PropertyReader().readProperty("DEFAULT_USER");
-//		String password= new PropertyReader().readProperty("DEFAULT_PASSWORD");
-//		
-//		i_am_on_login_page();
-//		enter_username(username);
-//		enter_password(password);
-//	}
-	
+@Given("^I am logged in$")
+	public void i_am_logged_in() throws Throwable {
+		
+		LoginPage.login();
+	}
 	
 	@Given("^I am on login page$")
 	public void i_am_on_login_page() throws Throwable {
@@ -60,8 +54,7 @@ public class loginSteps extends DriverFactory{
 	public void click_signin() throws Throwable {
 		LoginPage.clickSingin();
 	}
-		
-	
+
 	@Then("^I should beLoggedIn$")
 	public void i_should_be_logged_in() throws Throwable {
 		Assert.assertTrue(HomePage.loggedIn());
@@ -99,8 +92,6 @@ public class loginSteps extends DriverFactory{
 	    new DriverFactory().destroyDriver();
 		DebugLog.EndTest(scenarioname);
 	}
-	
-	
 	
 }
 

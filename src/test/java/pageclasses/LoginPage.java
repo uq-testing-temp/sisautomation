@@ -39,6 +39,19 @@ public class LoginPage extends DriverFactory {
         driver.manage().window().maximize();
 	}
 
+	
+	public static void login() {
+		
+		String username= new PropertyReader().readProperty("DEFAULT_USER");
+		String password= new PropertyReader().readProperty("DEFAULT_PASSWORD");
+		
+		navigate();
+		enterUsername(username);
+		enterPassword(password);
+		clickSingin();
+		
+	}	
+	
 
 	public static void enterUsername(String username) {
 		usernamefield.sendKeys(username);
