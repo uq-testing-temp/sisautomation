@@ -17,6 +17,17 @@ public class DriverFactory {
     protected static WebDriver driver;
     public static final String URL = new PropertyReader().readProperty("URL");
     public static Logger logger = Logger.getLogger(DriverFactory.class);
+    
+    public static class timeout {
+    	/**
+    	 * This is a timeout enumerator class
+	     */
+        public static final int TINY = 100;
+        public static final int SHORT = 250;
+        public static final int MEDIUM = 1000;
+        public static final int LONG = 5000 ;
+        
+    }
 
 
     public  DriverFactory() {
@@ -31,7 +42,7 @@ public class DriverFactory {
     }
 
     private void createNewDriverInstance() {
-//TODO
+//TODO implement binaries management of all browsers
 //    	ChromeDriverManager.getInstance().setup(); // Done
 //    	InternetExplorerDriverManager.getInstance().setup();
 //    	OperaDriverManager.getInstance().setup();

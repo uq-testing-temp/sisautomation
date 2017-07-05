@@ -10,7 +10,7 @@ import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-
+import pageclasses.GraduationPage;
 import util.CustomFunctions;
 import util.DebugLog;
 import util.PropertyReader;
@@ -56,6 +56,7 @@ public class graduationSteps extends DriverFactory{
 	
 
 @Given("^I select Academic Career as \"([^\"]*)\"$")
+
 	public void academicCareer(String academicCareertext) throws Throwable {
 	driver.switchTo().frame("ptifrmtgtframe");
 		WebElement acDropDown = driver.findElement(By.id("UQ_GR_STUD_SRCH_ACAD_CAREER"));
@@ -88,13 +89,9 @@ public class graduationSteps extends DriverFactory{
 
 @Given("^I navigate to Manage Graduations$")
 	public void i_navigate_to_Manage_Graduations() throws Throwable {
-	//TODO implement a proper way of navigating
-	Thread.sleep(250);
-	driver.findElement(By.id("fldra_UQ_MANAGE_GRADUATIONS")).click(); 
-	driver.findElement(By.id("fldra_UQ_GRADUATIONS_MANAGEMENT")).click();
-	driver.switchTo().frame("ptifrmtgtframe");
-	driver.findElements(By.className("EOPP_SCSECTIONCONTENTLINK")).get(0).click();
-	Thread.sleep(250);
+	
+	GraduationPage.navigate();
+
 }
 
 
