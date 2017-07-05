@@ -27,6 +27,19 @@ public class loginSteps extends DriverFactory{
 		DebugLog.StartTest(scenarioname);
 	}
 	
+	
+//	@Given("^I am logged in$")
+//	public void i_am_logged_in() throws Throwable {           
+//		
+//		String username= new PropertyReader().readProperty("DEFAULT_USER");
+//		String password= new PropertyReader().readProperty("DEFAULT_PASSWORD");
+//		
+//		i_am_on_login_page();
+//		enter_username(username);
+//		enter_password(password);
+//	}
+	
+	
 	@Given("^I am on login page$")
 	public void i_am_on_login_page() throws Throwable {
 		LoginPage.navigate();
@@ -64,34 +77,29 @@ public class loginSteps extends DriverFactory{
 	@After
     public void afterScenario(Scenario scenario) throws Throwable {
 	  
-	
-	  String scenarioname=scenario.getName();
-	  
-  	if(!scenario.isFailed()){
-		DebugLog.LogInfo.info(scenarioname+"Test Passed");
+		String scenarioname = scenario.getName();
+		String screenshot = new PropertyReader().readProperty("screenshot");
 		
-		String screnprintAtPass= new PropertyReader().readProperty("ScreenshotOnPass");
-		if(screnprintAtPass.equalsIgnoreCase("true")){
+	  	if (!scenario.isFailed()){
+	  		
+			DebugLog.LogInfo.info(scenarioname+" Test Passed");
+			scenarioname = "passed_" + scenarioname;
+			
+		} else {
+			
+			DebugLog.LogInfo.warn(scenarioname + ":  test failed");
+			scenarioname = "failed_" + scenarioname;
+			
+		}
+	  	
+		if (screenshot.equalsIgnoreCase("true")){
 			CustomFunctions.PrintScreenShot(scenarioname);
 		}
+		
+	    new DriverFactory().destroyDriver();
+		DebugLog.EndTest(scenarioname);
 	}
 	
-	
-	
-	try{
-	if(scenario.isFailed()){
-		DebugLog.LogInfo.warn("'"+scenarioname +"':  Test Failed");
-		scenarioname=scenarioname+"Failed";
-//		CustomFunctions.PrintScreenShotWithScenarioName(scenarioname);
-	}
-	 
-	}
-	
-	finally{
-    new DriverFactory().destroyDriver();}
-	  
-	  DebugLog.EndTest(scenarioname);
-	}
 	
 	
 }

@@ -62,3 +62,6 @@ To configure, update 'log4j.properties' file:
 Run with maven:
 
 > mvn test -Dcucumber.options="--tags @login" -Dlog4j.configuration=file:log4j.properties
+
+# TODO
+- [] Implement [Dependency injection](http://www.thinkcode.se/blog/2017/04/01/sharing-state-between-steps-in-cucumberjvm-using-picocontainer)

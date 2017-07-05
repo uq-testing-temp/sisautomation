@@ -11,25 +11,32 @@ import org.openqa.selenium.support.PageFactory;
 import stepDefinition.DriverFactory;
 public class CustomFunctions extends DriverFactory {
 	
-	public static int timeout=10;
+	private static String date = LocalDateTime.now().toString().replaceAll("[^a-zA-Z0-9]", "");;
 	
 	public CustomFunctions(WebDriver driver) {
 		
 		PageFactory.initElements(driver, this);
 		
 	}
-	
 
+
+	public static void PrintScreenShot(String scenarioname) {
+	    
+		String path;
 	
-	
-	public static void PrintScreenShot(String scenarioname) throws Throwable{
-		
-		LocalDateTime now = LocalDateTime.now();
-		String date= now.toString();
-		date=date.replaceAll("[^a-zA-Z0-9]", "");
-		DebugLog.LogInfo.info("Taking a screenshot "+date+".jpg");
-		File scrFile=((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-		FileUtils.copyFile(scrFile, new File(".//target/screenshots//"+date+scenarioname+".jpg"));
+	    try {
+	    	
+			DebugLog.LogInfo.info("Taking a screenshot " + scenarioname + date);
+	        File source = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+	        path = "./target/screenshots/" + scenarioname + date + ".png";
+	        FileUtils.copyFile(source, new File(path));
+	        
+	    } catch(Throwable e) {
+	    	
+	        DebugLog.LogInfo.warn("Failed to capture screenshot: " + e.getMessage());
+	        
+	    }
+	    
 	}
-	
+
 }

@@ -44,3 +44,155 @@
 2017-07-04 15:59:41,960 INFO  [Log] Test Passed 
 2017-07-04 15:59:41,977 INFO  [Log] Taking a screenshot 20170704T155941976.jpg 
 2017-07-04 15:59:43,172 INFO  [Log] **********************End of the test *********************** 
+2017-07-05 11:12:58,793 INFO  [Log] **********************Starting the test scenario *********************** 
+2017-07-05 11:13:12,088 INFO  [Log] Test Passed 
+2017-07-05 11:13:12,094 INFO  [Log] Taking a screenshot 20170705T111312094.jpg 
+2017-07-05 11:13:13,325 INFO  [Log] **********************End of the test *********************** 
+2017-07-05 11:13:16,317 INFO  [Log] **********************Starting the test scenario *********************** 
+2017-07-05 11:13:18,385 INFO  [Log] Test Passed 
+2017-07-05 11:13:18,385 INFO  [Log] Taking a screenshot 20170705T111318385.jpg 
+2017-07-05 11:13:19,435 INFO  [Log] **********************End of the test *********************** 
+2017-07-05 12:27:12,498 INFO  [Log] **********************Starting the test scenario Able to see graduation management search results*********************** 
+2017-07-05 12:27:12,499 INFO  [Log] **********************Starting the test scenario Able to see graduation management search results*********************** 
+2017-07-05 12:27:15,340 WARN  [Log] 'Able to see graduation management search results':  Test Failed 
+2017-07-05 12:27:16,168 INFO  [Log] **********************End of the test Able to see graduation management search resultsFailed*********************** 
+2017-07-05 12:27:16,170 WARN  [Log] 'Able to see graduation management search results':  Test Failed 
+2017-07-05 12:27:19,934 INFO  [Log] **********************End of the test Able to see graduation management search resultsFailed*********************** 
+2017-07-05 12:27:22,980 INFO  [Log] **********************Starting the test scenario *********************** 
+2017-07-05 12:27:22,982 INFO  [Log] **********************Starting the test scenario *********************** 
+2017-07-05 12:27:25,818 INFO  [Log] Test Passed 
+2017-07-05 12:27:25,826 INFO  [Log] Taking a screenshot 20170705T122725825.jpg 
+2017-07-05 12:27:27,020 INFO  [Log] **********************End of the test *********************** 
+2017-07-05 12:27:27,021 INFO  [Log] Test Passed 
+2017-07-05 12:27:27,021 INFO  [Log] Taking a screenshot 20170705T122727021.jpg 
+2017-07-05 12:27:30,033 INFO  [Log] **********************Starting the test scenario *********************** 
+2017-07-05 12:27:30,034 INFO  [Log] **********************Starting the test scenario *********************** 
+2017-07-05 12:27:32,116 INFO  [Log] Test Passed 
+2017-07-05 12:27:32,117 INFO  [Log] Taking a screenshot 20170705T122732117.jpg 
+2017-07-05 12:27:33,194 INFO  [Log] **********************End of the test *********************** 
+2017-07-05 12:27:33,194 INFO  [Log] Test Passed 
+2017-07-05 12:27:33,195 INFO  [Log] Taking a screenshot 20170705T122733195.jpg 
+2017-07-05 12:28:08,095 INFO  [Log] **********************Starting the test scenario Able to see graduation management search results*********************** 
+2017-07-05 12:28:08,096 INFO  [Log] **********************Starting the test scenario Able to see graduation management search results*********************** 
+2017-07-05 12:28:10,995 WARN  [Log] 'Able to see graduation management search results':  Test Failed 
+2017-07-05 12:28:11,841 INFO  [Log] **********************End of the test Able to see graduation management search resultsFailed*********************** 
+2017-07-05 12:28:11,843 WARN  [Log] 'Able to see graduation management search results':  Test Failed 
+2017-07-05 12:28:15,551 INFO  [Log] **********************End of the test Able to see graduation management search resultsFailed*********************** 
+2017-07-05 12:28:18,563 INFO  [Log] **********************Starting the test scenario *********************** 
+2017-07-05 12:28:18,564 INFO  [Log] **********************Starting the test scenario *********************** 
+2017-07-05 12:28:21,186 INFO  [Log] Test Passed 
+2017-07-05 12:28:21,193 INFO  [Log] Taking a screenshot 20170705T122821192.jpg 
+2017-07-05 12:28:22,322 INFO  [Log] **********************End of the test *********************** 
+2017-07-05 12:28:22,323 INFO  [Log] Test Passed 
+2017-07-05 12:28:22,323 INFO  [Log] Taking a screenshot 20170705T122822323.jpg 
+2017-07-05 12:28:25,359 INFO  [Log] **********************Starting the test scenario *********************** 
+2017-07-05 12:28:25,360 INFO  [Log] **********************Starting the test scenario *********************** 
+2017-07-05 12:28:27,360 INFO  [Log] Test Passed 
+2017-07-05 12:28:27,360 INFO  [Log] Taking a screenshot 20170705T122827360.jpg 
+2017-07-05 12:28:28,414 INFO  [Log] **********************End of the test *********************** 
+2017-07-05 12:28:28,414 INFO  [Log] Test Passed 
+2017-07-05 12:28:28,415 INFO  [Log] Taking a screenshot 20170705T122828415.jpg 
+2017-07-05 12:29:04,569 INFO  [Log] **********************Starting the test scenario Able to see graduation management search results*********************** 
+2017-07-05 12:29:04,570 INFO  [Log] **********************Starting the test scenario Able to see graduation management search results*********************** 
+2017-07-05 12:29:07,335 WARN  [Log] 'Able to see graduation management search results':  Test Failed 
+2017-07-05 12:29:08,154 INFO  [Log] **********************End of the test Able to see graduation management search resultsFailed*********************** 
+2017-07-05 12:29:08,156 WARN  [Log] 'Able to see graduation management search results':  Test Failed 
+2017-07-05 12:29:11,907 INFO  [Log] **********************End of the test Able to see graduation management search resultsFailed*********************** 
+2017-07-05 12:29:14,891 INFO  [Log] **********************Starting the test scenario *********************** 
+2017-07-05 12:29:14,892 INFO  [Log] **********************Starting the test scenario *********************** 
+2017-07-05 12:29:17,397 INFO  [Log] Test Passed 
+2017-07-05 12:29:17,405 INFO  [Log] Taking a screenshot 20170705T122917404.jpg 
+2017-07-05 12:29:18,627 INFO  [Log] **********************End of the test *********************** 
+2017-07-05 12:29:18,628 INFO  [Log] Test Passed 
+2017-07-05 12:29:18,628 INFO  [Log] Taking a screenshot 20170705T122918628.jpg 
+2017-07-05 12:29:21,586 INFO  [Log] **********************Starting the test scenario *********************** 
+2017-07-05 12:29:21,587 INFO  [Log] **********************Starting the test scenario *********************** 
+2017-07-05 12:29:23,616 INFO  [Log] Test Passed 
+2017-07-05 12:29:23,617 INFO  [Log] Taking a screenshot 20170705T122923617.jpg 
+2017-07-05 12:29:24,700 INFO  [Log] **********************End of the test *********************** 
+2017-07-05 12:29:24,700 INFO  [Log] Test Passed 
+2017-07-05 12:29:24,701 INFO  [Log] Taking a screenshot 20170705T122924701.jpg 
+2017-07-05 12:50:01,776 INFO  [Log] **********************Starting the test scenario Able to see graduation management search results*********************** 
+2017-07-05 12:50:01,778 INFO  [Log] **********************Starting the test scenario Able to see graduation management search results*********************** 
+2017-07-05 12:50:53,617 WARN  [Log] 'Able to see graduation management search results':  Test Failed 
+2017-07-05 12:50:54,450 INFO  [Log] **********************End of the test Able to see graduation management search resultsFailed*********************** 
+2017-07-05 12:50:54,450 WARN  [Log] 'Able to see graduation management search results':  Test Failed 
+2017-07-05 12:50:58,125 INFO  [Log] **********************End of the test Able to see graduation management search resultsFailed*********************** 
+2017-07-05 12:51:01,111 INFO  [Log] **********************Starting the test scenario *********************** 
+2017-07-05 12:51:01,112 INFO  [Log] **********************Starting the test scenario *********************** 
+2017-07-05 12:51:03,873 INFO  [Log] Test Passed 
+2017-07-05 12:51:03,885 INFO  [Log] Taking a screenshot 20170705T125103884.jpg 
+2017-07-05 12:51:04,974 INFO  [Log] **********************End of the test *********************** 
+2017-07-05 12:51:04,975 INFO  [Log] Test Passed 
+2017-07-05 12:51:04,976 INFO  [Log] Taking a screenshot 20170705T125104976.jpg 
+2017-07-05 12:51:07,958 INFO  [Log] **********************Starting the test scenario *********************** 
+2017-07-05 12:51:07,958 INFO  [Log] **********************Starting the test scenario *********************** 
+2017-07-05 12:51:10,220 INFO  [Log] Test Passed 
+2017-07-05 12:51:10,221 INFO  [Log] Taking a screenshot 20170705T125110220.jpg 
+2017-07-05 12:51:11,284 INFO  [Log] **********************End of the test *********************** 
+2017-07-05 12:51:11,284 INFO  [Log] Test Passed 
+2017-07-05 12:51:11,285 INFO  [Log] Taking a screenshot 20170705T125111284.jpg 
+2017-07-05 12:51:25,980 INFO  [Log] **********************Starting the test scenario Able to see graduation management search results*********************** 
+2017-07-05 12:51:25,981 INFO  [Log] **********************Starting the test scenario Able to see graduation management search results*********************** 
+2017-07-05 12:52:27,537 WARN  [Log] 'Able to see graduation management search results':  Test Failed 
+2017-07-05 12:52:28,397 INFO  [Log] **********************End of the test Able to see graduation management search resultsFailed*********************** 
+2017-07-05 12:52:28,397 WARN  [Log] 'Able to see graduation management search results':  Test Failed 
+2017-07-05 12:52:32,169 INFO  [Log] **********************End of the test Able to see graduation management search resultsFailed*********************** 
+2017-07-05 12:52:35,167 INFO  [Log] **********************Starting the test scenario *********************** 
+2017-07-05 12:52:35,169 INFO  [Log] **********************Starting the test scenario *********************** 
+2017-07-05 12:52:37,717 INFO  [Log] Test Passed 
+2017-07-05 12:52:37,728 INFO  [Log] Taking a screenshot 20170705T125237727.jpg 
+2017-07-05 12:52:38,919 INFO  [Log] **********************End of the test *********************** 
+2017-07-05 12:52:38,921 INFO  [Log] Test Passed 
+2017-07-05 12:52:38,922 INFO  [Log] Taking a screenshot 20170705T125238921.jpg 
+2017-07-05 12:52:41,820 INFO  [Log] **********************Starting the test scenario *********************** 
+2017-07-05 12:52:41,821 INFO  [Log] **********************Starting the test scenario *********************** 
+2017-07-05 12:52:44,182 INFO  [Log] Test Passed 
+2017-07-05 12:52:44,183 INFO  [Log] Taking a screenshot 20170705T125244183.jpg 
+2017-07-05 12:52:45,249 INFO  [Log] **********************End of the test *********************** 
+2017-07-05 12:52:45,251 INFO  [Log] Test Passed 
+2017-07-05 12:52:45,252 INFO  [Log] Taking a screenshot 20170705T125245251.jpg 
+2017-07-05 12:53:54,928 INFO  [Log] **********************Starting the test scenario Able to see graduation management search results*********************** 
+2017-07-05 12:53:54,929 INFO  [Log] **********************Starting the test scenario Able to see graduation management search results*********************** 
+2017-07-05 13:00:25,532 INFO  [Log] **********************Starting the test scenario Able to see graduation management search results*********************** 
+2017-07-05 13:00:25,533 INFO  [Log] **********************Starting the test scenario Able to see graduation management search results*********************** 
+2017-07-05 13:14:46,014 INFO  [Log] **********************Starting the test scenario Able to see graduation management search results*********************** 
+2017-07-05 13:14:46,031 INFO  [Log] **********************Starting the test scenario Able to see graduation management search results*********************** 
+2017-07-05 13:15:24,491 INFO  [Log] **********************Starting the test scenario Able to see graduation management search results*********************** 
+2017-07-05 13:15:24,512 INFO  [Log] **********************Starting the test scenario Able to see graduation management search results*********************** 
+2017-07-05 13:15:41,763 WARN  [Log] 'Able to see graduation management search results':  Test Failed 
+2017-07-05 13:15:41,776 INFO  [Log] Taking a screenshot 20170705T131541775.jpg 
+2017-07-05 13:15:42,953 INFO  [Log] **********************End of the test Able to see graduation management search resultsFailed*********************** 
+2017-07-05 13:15:42,954 WARN  [Log] 'Able to see graduation management search results':  Test Failed 
+2017-07-05 13:15:46,605 INFO  [Log] **********************End of the test Able to see graduation management search resultsFailed*********************** 
+2017-07-05 13:15:49,566 INFO  [Log] **********************Starting the test scenario *********************** 
+2017-07-05 13:15:49,567 INFO  [Log] **********************Starting the test scenario *********************** 
+2017-07-05 13:15:52,215 INFO  [Log] Test Passed 
+2017-07-05 13:15:52,216 INFO  [Log] Taking a screenshot 20170705T131552216.jpg 
+2017-07-05 13:15:53,353 INFO  [Log] **********************End of the test *********************** 
+2017-07-05 13:15:53,353 INFO  [Log] Test Passed 
+2017-07-05 13:15:53,354 INFO  [Log] Taking a screenshot 20170705T131553354.jpg 
+2017-07-05 13:15:56,294 INFO  [Log] **********************Starting the test scenario *********************** 
+2017-07-05 13:15:56,295 INFO  [Log] **********************Starting the test scenario *********************** 
+2017-07-05 13:15:58,494 INFO  [Log] Test Passed 
+2017-07-05 13:15:58,495 INFO  [Log] Taking a screenshot 20170705T131558495.jpg 
+2017-07-05 13:15:59,621 INFO  [Log] **********************End of the test *********************** 
+2017-07-05 13:15:59,623 INFO  [Log] Test Passed 
+2017-07-05 13:15:59,624 INFO  [Log] Taking a screenshot 20170705T131559623.jpg 
+2017-07-05 13:18:26,111 INFO  [Log] **********************Starting the test scenario Able to see graduation management search results*********************** 
+2017-07-05 13:18:26,138 INFO  [Log] **********************Starting the test scenario Able to see graduation management search results*********************** 
+2017-07-05 14:26:47,766 INFO  [Log] **********************Starting the test scenario Able to see graduation management search results*********************** 
+2017-07-05 14:26:47,778 INFO  [Log] **********************Starting the test scenario Able to see graduation management search results*********************** 
+2017-07-05 14:27:00,396 INFO  [Log] Able to see graduation management search results Test Passed 
+2017-07-05 14:27:02,564 INFO  [Log] **********************End of the test Able to see graduation management search results*********************** 
+2017-07-05 14:27:02,565 INFO  [Log] Able to see graduation management search resultsTest Passed 
+2017-07-05 14:27:05,545 INFO  [Log] **********************Starting the test scenario *********************** 
+2017-07-05 14:27:05,546 INFO  [Log] **********************Starting the test scenario *********************** 
+2017-07-05 14:27:08,134 INFO  [Log]  Test Passed 
+2017-07-05 14:27:09,359 INFO  [Log] **********************End of the test *********************** 
+2017-07-05 14:27:09,359 INFO  [Log] Test Passed 
+2017-07-05 14:27:12,282 INFO  [Log] **********************Starting the test scenario *********************** 
+2017-07-05 14:27:12,282 INFO  [Log] **********************Starting the test scenario *********************** 
+2017-07-05 14:27:14,325 INFO  [Log]  Test Passed 
+2017-07-05 14:27:15,443 INFO  [Log] **********************End of the test *********************** 
+2017-07-05 14:27:15,444 INFO  [Log] Test Passed 
