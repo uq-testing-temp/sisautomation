@@ -1,14 +1,11 @@
 package stepDefinition;
 import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
 
 import cucumber.api.java.After;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-
 import pageclasses.SearchMatchPage;
 
 
