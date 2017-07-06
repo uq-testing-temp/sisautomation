@@ -1,6 +1,6 @@
 package util;
 import java.io.File;
-import java.time.LocalDateTime;
+//import java.time.LocalDateTime;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
@@ -11,7 +11,9 @@ import org.openqa.selenium.support.PageFactory;
 import stepDefinition.DriverFactory;
 public class CustomFunctions extends DriverFactory {
 	
-	private static String date = LocalDateTime.now().toString().replaceAll("[^a-zA-Z0-9]", "");;
+//	private static String date = LocalDateTime.now().toString().replaceAll("[^a-zA-Z0-9]", "");
+	
+	static long unixTime = System.currentTimeMillis() / 1000L;
 	
 	public CustomFunctions(WebDriver driver) {
 		
@@ -26,9 +28,9 @@ public class CustomFunctions extends DriverFactory {
 	
 	    try {
 	    	
-			DebugLog.LogInfo.info("Taking a screenshot " + scenarioname + date);
+			DebugLog.LogInfo.info("Taking a screenshot " + scenarioname + unixTime);
 	        File source = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-	        path = "./target/screenshots/" + scenarioname + date + ".png";
+	        path = "./target/screenshots/" + scenarioname + unixTime + ".png";
 	        FileUtils.copyFile(source, new File(path));
 	        
 	    } catch(Throwable e) {
