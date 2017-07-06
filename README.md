@@ -1,3 +1,5 @@
+[![Build Status](https://ci.devops.its.uq.edu.au/user/uqdalter/my-views/view/ITS/job/ITS-Testing-graduations-debug/badge/icon)](https://ci.devops.its.uq.edu.au/user/uqdalter/my-views/view/ITS/job/ITS-Testing-graduations-debug/)
+
 # sisautomation
 SI Nety Automation
 
