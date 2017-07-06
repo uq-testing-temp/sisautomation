@@ -1,4 +1,5 @@
 @login
+@smoke		
 	Feature: Graduation
 	As a user
 	I want to be able to login
