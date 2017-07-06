@@ -87,13 +87,4 @@
 			</plugin>
 		</plugins>
 	</build>
-	<dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>io.github.bonigarcia</groupId>
-				<artifactId>webdrivermanager</artifactId>
-				<version>1.7.0</version>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
 </project>

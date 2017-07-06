@@ -1,7 +1,6 @@
 package stepDefinition;
 
 import org.junit.Assert;
-import org.openqa.selenium.*;
 
 import cucumber.api.Scenario;
 import cucumber.api.java.After;

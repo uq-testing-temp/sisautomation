@@ -1,97 +1,70 @@
 package stepDefinition;
-
 import org.junit.Assert;
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 import cucumber.api.java.After;
-import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class searchSteps extends DriverFactory{
+import pageclasses.SearchMatchPage;
 
-	@Before
-	public void beforeScenario() {
-		driver = new DriverFactory().getDriver();
-	}
+
+public class searchSteps extends DriverFactory{
 	
-	@Given("^I open mysinet url$")
-	public void setup() throws Throwable {
-		driver.get(environment + "/ps/uqsinetsignin.html");
-		//driver.manage().window().maximize();
-	}
-	
-	@Given("^I enter username as \"([^\"]*)\"$")
-	public void enter_username(String username) throws Throwable {
-		driver.findElement(By.id("userid1")).sendKeys(username);
-	}
-	
-	@Given("^I enter password as \"([^\"]*)\"$")
-	public void enter_password(String password) throws Throwable {
-		driver.findElement(By.id("pwd")).sendKeys(password);
-	}
-	
-	@Given("^I click signin$")
-	public void click_signin() throws Throwable {
-		driver.findElement(By.xpath("(//input[@value=''])[3]")).click();
-	}
-		
 	@Given("^I navigate to search match$")
 	public void search_match() throws Throwable {
-		driver.get(environment + "/psp/ps/EMPLOYEE/HRMS/c/RECRUIT_PROSPECTIVE_STUDENTS.HCR_SM_SEARCH.GBL?PORTALPARAM_PTCNAV=HC_HCR_SM_SEARCH_GBL9&EOPP.SCNode=HRMS&EOPP.SCPortal=EMPLOYEE&EOPP.SCName=HCAD_PROSPECTIVE_STUDENTS&EOPP.SCLabel=Maintain%20Prospects&EOPP.SCPTfname=HCAD_PROSPECTIVE_STUDENTS&FolderPath=PORTAL_ROOT_OBJECT.HCAD_ADMISSIONS_RECRUIT.HCAD_PROSPECTIVE_STUDENTS.HC_HCR_SM_SEARCH_GBL9&IsFolder=false");
+		
+		SearchMatchPage.navigate();
+				
 	}
 	
 	@Given("^I select searchType as \"([^\"]*)\"$")
 	public void searchType(String typetext) throws Throwable {
-		driver.switchTo().frame("ptifrmtgtframe");
-		WebElement searchDropDown = driver.findElement(By.id("HCR_SM_PARM_VW_SM_TYPE"));
-		searchDropDown.click();
-		Select drpdown = new Select(searchDropDown);
-		drpdown.selectByIndex(2);
+		
+		SearchMatchPage.searchType(typetext);
 		
 	}
 	
 	@Given("^I enter searchParameter as \"([^\"]*)\"$")
 	public void i_enter_searchParameter_as(String param) throws Throwable {
-		driver.findElement(By.id("HCR_SM_PARM_VW_SM_PARM_CD$prompt")).sendKeys(param);
+		
+		SearchMatchPage.searchParameter(param);
 	}
 	
 	@When("^I save searchCriteria$")
 	public void i_save_searchCriteria() throws Throwable {
-		driver.findElement(By.xpath("//a[contains(text(),'Save Search Criteria')]")).click();
+		
+		SearchMatchPage.saveSearchCriteria();
 
 	}
 	
 	@When("^I enter nameSearch as \"([^\"]*)\"$")
 	public void i_enter_nameSearch_as(String searchname) throws Throwable {
-		Thread.sleep(2000);
-		driver.findElement(By.xpath("//input[@id='#ICDefnName']")).sendKeys(searchname);
+		
+		SearchMatchPage.nameSearch(searchname);
+
 	}
 	
 	@When("^I click save$")
 	public void i_click_save() throws Throwable {
-		Thread.sleep(2000);
-		driver.findElement(By.xpath("//input[@id='#ICSave']")).click();
+		
+		SearchMatchPage.save();
+
 	}
 	
 	@Then("^I should see my search label$")
 	public void i_should_see_my_search_label() throws Throwable {
-		Thread.sleep(2000);
-		driver.switchTo().frame("ptifrmtgtframe");
-		WebElement selectsearch = driver.findElement(By.xpath("//select[@id='#ICSelectSearch']"));
-		selectsearch.click();
-		Select element = new Select(selectsearch);
-		element.selectByIndex(1);
-		boolean mysearchbox = selectsearch.isDisplayed();
-		Assert.assertTrue(mysearchbox);	
+
+		Assert.assertTrue(SearchMatchPage.checkSearchLabelPresent());	
 		
 	}	
 	
 	@Then("^I should see my si-net homepage$")
 	public void i_should_see_my_si_net_homepage() throws Throwable {
-		//driver.switchTo().frame("ptfrmtgtframe");
+		//TODO move to base page actions
 		boolean homepage = driver.findElement(By.className("pthomepagetabactive")).isDisplayed();
 		Assert.assertTrue(homepage);
 		
@@ -99,7 +72,7 @@ public class searchSteps extends DriverFactory{
 	
 	@Then("^I shouldn't see my si-net loginpage$")
 	public void i_shouldnt_see_my_si_net_loginpage() throws Throwable {
-		//driver.switchTo().frame("ptfrmtgtframe");		
+		//TODO move to base page actions
 		boolean loginpage = driver.findElement(By.className("PSERRORTEXT")).isDisplayed();
 		Assert.assertTrue(loginpage);
 	}

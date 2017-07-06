@@ -1,94 +1,34 @@
-$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("login.feature");
+$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("search.feature");
 formatter.feature({
   "line": 2,
-  "name": "Graduation",
-  "description": "As a user\r\nI want to be able to login",
-  "id": "graduation",
+  "name": "Search",
+  "description": "As a user\r\nI want to be able to search records\r\nso that I can get information of the existing records",
+  "id": "search",
   "keyword": "Feature",
   "tags": [
     {
       "line": 1,
-      "name": "@login"
+      "name": "@search"
     }
   ]
 });
-formatter.scenarioOutline({
-  "line": 9,
-  "name": "",
-  "description": "",
-  "id": "graduation;",
-  "type": "scenario_outline",
-  "keyword": "Scenario Outline"
-});
-formatter.step({
-  "line": 11,
-  "name": "I enter username as \"\u003cusername\u003e\"",
-  "keyword": "Given "
-});
-formatter.step({
-  "line": 12,
-  "name": "I enter password as \"\u003cpassword\u003e\"",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 13,
-  "name": "I click signin",
-  "keyword": "When "
-});
-formatter.step({
-  "line": 14,
-  "name": "I should \u003cexpectResult\u003e",
-  "keyword": "Then "
-});
-formatter.examples({
-  "line": 16,
-  "name": "",
-  "description": "",
-  "id": "graduation;;",
-  "rows": [
-    {
-      "cells": [
-        "username",
-        "password",
-        "expectResult"
-      ],
-      "line": 17,
-      "id": "graduation;;;1"
-    },
-    {
-      "cells": [
-        "UQTAHME4",
-        "IT$1Sa$S",
-        "beLoggedIn"
-      ],
-      "line": 18,
-      "id": "graduation;;;2"
-    },
-    {
-      "cells": [
-        "wrongName",
-        "wrongPassword",
-        "seeAnError"
-      ],
-      "line": 19,
-      "id": "graduation;;;3"
-    }
-  ],
-  "keyword": "Examples"
+formatter.before({
+  "duration": 3816695181,
+  "status": "passed"
 });
 formatter.before({
-  "duration": 3851919109,
+  "duration": 14566904,
   "status": "passed"
 });
 formatter.background({
-  "line": 6,
+  "line": 7,
   "name": "",
   "description": "",
   "type": "background",
   "keyword": "Background"
 });
 formatter.step({
-  "line": 7,
+  "line": 8,
   "name": "I am on login page",
   "keyword": "Given "
 });
@@ -96,50 +36,112 @@ formatter.match({
   "location": "loginSteps.i_am_on_login_page()"
 });
 formatter.result({
-  "duration": 1540012645,
+  "duration": 1585293890,
   "status": "passed"
 });
 formatter.scenario({
-  "line": 18,
-  "name": "",
-  "description": "",
-  "id": "graduation;;;2",
-  "type": "scenario",
-  "keyword": "Scenario Outline",
-  "tags": [
+  "comments": [
     {
-      "line": 1,
-      "name": "@login"
+      "line": 10,
+      "value": "#\tScenario Outline: Verify Login"
+    },
+    {
+      "line": 11,
+      "value": "#\t\tWhen I enter username as \"\u003cusername\u003e\""
+    },
+    {
+      "line": 12,
+      "value": "#\t\t\tAnd I enter password as \"\u003cpassword\u003e\""
+    },
+    {
+      "line": 13,
+      "value": "#\t\t\tAnd I click signin"
+    },
+    {
+      "line": 14,
+      "value": "#\t\tThen I \u003ccondition\u003e see my si-net \u003cpage\u003e"
+    },
+    {
+      "line": 15,
+      "value": "#"
+    },
+    {
+      "line": 16,
+      "value": "#\t\tExamples:"
+    },
+    {
+      "line": 17,
+      "value": "#\t\t| username | password | condition | page      |"
+    },
+    {
+      "line": 18,
+      "value": "#\t\t| UQTAHME4 | IT$1Sa$S | should    | homepage  |"
+    },
+    {
+      "line": 19,
+      "value": "#\t\t| UQTRN\t   | UQTRN212 | shouldn\u0027t | loginpage |"
     }
-  ]
+  ],
+  "line": 21,
+  "name": "Create and save a search criteria",
+  "description": "",
+  "id": "search;create-and-save-a-search-criteria",
+  "type": "scenario",
+  "keyword": "Scenario"
 });
 formatter.step({
-  "line": 11,
+  "line": 22,
   "name": "I enter username as \"UQTAHME4\"",
-  "matchedColumns": [
-    0
-  ],
   "keyword": "Given "
 });
 formatter.step({
-  "line": 12,
+  "line": 23,
   "name": "I enter password as \"IT$1Sa$S\"",
-  "matchedColumns": [
-    1
-  ],
   "keyword": "And "
 });
 formatter.step({
-  "line": 13,
+  "line": 24,
   "name": "I click signin",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 25,
+  "name": "I navigate to search match",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 26,
+  "name": "I select searchType as \"Person\"",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 27,
+  "name": "I enter searchParameter as \"UQ_SRCH\"",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 28,
+  "name": "I save searchCriteria",
   "keyword": "When "
 });
 formatter.step({
-  "line": 14,
-  "name": "I should beLoggedIn",
-  "matchedColumns": [
-    2
-  ],
+  "line": 29,
+  "name": "I enter nameSearch as \"Standard\"",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 30,
+  "name": "I click save",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 31,
+  "name": "I navigate to search match",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 32,
+  "name": "I should see my search label",
   "keyword": "Then "
 });
 formatter.match({
@@ -152,7 +154,7 @@ formatter.match({
   "location": "loginSteps.enter_username(String)"
 });
 formatter.result({
-  "duration": 90526101,
+  "duration": 74296247,
   "status": "passed"
 });
 formatter.match({
@@ -165,135 +167,100 @@ formatter.match({
   "location": "loginSteps.enter_password(String)"
 });
 formatter.result({
-  "duration": 61486839,
+  "duration": 61582941,
   "status": "passed"
 });
 formatter.match({
   "location": "loginSteps.click_signin()"
 });
 formatter.result({
-  "duration": 2021015615,
+  "duration": 1045463805,
   "status": "passed"
 });
 formatter.match({
-  "location": "loginSteps.i_should_be_logged_in()"
+  "location": "searchSteps.search_match()"
 });
 formatter.result({
-  "duration": 66141979,
-  "status": "passed"
-});
-formatter.after({
-  "duration": 1238453354,
-  "status": "passed"
-});
-formatter.before({
-  "duration": 2978845365,
-  "status": "passed"
-});
-formatter.background({
-  "line": 6,
-  "name": "",
-  "description": "",
-  "type": "background",
-  "keyword": "Background"
-});
-formatter.step({
-  "line": 7,
-  "name": "I am on login page",
-  "keyword": "Given "
-});
-formatter.match({
-  "location": "loginSteps.i_am_on_login_page()"
-});
-formatter.result({
-  "duration": 1419137014,
-  "status": "passed"
-});
-formatter.scenario({
-  "line": 19,
-  "name": "",
-  "description": "",
-  "id": "graduation;;;3",
-  "type": "scenario",
-  "keyword": "Scenario Outline",
-  "tags": [
-    {
-      "line": 1,
-      "name": "@login"
-    }
-  ]
-});
-formatter.step({
-  "line": 11,
-  "name": "I enter username as \"wrongName\"",
-  "matchedColumns": [
-    0
-  ],
-  "keyword": "Given "
-});
-formatter.step({
-  "line": 12,
-  "name": "I enter password as \"wrongPassword\"",
-  "matchedColumns": [
-    1
-  ],
-  "keyword": "And "
-});
-formatter.step({
-  "line": 13,
-  "name": "I click signin",
-  "keyword": "When "
-});
-formatter.step({
-  "line": 14,
-  "name": "I should seeAnError",
-  "matchedColumns": [
-    2
-  ],
-  "keyword": "Then "
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "wrongName",
-      "offset": 21
-    }
-  ],
-  "location": "loginSteps.enter_username(String)"
-});
-formatter.result({
-  "duration": 82899610,
+  "duration": 3830679881,
   "status": "passed"
 });
 formatter.match({
   "arguments": [
     {
-      "val": "wrongPassword",
-      "offset": 21
+      "val": "Person",
+      "offset": 24
     }
   ],
-  "location": "loginSteps.enter_password(String)"
+  "location": "searchSteps.searchType(String)"
 });
 formatter.result({
-  "duration": 60586788,
+  "duration": 232036055,
   "status": "passed"
 });
 formatter.match({
-  "location": "loginSteps.click_signin()"
+  "arguments": [
+    {
+      "val": "UQ_SRCH",
+      "offset": 28
+    }
+  ],
+  "location": "searchSteps.i_enter_searchParameter_as(String)"
 });
 formatter.result({
-  "duration": 541932175,
+  "duration": 68391486,
   "status": "passed"
 });
 formatter.match({
-  "location": "loginSteps.i_should_see_an_error()"
+  "location": "searchSteps.i_save_searchCriteria()"
 });
 formatter.result({
-  "duration": 52573093,
+  "duration": 88501762,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "Standard",
+      "offset": 23
+    }
+  ],
+  "location": "searchSteps.i_enter_nameSearch_as(String)"
+});
+formatter.result({
+  "duration": 168416957,
+  "status": "passed"
+});
+formatter.match({
+  "location": "searchSteps.i_click_save()"
+});
+formatter.result({
+  "duration": 89993659,
+  "status": "passed"
+});
+formatter.match({
+  "location": "searchSteps.search_match()"
+});
+formatter.result({
+  "duration": 2875976365,
+  "status": "passed"
+});
+formatter.match({
+  "location": "searchSteps.i_should_see_my_search_label()"
+});
+formatter.result({
+  "duration": 229718126,
   "status": "passed"
 });
 formatter.after({
-  "duration": 1128201069,
+  "duration": 1165962808,
+  "status": "passed"
+});
+formatter.after({
+  "duration": 3650078949,
+  "status": "passed"
+});
+formatter.after({
+  "duration": 3669729869,
   "status": "passed"
 });
 });
