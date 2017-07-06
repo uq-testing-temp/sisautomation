@@ -15,7 +15,7 @@ Scenario: Able to see graduation management search results
 	 When I click Search
 	 Then I should see Search Results
 	
-@debug	 
+
 Scenario: Demo: Able to change graduation status
 	
 	Given I select Academic Career as "Undergraduate"
@@ -30,8 +30,7 @@ Scenario: Demo: Able to change graduation status
 	
 Scenario Outline: Demo: Verify graduation statuses
 
-	Given I navigate to graduations management
-			And I select Academic Career as "Undergraduate"
+	Given I select Academic Career as "Undergraduate"
 			And I select Graduation Status search parameter as "Conditional"
 			And I click Search
 			And I choose a graduate "1"
@@ -49,11 +48,49 @@ Scenario Outline: Demo: Verify graduation statuses
 	| 2			| conditional	| removed		| should not		|
 	| 2			| conditional	| representation| should not		|
 	
+@debug	 
 Scenario: Checking minimal academic requirement for eligibility to graduate
-	Given I navigate to graduations management
-		And I enter Empl ID as "43595923"		
+	Given I enter Empl ID as "43595923"		
 		And I select Academic Career as "Undergraduate"
 		And I select Graduation Status search parameter as "Conditional"
 	When I click Search
 	Then I should see graduate ID
 	
+#	Obj ID 1
+#Verify Graduations Management
+#Test case Legacy ID 5010.01
+
+#Scenario: Verify add and update graduation status to eligible
+
+
+#Scenario: Verify add and update graduation status to Unsuccessful
+#
+#
+#Scenario: Verify add and update graduation status to Final
+#
+#
+#Scenario: Verify add and update graduation status to Ineligible
+#
+#
+#Scenario: Verify add and update graduation status to System Removed
+#
+#
+#Scenario: Verify add and update graduation status to Re-presentation	
+	
+	
+#Obj ID 2
+# Verify Potential Graduands Process to confirm correct student data is uploaded to the Graduation Management Pages.  
+#Test case Legacy ID 5020.01   
+
+#Scenario: Verify record is created in the Graduation Management Pages for event/term entered on run control page with a graduation status of ‘Eligible’
+#
+#Scenario: Verify record is created in the Graduation Management Pages for event/term entered on run control page with a graduation status of ‘Pending’
+#
+#Scenario: Verify EGTM can be changed to include students who meets criteria
+#
+#Scenario: Verify PGA record is available
+#
+#Scenario: Verify that students with programs excluded from grads does not get included
+#
+#Scenario: Verify Original conferral event update
+#
