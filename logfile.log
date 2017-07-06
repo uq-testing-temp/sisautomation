@@ -1,0 +1,216 @@
+2017-07-06 09:26:33,531 INFO  [Log] **********************Starting the test scenario Able to see graduation management search results*********************** 
+2017-07-06 09:26:33,532 INFO  [Log] **********************Starting the test scenario Able to see graduation management search results*********************** 
+2017-07-06 09:27:23,816 WARN  [Log] Able to see graduation management search results:  test failed 
+2017-07-06 09:27:23,886 INFO  [Log] Taking a screenshot failed_Able to see graduation management search results20170706T092723885 
+2017-07-06 09:27:25,564 INFO  [Log] **********************End of the test failed_Able to see graduation management search results*********************** 
+2017-07-06 09:27:25,567 WARN  [Log] Able to see graduation management search results:  test failed 
+2017-07-06 09:27:25,567 INFO  [Log] Taking a screenshot failed_Able to see graduation management search results20170706T092723885 
+2017-07-06 09:27:25,567 WARN  [Log] Failed to capture screenshot: null 
+2017-07-06 09:27:29,676 INFO  [Log] **********************End of the test failed_Able to see graduation management search results*********************** 
+2017-07-06 09:27:54,954 INFO  [Log] **********************Starting the test scenario *********************** 
+2017-07-06 09:27:54,957 INFO  [Log] **********************Starting the test scenario *********************** 
+2017-07-06 09:27:57,570 INFO  [Log]  Test Passed 
+2017-07-06 09:27:57,570 INFO  [Log] Taking a screenshot passed_20170706T092723885 
+2017-07-06 09:27:59,044 INFO  [Log] **********************End of the test passed_*********************** 
+2017-07-06 09:27:59,047 INFO  [Log]  Test Passed 
+2017-07-06 09:27:59,047 INFO  [Log] Taking a screenshot passed_20170706T092723885 
+2017-07-06 09:27:59,047 WARN  [Log] Failed to capture screenshot: null 
+2017-07-06 09:28:03,165 INFO  [Log] **********************End of the test passed_*********************** 
+2017-07-06 09:28:10,697 INFO  [Log] **********************Starting the test scenario *********************** 
+2017-07-06 09:28:10,698 INFO  [Log] **********************Starting the test scenario *********************** 
+2017-07-06 09:28:12,788 INFO  [Log]  Test Passed 
+2017-07-06 09:28:12,788 INFO  [Log] Taking a screenshot passed_20170706T092723885 
+2017-07-06 09:28:13,998 INFO  [Log] **********************End of the test passed_*********************** 
+2017-07-06 09:28:14,001 INFO  [Log]  Test Passed 
+2017-07-06 09:28:14,001 INFO  [Log] Taking a screenshot passed_20170706T092723885 
+2017-07-06 09:28:14,001 WARN  [Log] Failed to capture screenshot: null 
+2017-07-06 09:28:18,044 INFO  [Log] **********************End of the test passed_*********************** 
+2017-07-06 09:28:25,406 INFO  [Log] **********************Starting the test scenario Create and save a search criteria*********************** 
+2017-07-06 09:28:25,408 INFO  [Log] **********************Starting the test scenario Create and save a search criteria*********************** 
+2017-07-06 09:31:20,475 WARN  [Log] Create and save a search criteria:  test failed 
+2017-07-06 09:31:20,475 INFO  [Log] Taking a screenshot failed_Create and save a search criteria20170706T092723885 
+2017-07-06 09:31:21,607 INFO  [Log] **********************End of the test failed_Create and save a search criteria*********************** 
+2017-07-06 09:31:21,608 WARN  [Log] Create and save a search criteria:  test failed 
+2017-07-06 09:31:21,608 INFO  [Log] Taking a screenshot failed_Create and save a search criteria20170706T092723885 
+2017-07-06 09:31:21,608 WARN  [Log] Failed to capture screenshot: null 
+2017-07-06 09:31:25,352 INFO  [Log] **********************End of the test failed_Create and save a search criteria*********************** 
+2017-07-06 09:37:09,163 INFO  [Log] **********************Starting the test scenario Able to see graduation management search results*********************** 
+2017-07-06 09:37:09,165 INFO  [Log] **********************Starting the test scenario Able to see graduation management search results*********************** 
+2017-07-06 09:37:20,674 INFO  [Log] Able to see graduation management search results Test Passed 
+2017-07-06 09:37:20,681 INFO  [Log] Taking a screenshot passed_Able to see graduation management search results20170706T093720680 
+2017-07-06 09:37:21,934 INFO  [Log] **********************End of the test passed_Able to see graduation management search results*********************** 
+2017-07-06 09:37:21,934 INFO  [Log] Able to see graduation management search results Test Passed 
+2017-07-06 09:37:21,934 INFO  [Log] Taking a screenshot passed_Able to see graduation management search results20170706T093720680 
+2017-07-06 09:37:21,934 WARN  [Log] Failed to capture screenshot: null 
+2017-07-06 09:37:25,622 INFO  [Log] **********************End of the test passed_Able to see graduation management search results*********************** 
+2017-07-06 09:37:32,210 INFO  [Log] **********************Starting the test scenario *********************** 
+2017-07-06 09:37:32,210 INFO  [Log] **********************Starting the test scenario *********************** 
+2017-07-06 09:37:34,705 INFO  [Log]  Test Passed 
+2017-07-06 09:37:34,705 INFO  [Log] Taking a screenshot passed_20170706T093720680 
+2017-07-06 09:37:35,862 INFO  [Log] **********************End of the test passed_*********************** 
+2017-07-06 09:37:35,863 INFO  [Log]  Test Passed 
+2017-07-06 09:37:35,863 INFO  [Log] Taking a screenshot passed_20170706T093720680 
+2017-07-06 09:37:35,863 WARN  [Log] Failed to capture screenshot: null 
+2017-07-06 09:37:39,526 INFO  [Log] **********************End of the test passed_*********************** 
+2017-07-06 09:37:46,424 INFO  [Log] **********************Starting the test scenario *********************** 
+2017-07-06 09:37:46,425 INFO  [Log] **********************Starting the test scenario *********************** 
+2017-07-06 09:37:48,487 INFO  [Log]  Test Passed 
+2017-07-06 09:37:48,487 INFO  [Log] Taking a screenshot passed_20170706T093720680 
+2017-07-06 09:37:49,544 INFO  [Log] **********************End of the test passed_*********************** 
+2017-07-06 09:37:49,545 INFO  [Log]  Test Passed 
+2017-07-06 09:37:49,545 INFO  [Log] Taking a screenshot passed_20170706T093720680 
+2017-07-06 09:37:49,545 WARN  [Log] Failed to capture screenshot: null 
+2017-07-06 09:37:53,264 INFO  [Log] **********************End of the test passed_*********************** 
+2017-07-06 09:37:59,888 INFO  [Log] **********************Starting the test scenario Create and save a search criteria*********************** 
+2017-07-06 09:37:59,889 INFO  [Log] **********************Starting the test scenario Create and save a search criteria*********************** 
+2017-07-06 09:40:22,249 WARN  [Log] Create and save a search criteria:  test failed 
+2017-07-06 09:40:22,249 INFO  [Log] Taking a screenshot failed_Create and save a search criteria20170706T093720680 
+2017-07-06 09:40:23,982 INFO  [Log] **********************End of the test failed_Create and save a search criteria*********************** 
+2017-07-06 09:40:23,982 WARN  [Log] Create and save a search criteria:  test failed 
+2017-07-06 09:40:23,982 INFO  [Log] Taking a screenshot failed_Create and save a search criteria20170706T093720680 
+2017-07-06 09:40:23,983 WARN  [Log] Failed to capture screenshot: null 
+2017-07-06 09:40:27,761 INFO  [Log] **********************End of the test failed_Create and save a search criteria*********************** 
+2017-07-06 09:54:51,325 INFO  [Log] **********************Starting the test scenario Able to see graduation management search results*********************** 
+2017-07-06 09:54:51,326 INFO  [Log] **********************Starting the test scenario Able to see graduation management search results*********************** 
+2017-07-06 09:55:01,570 INFO  [Log] Able to see graduation management search results Test Passed 
+2017-07-06 09:55:01,576 INFO  [Log] Taking a screenshot passed_Able to see graduation management search results20170706T095501575 
+2017-07-06 09:55:02,729 INFO  [Log] **********************End of the test passed_Able to see graduation management search results*********************** 
+2017-07-06 09:55:06,488 INFO  [Log] Able to see graduation management search results Test Passed 
+2017-07-06 09:55:06,488 INFO  [Log] Taking a screenshot passed_Able to see graduation management search results20170706T095501575 
+2017-07-06 09:55:06,488 WARN  [Log] Failed to capture screenshot: null 
+2017-07-06 09:55:10,209 INFO  [Log] **********************End of the test passed_Able to see graduation management search results*********************** 
+2017-07-06 09:55:13,143 INFO  [Log] **********************Starting the test scenario *********************** 
+2017-07-06 09:55:13,144 INFO  [Log] **********************Starting the test scenario *********************** 
+2017-07-06 09:55:15,638 INFO  [Log]  Test Passed 
+2017-07-06 09:55:15,638 INFO  [Log] Taking a screenshot passed_20170706T095501575 
+2017-07-06 09:55:16,772 INFO  [Log] **********************End of the test passed_*********************** 
+2017-07-06 09:55:20,455 INFO  [Log]  Test Passed 
+2017-07-06 09:55:20,455 INFO  [Log] Taking a screenshot passed_20170706T095501575 
+2017-07-06 09:55:20,455 WARN  [Log] Failed to capture screenshot: null 
+2017-07-06 09:55:24,113 INFO  [Log] **********************End of the test passed_*********************** 
+2017-07-06 09:55:27,068 INFO  [Log] **********************Starting the test scenario *********************** 
+2017-07-06 09:55:27,069 INFO  [Log] **********************Starting the test scenario *********************** 
+2017-07-06 09:55:29,043 INFO  [Log]  Test Passed 
+2017-07-06 09:55:29,043 INFO  [Log] Taking a screenshot passed_20170706T095501575 
+2017-07-06 09:55:30,145 INFO  [Log] **********************End of the test passed_*********************** 
+2017-07-06 09:55:33,819 INFO  [Log]  Test Passed 
+2017-07-06 09:55:33,820 INFO  [Log] Taking a screenshot passed_20170706T095501575 
+2017-07-06 09:55:33,820 WARN  [Log] Failed to capture screenshot: null 
+2017-07-06 09:55:37,384 INFO  [Log] **********************End of the test passed_*********************** 
+2017-07-06 09:55:40,373 INFO  [Log] **********************Starting the test scenario Create and save a search criteria*********************** 
+2017-07-06 09:55:40,373 INFO  [Log] **********************Starting the test scenario Create and save a search criteria*********************** 
+2017-07-06 09:55:53,345 WARN  [Log] Create and save a search criteria:  test failed 
+2017-07-06 09:55:53,345 INFO  [Log] Taking a screenshot failed_Create and save a search criteria20170706T095501575 
+2017-07-06 09:55:54,421 INFO  [Log] **********************End of the test failed_Create and save a search criteria*********************** 
+2017-07-06 09:55:58,112 WARN  [Log] Create and save a search criteria:  test failed 
+2017-07-06 09:55:58,113 INFO  [Log] Taking a screenshot failed_Create and save a search criteria20170706T095501575 
+2017-07-06 09:55:58,113 WARN  [Log] Failed to capture screenshot: null 
+2017-07-06 09:56:01,750 INFO  [Log] **********************End of the test failed_Create and save a search criteria*********************** 
+2017-07-06 09:56:27,952 INFO  [Log] **********************Starting the test scenario Able to see graduation management search results*********************** 
+2017-07-06 09:56:27,953 INFO  [Log] **********************Starting the test scenario Able to see graduation management search results*********************** 
+2017-07-06 09:56:38,542 INFO  [Log] Able to see graduation management search results Test Passed 
+2017-07-06 09:56:38,548 INFO  [Log] Taking a screenshot passed_Able to see graduation management search results20170706T095638548 
+2017-07-06 09:56:39,732 INFO  [Log] **********************End of the test passed_Able to see graduation management search results*********************** 
+2017-07-06 09:56:39,733 INFO  [Log] Able to see graduation management search results Test Passed 
+2017-07-06 09:56:39,733 INFO  [Log] Taking a screenshot passed_Able to see graduation management search results20170706T095638548 
+2017-07-06 09:56:39,733 WARN  [Log] Failed to capture screenshot: null 
+2017-07-06 09:56:43,466 INFO  [Log] **********************End of the test passed_Able to see graduation management search results*********************** 
+2017-07-06 09:56:50,161 INFO  [Log] **********************Starting the test scenario *********************** 
+2017-07-06 09:56:50,161 INFO  [Log] **********************Starting the test scenario *********************** 
+2017-07-06 09:56:52,719 INFO  [Log]  Test Passed 
+2017-07-06 09:56:52,719 INFO  [Log] Taking a screenshot passed_20170706T095638548 
+2017-07-06 09:56:53,839 INFO  [Log] **********************End of the test passed_*********************** 
+2017-07-06 09:56:53,840 INFO  [Log]  Test Passed 
+2017-07-06 09:56:53,840 INFO  [Log] Taking a screenshot passed_20170706T095638548 
+2017-07-06 09:56:53,840 WARN  [Log] Failed to capture screenshot: null 
+2017-07-06 09:56:57,514 INFO  [Log] **********************End of the test passed_*********************** 
+2017-07-06 09:57:04,184 INFO  [Log] **********************Starting the test scenario *********************** 
+2017-07-06 09:57:04,184 INFO  [Log] **********************Starting the test scenario *********************** 
+2017-07-06 09:57:06,234 INFO  [Log]  Test Passed 
+2017-07-06 09:57:06,234 INFO  [Log] Taking a screenshot passed_20170706T095638548 
+2017-07-06 09:57:07,332 INFO  [Log] **********************End of the test passed_*********************** 
+2017-07-06 09:57:07,332 INFO  [Log]  Test Passed 
+2017-07-06 09:57:07,332 INFO  [Log] Taking a screenshot passed_20170706T095638548 
+2017-07-06 09:57:07,333 WARN  [Log] Failed to capture screenshot: null 
+2017-07-06 09:57:11,179 INFO  [Log] **********************End of the test passed_*********************** 
+2017-07-06 09:57:17,876 INFO  [Log] **********************Starting the test scenario Create and save a search criteria*********************** 
+2017-07-06 09:57:17,877 INFO  [Log] **********************Starting the test scenario Create and save a search criteria*********************** 
+2017-07-06 10:00:48,037 WARN  [Log] Create and save a search criteria:  test failed 
+2017-07-06 10:00:48,037 INFO  [Log] Taking a screenshot failed_Create and save a search criteria20170706T095638548 
+2017-07-06 10:00:49,125 INFO  [Log] **********************End of the test failed_Create and save a search criteria*********************** 
+2017-07-06 10:00:49,125 WARN  [Log] Create and save a search criteria:  test failed 
+2017-07-06 10:00:49,126 INFO  [Log] Taking a screenshot failed_Create and save a search criteria20170706T095638548 
+2017-07-06 10:00:49,126 WARN  [Log] Failed to capture screenshot: null 
+2017-07-06 10:00:52,799 INFO  [Log] **********************End of the test failed_Create and save a search criteria*********************** 
+2017-07-06 10:57:32,773 INFO  [Log] **********************Starting the test scenario Able to see graduation management search results*********************** 
+2017-07-06 10:57:32,774 INFO  [Log] **********************Starting the test scenario Able to see graduation management search results*********************** 
+2017-07-06 10:57:43,932 INFO  [Log] Able to see graduation management search results Test Passed 
+2017-07-06 10:57:43,940 INFO  [Log] Taking a screenshot passed_Able to see graduation management search results20170706T105743939 
+2017-07-06 10:57:45,106 INFO  [Log] **********************End of the test passed_Able to see graduation management search results*********************** 
+2017-07-06 10:57:45,107 INFO  [Log] Able to see graduation management search results Test Passed 
+2017-07-06 10:57:45,107 INFO  [Log] Taking a screenshot passed_Able to see graduation management search results20170706T105743939 
+2017-07-06 10:57:45,107 WARN  [Log] Failed to capture screenshot: null 
+2017-07-06 10:57:48,880 INFO  [Log] **********************End of the test passed_Able to see graduation management search results*********************** 
+2017-07-06 10:57:55,759 INFO  [Log] **********************Starting the test scenario *********************** 
+2017-07-06 10:57:55,760 INFO  [Log] **********************Starting the test scenario *********************** 
+2017-07-06 10:57:58,269 INFO  [Log]  Test Passed 
+2017-07-06 10:57:58,270 INFO  [Log] Taking a screenshot passed_20170706T105743939 
+2017-07-06 10:57:59,428 INFO  [Log] **********************End of the test passed_*********************** 
+2017-07-06 10:57:59,429 INFO  [Log]  Test Passed 
+2017-07-06 10:57:59,429 INFO  [Log] Taking a screenshot passed_20170706T105743939 
+2017-07-06 10:57:59,429 WARN  [Log] Failed to capture screenshot: null 
+2017-07-06 10:58:03,217 INFO  [Log] **********************End of the test passed_*********************** 
+2017-07-06 10:58:09,973 INFO  [Log] **********************Starting the test scenario *********************** 
+2017-07-06 10:58:09,973 INFO  [Log] **********************Starting the test scenario *********************** 
+2017-07-06 10:58:12,047 INFO  [Log]  Test Passed 
+2017-07-06 10:58:12,047 INFO  [Log] Taking a screenshot passed_20170706T105743939 
+2017-07-06 10:58:13,149 INFO  [Log] **********************End of the test passed_*********************** 
+2017-07-06 10:58:13,150 INFO  [Log]  Test Passed 
+2017-07-06 10:58:13,150 INFO  [Log] Taking a screenshot passed_20170706T105743939 
+2017-07-06 10:58:13,150 WARN  [Log] Failed to capture screenshot: null 
+2017-07-06 10:58:16,839 INFO  [Log] **********************End of the test passed_*********************** 
+2017-07-06 10:58:23,597 INFO  [Log] **********************Starting the test scenario Create and save a search criteria*********************** 
+2017-07-06 10:58:23,598 INFO  [Log] **********************Starting the test scenario Create and save a search criteria*********************** 
+2017-07-06 10:59:13,226 WARN  [Log] Create and save a search criteria:  test failed 
+2017-07-06 10:59:13,226 INFO  [Log] Taking a screenshot failed_Create and save a search criteria20170706T105743939 
+2017-07-06 10:59:17,503 INFO  [Log] **********************End of the test failed_Create and save a search criteria*********************** 
+2017-07-06 10:59:17,503 WARN  [Log] Create and save a search criteria:  test failed 
+2017-07-06 10:59:17,503 INFO  [Log] Taking a screenshot failed_Create and save a search criteria20170706T105743939 
+2017-07-06 10:59:17,504 WARN  [Log] Failed to capture screenshot: null 
+2017-07-06 10:59:21,140 INFO  [Log] **********************End of the test failed_Create and save a search criteria*********************** 
+2017-07-06 12:05:23,036 INFO  [Log] **********************Starting the test scenario Able to see graduation management search results*********************** 
+2017-07-06 12:05:23,037 INFO  [Log] **********************Starting the test scenario Able to see graduation management search results*********************** 
+2017-07-06 12:05:34,739 INFO  [Log] Able to see graduation management search results Test Passed 
+2017-07-06 12:05:34,746 INFO  [Log] Taking a screenshot passed_Able to see graduation management search results20170706T120534745 
+2017-07-06 12:05:35,912 INFO  [Log] **********************End of the test passed_Able to see graduation management search results*********************** 
+2017-07-06 12:05:35,914 INFO  [Log] Able to see graduation management search results Test Passed 
+2017-07-06 12:05:35,914 INFO  [Log] Taking a screenshot passed_Able to see graduation management search results20170706T120534745 
+2017-07-06 12:05:35,915 WARN  [Log] Failed to capture screenshot: null 
+2017-07-06 12:05:39,648 INFO  [Log] **********************End of the test passed_Able to see graduation management search results*********************** 
+2017-07-06 12:05:46,332 INFO  [Log] **********************Starting the test scenario *********************** 
+2017-07-06 12:05:46,332 INFO  [Log] **********************Starting the test scenario *********************** 
+2017-07-06 12:05:48,854 INFO  [Log]  Test Passed 
+2017-07-06 12:05:48,854 INFO  [Log] Taking a screenshot passed_20170706T120534745 
+2017-07-06 12:05:50,003 INFO  [Log] **********************End of the test passed_*********************** 
+2017-07-06 12:05:50,003 INFO  [Log]  Test Passed 
+2017-07-06 12:05:50,004 INFO  [Log] Taking a screenshot passed_20170706T120534745 
+2017-07-06 12:05:50,004 WARN  [Log] Failed to capture screenshot: null 
+2017-07-06 12:05:53,945 INFO  [Log] **********************End of the test passed_*********************** 
+2017-07-06 12:06:00,660 INFO  [Log] **********************Starting the test scenario *********************** 
+2017-07-06 12:06:00,661 INFO  [Log] **********************Starting the test scenario *********************** 
+2017-07-06 12:06:02,763 INFO  [Log]  Test Passed 
+2017-07-06 12:06:02,763 INFO  [Log] Taking a screenshot passed_20170706T120534745 
+2017-07-06 12:06:03,877 INFO  [Log] **********************End of the test passed_*********************** 
+2017-07-06 12:06:03,878 INFO  [Log]  Test Passed 
+2017-07-06 12:06:03,878 INFO  [Log] Taking a screenshot passed_20170706T120534745 
+2017-07-06 12:06:03,878 WARN  [Log] Failed to capture screenshot: null 
+2017-07-06 12:06:07,448 INFO  [Log] **********************End of the test passed_*********************** 
+2017-07-06 12:06:14,071 INFO  [Log] **********************Starting the test scenario Create and save a search criteria*********************** 
+2017-07-06 12:06:14,071 INFO  [Log] **********************Starting the test scenario Create and save a search criteria*********************** 
+2017-07-06 12:07:44,269 INFO  [Log] Create and save a search criteria Test Passed 
+2017-07-06 12:07:44,269 INFO  [Log] Taking a screenshot passed_Create and save a search criteria20170706T120534745 
+2017-07-06 12:07:45,371 INFO  [Log] **********************End of the test passed_Create and save a search criteria*********************** 
+2017-07-06 12:07:45,371 INFO  [Log] Create and save a search criteria Test Passed 
+2017-07-06 12:07:45,371 INFO  [Log] Taking a screenshot passed_Create and save a search criteria20170706T120534745 
+2017-07-06 12:07:45,371 WARN  [Log] Failed to capture screenshot: null 
+2017-07-06 12:07:49,692 INFO  [Log] **********************End of the test passed_Create and save a search criteria*********************** 

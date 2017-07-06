@@ -1,29 +1,56 @@
 package stepDefinition;
 
+import org.apache.log4j.Logger;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.WebDriver;
+
+import io.github.bonigarcia.wdm.ChromeDriverManager;
+import util.PropertyReader;
 
 
 public class DriverFactory {
 
     protected static WebDriver driver;
-    public static final String environment = new PropertyReader().readProperty("environment");
+    public static final String URL = new PropertyReader().readProperty("URL");
+    public static Logger logger = Logger.getLogger(DriverFactory.class);
+    
+    public static class timeout {
+    	/**
+    	 * This is a timeout enumerator class
+	     */
+        public static final int TINY = 100;
+        public static final int SHORT = 250;
+        public static final int MEDIUM = 1000;
+        public static final int LONG = 5000 ;
+        
+    }
+
 
     public  DriverFactory() {
         initialize();
     }
 
     public void initialize() {
-    	//String chromedriverpath = new PropertyReader().readProperty("chromedriverpath");
-    	//System.setProperty("webdriver.chrome.driver", chromedriverpath);
-        if (driver == null)
-            createNewDriverInstance();
+
+    	if (driver == null)
+    		createNewDriverInstance();
+
     }
 
     private void createNewDriverInstance() {
-        String browser = new PropertyReader().readProperty("browser");
+//TODO implement binaries management of all browsers
+//    	ChromeDriverManager.getInstance().setup(); // Done
+//    	InternetExplorerDriverManager.getInstance().setup();
+//    	OperaDriverManager.getInstance().setup();
+//    	EdgeDriverManager.getInstance().setup();
+//    	PhantomJsDriverManager.getInstance().setup();
+//    	FirefoxDriverManager.getInstance().setup();
+    	
+    	
+    	String browser = new PropertyReader().readProperty("browser");
         if (browser.equals("chrome")) {
+        	ChromeDriverManager.getInstance().setup();
         	ChromeOptions options = new ChromeOptions();
         	options.addArguments("test-type");
         	options.addArguments("start-maximized");
@@ -34,6 +61,7 @@ public class DriverFactory {
         	options.addArguments("test-type=browser");
         	options.addArguments("disable-infobars");
         	driver = new ChromeDriver(options);
+        	
             
         } else {
             System.out.println("I cannot read browser type");

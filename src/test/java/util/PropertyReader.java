@@ -1,4 +1,4 @@
-package stepDefinition;
+package util;
 
 import java.util.Properties;
 import java.io.InputStream;
