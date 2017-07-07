@@ -1,5 +1,6 @@
 package pageclasses;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -26,6 +27,11 @@ public class HomePage extends DriverFactory{
 
 	public static boolean loginError() {
 		return error.isDisplayed();
+	}
+
+	public static void navigate(String id) throws InterruptedException {
+		Thread.sleep(timeout.MEDIUM);
+		driver.findElement(By.id(id)).click();
 	}
 
 }

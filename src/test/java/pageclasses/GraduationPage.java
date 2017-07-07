@@ -33,7 +33,7 @@ public class GraduationPage extends DriverFactory {
 	public static void navigate() throws InterruptedException  {
 		//TODO implement navigation package - epic
 		
-		Thread.sleep(timeout.TINY);
+		Thread.sleep(timeout.MEDIUM);
 		//TODO implement elements		
 		driver.findElement(By.id("fldra_UQ_MANAGE_GRADUATIONS")).click();
 //		menuItem_manageGraduations.click(); 

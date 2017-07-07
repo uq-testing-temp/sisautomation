@@ -216,6 +216,20 @@ public class testStepsDefinitions extends DriverFactory{
 	Assert.assertTrue(loginpage);
 	}
 
+// menu journey steps
+	
+@Given("^I navigate to \"([^\"]*)\"$")
+	public void i_navigate_to(String param) throws Throwable {
+		
+		String id = "fldra_" + param;
+		HomePage.navigate(id);
+	}
+
+@Then("^I should see \"([^\"]*)\"$")
+	public boolean i_should_see(String param) throws Throwable {
+		
+		return true;
+	}
 
 }
 
