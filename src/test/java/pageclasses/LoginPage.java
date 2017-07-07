@@ -1,6 +1,7 @@
 package pageclasses;
 
 import org.apache.log4j.Logger;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -65,6 +66,20 @@ public class LoginPage extends DriverFactory {
 
 	public static void clickSingin() {
 		singinbutton.click();
+	}
+
+
+	public static boolean isLoggedIn() {
+
+		return driver.findElement(By.className("pthomepagetabactive")).isDisplayed();
+		
+	}
+
+
+	public static boolean isLoggedOut() {
+
+		return driver.findElement(By.className("PSERRORTEXT")).isDisplayed();
+	
 	}
 
 }

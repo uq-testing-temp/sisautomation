@@ -6,6 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 import io.github.bonigarcia.wdm.ChromeDriverManager;
+import util.DebugLog;
 import util.PropertyReader;
 
 
@@ -22,7 +23,8 @@ public class DriverFactory {
         public static final int TINY = 100;
         public static final int SHORT = 250;
         public static final int MEDIUM = 1000;
-        public static final int LONG = 5000 ;
+        public static final int LONG = 2000;
+        public static final int XLONG = 5000;
         
     }
     
@@ -128,5 +130,20 @@ public class DriverFactory {
     public void destroyDriver() {
         driver.quit();
         driver = null;
+    }
+    
+    public static boolean switchFrame() {
+    	
+    	try {
+    		
+			driver.switchTo().defaultContent();
+			driver.switchTo().frame("ptifrmtgtframe");
+    	
+    	} catch (Exception e) {
+    		
+    		DebugLog.Error("Unable to switch to frame: " + e);
+    		
+    	}
+		return true;
     }
 }

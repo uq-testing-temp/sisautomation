@@ -7,7 +7,7 @@
 	Background:
 		Given I am logged in
 			
-	Scenario Outline: Menu joruney smoke
+	Scenario Outline: Menu journey smoke
 	
 		Given I navigate to "<page>"
 		Then  I should see <expectedElement>

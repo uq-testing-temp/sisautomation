@@ -1,0 +1,32 @@
+01
+#top-panel {
+02
+  background-size:100% 100%;
+03
+  height: 43px;
+04
+  }
+05
+   
+06
+#top-panel td#login-field span a {
+07
+    background: none; }
+08
+  
+09
+#top-panel a {
+10
+    background: url("title.png") 0 0 no-repeat;
+11
+    display: block;
+12
+    width: 107px;
+13
+    height: 27px;
+14
+    margin: 10px 0 -5px 0px; }
+15
+#top-panel td > a img {
+16
+      display: none; }

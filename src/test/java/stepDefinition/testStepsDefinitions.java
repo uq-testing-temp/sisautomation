@@ -1,9 +1,6 @@
 package stepDefinition;
 
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
 
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
@@ -103,30 +100,22 @@ public class testStepsDefinitions extends DriverFactory{
 @Given("^I select Academic Career as \"([^\"]*)\"$")
 
 	public void academicCareer(String academicCareertext) throws Throwable {
-	driver.switchTo().frame("ptifrmtgtframe");
-		WebElement acDropDown = driver.findElement(By.id("UQ_GR_STUD_SRCH_ACAD_CAREER"));
-		acDropDown.click();
-		Select drpdown = new Select(acDropDown);
-		drpdown.selectByIndex(6);
+
+		GraduationPage.selectAcademicCareer(academicCareertext, 6);
 	}
 
 @Given("^I select Graduation Status search parameter as \"([^\"]*)\"$")
 	public void graduationStatusParameter(String graduationStatustext) throws Throwable {
-		WebElement gsDropDown = driver.findElement(By.id("UQ_GR_STUD_SRCH_UQ_GRAD_APP_STATUS"));
-		gsDropDown.click();
-		Select drpdown = new Select(gsDropDown);
-		drpdown.selectByIndex(1);
+		
+		GraduationPage.selectGraduationStatusSearchParameter(graduationStatustext, 3);
+		
 	}
 
 @Given("^I select Graduation Status as \"([^\"]*)\"$")
 	public void graduationStatus(String graduationStatustext) throws Throwable {
-		Thread.sleep(250);
-		WebElement gsDropDown = driver.findElement(By.id("UQ_GR_STUD_COND_UQ_GRAD_APP_STATUS$0"));
-		gsDropDown.click();
-		Thread.sleep(250);
-		Select drpdown = new Select(gsDropDown);
-		drpdown.selectByIndex(4);
-		Thread.sleep(250);
+
+		GraduationPage.selectGraduationStatus(graduationStatustext, 4);
+	
 	}
 
 @Given("^I navigate to Manage Graduations$")
@@ -138,19 +127,30 @@ public class testStepsDefinitions extends DriverFactory{
 
 @When("^I click Search$")
 	public void i_click_search() throws Throwable {
-		driver.findElement(By.id("#ICSearch")).click();
-		Thread.sleep(5000);
+
+	GraduationPage.search();
 	
 }
 
 @Then("^I should see Search Results$")
 	public void i_should_see_search_results() throws Throwable {
-
-		WebElement element = driver.findElement(By.className("PSSRCHSUBTITLE"));
-		boolean label = element.isDisplayed();
-		Assert.assertTrue(label);
-		
+	
+	GraduationPage.seeSearchResults();
+	
 	}
+
+@Given("^I enter Empl ID as \"([^\"]*)\"$")
+	public void i_enter_Empl_ID_as(String id) throws Throwable {
+
+		GraduationPage.enterEmplID(id);
+}
+
+@Given("^I set Event ID as \"([^\"]*)\"$")
+	public void i_set_event_id_as(String id) throws Throwable {
+
+		GraduationPage.setEventID(id);
+}
+
 
 //search steps
 	@Given("^I navigate to search match$")
@@ -203,17 +203,14 @@ public class testStepsDefinitions extends DriverFactory{
 	
 	@Then("^I should see my si-net homepage$")
 	public void i_should_see_my_si_net_homepage() throws Throwable {
-		//TODO move to base page actions
-		boolean homepage = driver.findElement(By.className("pthomepagetabactive")).isDisplayed();
-		Assert.assertTrue(homepage);
-		
+
+		Assert.assertTrue(LoginPage.isLoggedIn());
 	}
 	
 	@Then("^I shouldn't see my si-net loginpage$")
 	public void i_shouldnt_see_my_si_net_loginpage() throws Throwable {
-	//TODO move to base page actions
-	boolean loginpage = driver.findElement(By.className("PSERRORTEXT")).isDisplayed();
-	Assert.assertTrue(loginpage);
+		
+	Assert.assertTrue(LoginPage.isLoggedOut());
 	}
 
 // menu journey steps
