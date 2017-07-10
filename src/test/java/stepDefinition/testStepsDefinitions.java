@@ -2,6 +2,7 @@ package stepDefinition;
 
 import org.junit.Assert;
 
+import cucumber.api.PendingException;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
@@ -17,7 +18,7 @@ import util.DebugLog;
 import util.PropertyReader;
 
 public class testStepsDefinitions extends DriverFactory{
-
+// TODO Implement dependency injection
 //common steps 
 @Before
 	public void beforeScenario(Scenario scenario) {
@@ -60,7 +61,7 @@ public class testStepsDefinitions extends DriverFactory{
 @Given("^I am logged in$")
 	public void i_am_logged_in() throws Throwable {
 		
-		LoginPage.login();
+		LoginPage.login(null);
 	}
 	
 	@Given("^I am on login page$")
@@ -149,6 +150,183 @@ public class testStepsDefinitions extends DriverFactory{
 	public void i_set_event_id_as(String id) throws Throwable {
 
 		GraduationPage.setEventID(id);
+}
+
+@Given("^I am logged in as \"([^\"]*)\"$")
+	public void i_am_logged_in_as(String securityGroup) throws Throwable {
+    //TODO
+    LoginPage.login(securityGroup); 
+}
+
+@Given("^Graduation test data is ready for student \"([^\"]*)\" as \"([^\"]*)\"$")
+	public void test_data_is_ready_for_student(String id, String origin) throws Throwable {
+//TODO: implement test data mapping
+		GraduationPage.navigate();
+	    //TODO: move event id into configuration
+		GraduationPage.setEventID("000001091");
+		//TODO: move student id into configuration
+		GraduationPage.enterEmplID(id);
+		GraduationPage.search();
+		GraduationPage.addRow();
+		//TODO: create enumerator for statuses - Done
+		if (id == "30009064") {
+			GraduationPage.selectGraduationStatus("Pending", graduationStatus.CONDITIONAL);
+		}
+		if (id == "33188876") {
+			GraduationPage.selectGraduationStatus("Pending", graduationStatus.PENDING);
+		}
+		GraduationPage.save();
+	}
+
+@When("^I update status to \"([^\"]*)\"$")
+	public void i_update_status_to(String status) throws Throwable {
+	    //TODO implement all statuses
+		int index = 0;
+		if (status.contentEquals("eligible")) {
+			index = graduationStatus.ELIGIBLE;
+		}
+		if (status.contentEquals("unsuccessfull")) {
+			index = graduationStatus.UNSUCCESFULL;
+		}
+		if (status.contentEquals("system removed")) {
+			index = graduationStatus.SYSTEM_REMOVED;
+		}
+		if (status.contentEquals("representation")) {
+			index = graduationStatus.RE_PRESENTATION;
+		}
+		if (status.contentEquals("processing error")) {
+			index = graduationStatus.PROCESSIN_ERROR;
+		}
+		if (status.contentEquals("ineligible")) {
+			index = graduationStatus.INELIGIBLE;
+		}
+		if (status.contentEquals("final")) {
+			index = graduationStatus.FINAL;
+		}
+		//TODO: Implement historic date injection. Test is not valid when using "add row"
+		GraduationPage.addRow(); 
+		GraduationPage.selectGraduationStatus(status, index);
+		GraduationPage.save();
+	}
+	
+
+@Given("^I search student \"([^\"]*)\"$")
+public void i_search_student(String arg1) throws Throwable {
+	GraduationPage.navigate();
+    //TODO: move event id into configuration
+	GraduationPage.setEventID("000001091");
+	//TODO: move student id into configuration
+	GraduationPage.enterEmplID("33188876");
+	GraduationPage.search();
+}
+
+@Given("^I Add a new row$")
+public void i_Add_a_new_row() throws Throwable {
+    //TODO
+    throw new PendingException();
+}
+
+@Given("^I update graduation status to æConditionalÆ$")
+public void i_update_graduation_status_to_Conditional() throws Throwable {
+    //TODO
+    throw new PendingException();
+}
+
+@Given("^I Flag half as mandatory, and the other half as discarded\\.$")
+public void i_Flag_half_as_mandatory_and_the_other_half_as_discarded() throws Throwable {
+    //TODO
+    throw new PendingException();
+}
+
+@When("^I Save$")
+public void i_Save() throws Throwable {
+    //TODO
+    throw new PendingException();
+}
+
+@Then("^Graduation status and required enrolments are updated\\.$")
+public void graduation_status_and_required_enrolments_are_updated() throws Throwable {
+    //TODO
+    throw new PendingException();
+}
+
+@When("^I Flag a course as mandatory$")
+public void i_Flag_a_course_as_mandatory() throws Throwable {
+    //TODO
+    throw new PendingException();
+}
+
+@Then("^I unable to flage the same course as conditional$")
+public void i_unable_to_flage_the_same_course_as_conditional() throws Throwable {
+    //TODO
+    throw new PendingException();
+}
+
+@When("^Update the Milestone field$")
+public void update_the_Milestone_field() throws Throwable {
+    //TODO
+    throw new PendingException();
+}
+
+@Then("^The graduation status is updated to æConditionalÆ with a required milestone\\.$")
+public void the_graduation_status_is_updated_to_Conditional_with_a_required_milestone() throws Throwable {
+    //TODO
+    throw new PendingException();
+}
+
+@Given("^I Click on Ceremony Management tab$")
+public void i_Click_on_Ceremony_Management_tab() throws Throwable {
+    //TODO
+    throw new PendingException();
+}
+
+@Given("^I Enter <requirements> as $")
+public void i_Enter_requirements_as() throws Throwable {
+    //TODO
+    throw new PendingException();
+}
+
+
+@Then("^Re-presentation event is saved$")
+public void re_presentation_event_is_saved() throws Throwable {
+    //TODO
+    throw new PendingException();
+}
+
+@Given("^I Tick re-presentation field$")
+public void i_Tick_re_presentation_field() throws Throwable {
+    //TODO
+    throw new PendingException();
+}
+
+@Then("^Error is displayed advising re-presentation ID must be entered$")
+public void error_is_displayed_advising_re_presentation_ID_must_be_entered() throws Throwable {
+    //TODO
+    throw new PendingException();
+}
+
+@When("^I update their hons class$")
+public void i_update_their_hons_class() throws Throwable {
+    //TODO
+    throw new PendingException();
+}
+
+@Then("^I see error message$")
+public void i_see_error_message() throws Throwable {
+    //TODO
+    throw new PendingException();
+}
+
+@Then("^Update was success$")
+public void update_was_success() throws Throwable {
+	
+	Assert.assertFalse(GraduationPage.alertmsgPresent());
+}
+
+@Then("^Update was failure$")
+public void update_was_failure() throws Throwable {
+	
+	Assert.assertTrue(GraduationPage.alertmsgPresent());
 }
 
 

@@ -1,5 +1,10 @@
 package stepDefinition;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import org.apache.commons.lang3.tuple.ImmutablePair;
+import org.apache.commons.lang3.tuple.Pair;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -11,7 +16,7 @@ import util.PropertyReader;
 
 
 public class DriverFactory {
-
+//TODO implement fluent waits
     protected static WebDriver driver;
     public static final String URL = new PropertyReader().readProperty("URL");
     public static Logger logger = Logger.getLogger(DriverFactory.class);
@@ -27,6 +32,23 @@ public class DriverFactory {
         public static final int XLONG = 5000;
         
     }
+    
+    public static class graduationStatus {
+    	/**
+    	 * This is a timeout enumerator class
+	     */
+        public static final int CONDITIONAL = 0;
+        public static final int ELIGIBLE = 1;
+        public static final int FINAL = 2;
+        public static final int INELIGIBLE = 3;
+        public static final int PENDING = 4;
+        public static final int PROCESSIN_ERROR = 5;
+        public static final int RE_PRESENTATION = 6;
+        public static final int SYSTEM_REMOVED = 7;
+        public static final int UNSUCCESFULL = 8;
+        
+    }
+    
     
     public static class menu {
     	/**

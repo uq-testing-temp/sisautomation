@@ -41,11 +41,19 @@ public class LoginPage extends DriverFactory {
 	}
 
 	
-	public static void login() {
-		
-		String username= new PropertyReader().readProperty("DEFAULT_USER");
-		String password= new PropertyReader().readProperty("DEFAULT_PASSWORD");
-		
+	public static void login(String securityGroup) {
+		// TODO: implement user groups
+		String username = null;
+		String password = null;
+		if (securityGroup == null) {
+			username= new PropertyReader().readProperty("DEFAULT_USER");
+			password= new PropertyReader().readProperty("DEFAULT_PASSWORD");
+		} else {
+			if (securityGroup.equals("UQCTO")) {
+				username = "UQTAHME4";
+				password = "IT$1Sa$S";
+			}
+		}
 		navigate();
 		enterUsername(username);
 		enterPassword(password);

@@ -1,8 +1,10 @@
 package pageclasses;
 
+
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -14,7 +16,7 @@ import stepDefinition.DriverFactory;
 
 public class GraduationPage extends DriverFactory {
 	
-    public static Logger logger = Logger.getLogger(LoginPage.class);
+    public static Logger logger = Logger.getLogger(GraduationPage.class);
 	
     @FindBy(id="fldra_UQ_MANAGE_GRADUATIONS")
     private static WebElement menuItem_manageGraduations;
@@ -33,6 +35,7 @@ public class GraduationPage extends DriverFactory {
     
 	public static void navigate() throws InterruptedException  {
 		//TODO implement navigation package - epic
+		driver.switchTo().defaultContent();
 		
 		Thread.sleep(timeout.MEDIUM);
 		//TODO implement elements		
@@ -70,7 +73,7 @@ public class GraduationPage extends DriverFactory {
 		switchFrame();
 		
 		//TODO implement dropDown index enumerator and mapping
-		WebElement gsDropDown = driver.findElement(By.id("UQ_GR_STUD_SRCH_UQ_GRAD_APP_STATUS"));
+		WebElement gsDropDown = driver.findElement(By.id("UQ_GR_STUD_COND_UQ_GRAD_APP_STATUS"));
 		gsDropDown.click();
 		Select drpdown = new Select(gsDropDown);
 		drpdown.selectByIndex(dropdownIndex);
@@ -90,9 +93,8 @@ public class GraduationPage extends DriverFactory {
 	public static void search() throws InterruptedException {
 
 		switchFrame();
-		
 		driver.findElement(By.id("#ICSearch")).click();
-		Thread.sleep(timeout.SHORT);
+		Thread.sleep(timeout.MEDIUM);
 	}
 
 
@@ -108,14 +110,38 @@ public class GraduationPage extends DriverFactory {
 
 
 	public static void selectGraduationStatus(String graduationStatustext, int dropdownIndex) throws InterruptedException {
-
-		Thread.sleep(timeout.TINY);
+		switchFrame();
+		
 		WebElement gsDropDown = driver.findElement(By.id("UQ_GR_STUD_COND_UQ_GRAD_APP_STATUS$0"));
 		gsDropDown.click();
-		Thread.sleep(timeout.TINY);
 		Select drpdown = new Select(gsDropDown);
 		drpdown.selectByIndex(dropdownIndex);
-		Thread.sleep(timeout.TINY);
+	}
+
+
+	public static void save() {
+		// TODO move to common page elements
+		driver.findElement(By.id("#ICSave")).click();
+		
+	}
+
+
+	public static void addRow() throws InterruptedException {
+		driver.findElement(By.name("UQ_DERIVED_GRD_UQ_ADD_PB$IMG")).click();
+		Thread.sleep(timeout.MEDIUM);
+	}
+
+
+	public static boolean alertmsgPresent() {
+
+		Boolean result = true;
+		try {
+			driver.findElement(By.id("alertmsg")).isDisplayed();
+			result = true;
+	        } catch (NoSuchElementException e) {
+	          result = false;
+	    }
+		return result;
 	}
 	
 }
