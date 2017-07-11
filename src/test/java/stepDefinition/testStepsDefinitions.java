@@ -158,10 +158,9 @@ public class testStepsDefinitions extends DriverFactory{
     LoginPage.login(securityGroup); 
 }
 
-@Given("^Graduation test data is ready for student \"([^\"]*)\" as \"([^\"]*)\"$")
-	public void test_data_is_ready_for_student(String id, String origin) throws Throwable {
+@Given("^Graduation test data is ready for student \"([^\"]*)\"$")
+	public void test_data_is_ready_for_student(String id) throws Throwable {
 //TODO: implement test data mapping
-		GraduationPage.navigate();
 	    //TODO: move event id into configuration
 		GraduationPage.setEventID("000001091");
 		//TODO: move student id into configuration
@@ -169,13 +168,14 @@ public class testStepsDefinitions extends DriverFactory{
 		GraduationPage.search();
 		GraduationPage.addRow();
 		//TODO: create enumerator for statuses - Done
-		if (id == "30009064") {
-			GraduationPage.selectGraduationStatus("Pending", graduationStatus.CONDITIONAL);
+		if (id.contains("33188876")) {
+			GraduationPage.selectGraduationStatus("conditional", graduationStatus.CONDITIONAL);
 		}
-		if (id == "33188876") {
+		if (id.contains("30048193")) {
 			GraduationPage.selectGraduationStatus("Pending", graduationStatus.PENDING);
 		}
 		GraduationPage.save();
+		GraduationPage.navigate();
 	}
 
 @When("^I update status to \"([^\"]*)\"$")
@@ -203,6 +203,9 @@ public class testStepsDefinitions extends DriverFactory{
 		if (status.contentEquals("final")) {
 			index = graduationStatus.FINAL;
 		}
+		if (status.contentEquals("conditional")) {
+				index = graduationStatus.CONDITIONAL;		
+		}
 		//TODO: Implement historic date injection. Test is not valid when using "add row"
 		GraduationPage.addRow(); 
 		GraduationPage.selectGraduationStatus(status, index);
@@ -211,12 +214,11 @@ public class testStepsDefinitions extends DriverFactory{
 	
 
 @Given("^I search student \"([^\"]*)\"$")
-public void i_search_student(String arg1) throws Throwable {
-	GraduationPage.navigate();
+public void i_search_student(String id) throws Throwable {
     //TODO: move event id into configuration
 	GraduationPage.setEventID("000001091");
 	//TODO: move student id into configuration
-	GraduationPage.enterEmplID("33188876");
+	GraduationPage.enterEmplID(id);
 	GraduationPage.search();
 }
 
@@ -325,7 +327,6 @@ public void update_was_success() throws Throwable {
 
 @Then("^Update was failure$")
 public void update_was_failure() throws Throwable {
-	
 	Assert.assertTrue(GraduationPage.alertmsgPresent());
 }
 
