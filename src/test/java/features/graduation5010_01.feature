@@ -4,7 +4,7 @@ Generate Identify Potential Graduands Process
 
 #test data
 #
-#Student 1: UGRD Student with graduation status of ‘Pending’. 33188876
+#Student 1: UGRD Student with graduation status of ‘Pending’.
 #Student 2: UGRD Student with graduation status of ‘Conditional’.
 #Student 3: UGRD Student with graduation status of ‘Conditional’.
 #Student 4: UGRD Student with graduation status of ‘Conditional’ and multiple current term enrollments.
@@ -18,37 +18,35 @@ Background:
 
 @smoke
 Scenario: Search a Final Undergraduate 
-	And I enter Empl ID as "30007846"		
+	Given I enter Empl ID as "30007846"		
 	And I select Academic Career as "Undergraduate"
 	And I select Graduation Status search parameter as "Final"
 	When I click Search
 	Then I should see Search Results
 	
-	
-@debug
+@debug	
 Scenario Outline:  Verify add and update graduation status to eligible, Unsuccessful, Final, Ineligible, System Removed, Re-presentation
 
-	Given Graduation test data is ready for student"<id> as <origin>"
-#		//	Student 1: UGRD Student with graduation status of ‘Pending’.
+	Given Graduation test data is ready for student "<id>"
 	And I search student "<id>"
 	When I update status to "<final>"
 	Then Update was <result>
 	  
 	  Examples:
 	  | student		|			id	|	origin			|	final			|	result	|
-	  | Student 1	| 	33188876	|	pending 		| 	eligible		| 	success |
-	  | Student 2	|	40294289	|	conditional		|	eligible		|	failure	|
-	  | Student 2 	|	40294289	|	conditional		|	unsuccessfull	|	success	|	
-	  | Student 3 	|   40294289	|	conditional		|	final			|	failure	|
-	  | Student 3 	|   40294289	|	conditional		|	ineligible		|	failure	|
-	  | Student 3 	|   40294289	|	conditional		|	system removed	|	failure	|
-	  | Student 3 	|   40294289	|	conditional		|	representation	|	failure	|
-	 
+	  | Student 1	| 	30048193	|	pending 		| 	eligible		| 	success |
+	  | Student 2	|	30048193	|	conditional		|	eligible		|	success	|
+	  | Student 2 	|	30048193	|	conditional		|	unsuccessfull	|	success	|	
+	  | Student 3 	|   30048193	|	conditional		|	final			|	success	|
+	  | Student 3 	|   30048193	|	conditional		|	ineligible		|	success	|
+	  | Student 3 	|   30048193	|	conditional		|	system removed	|	success	|
+	  | Student 3 	|   30048193	|	conditional		|	representation	|	success	|
+
 Scenario: Verify update graduation status to Conditional and multiple current term enrolments for a UGRD student
 
-	Given I search "Student 4"
+	Given I search student "30048193"
 	And I Add a new row 
-	And I update graduation status to ‘Conditional’
+	And I update status to "Conditional"
 	And I Flag half as mandatory, and the other half as discarded. 
 	When  I Save
     Then Graduation status and required enrolments are updated.
