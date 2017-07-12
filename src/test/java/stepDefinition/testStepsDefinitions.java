@@ -1,6 +1,7 @@
 package stepDefinition;
 
 import org.junit.Assert;
+import org.openqa.selenium.By;
 
 import cucumber.api.PendingException;
 import cucumber.api.Scenario;
@@ -18,9 +19,9 @@ import util.DebugLog;
 import util.PropertyReader;
 
 public class testStepsDefinitions extends DriverFactory{
-// TODO Implement dependency injection
-//common steps 
-@Before
+	// TODO Implement dependency injection
+	//common steps 
+	@Before
 	public void beforeScenario(Scenario scenario) {
 		new LoginPage(driver);
 		new HomePage(driver);
@@ -31,7 +32,7 @@ public class testStepsDefinitions extends DriverFactory{
 	}
 	
 @After
-    public void afterScenario(Scenario scenario) throws Throwable {
+	public void afterScenario(Scenario scenario) throws Throwable {
 	  
 		String scenarioname = scenario.getName();
 		String screenshot = new PropertyReader().readProperty("screenshot");
@@ -57,8 +58,8 @@ public class testStepsDefinitions extends DriverFactory{
 	}
 	
 	
-//login steps
-@Given("^I am logged in$")
+	//login steps
+	@Given("^I am logged in$")
 	public void i_am_logged_in() throws Throwable {
 		
 		LoginPage.login(null);
@@ -84,7 +85,7 @@ public class testStepsDefinitions extends DriverFactory{
 	public void click_signin() throws Throwable {
 		LoginPage.clickSingin();
 	}
-
+	
 	@Then("^I should see welcome screen$")
 	public void i_should_see_welcome_screen() throws Throwable {
 		Assert.assertTrue(HomePage.isLoaded());
@@ -103,70 +104,70 @@ public class testStepsDefinitions extends DriverFactory{
 		
 	}
 	
-//graduation steps
-@Given("^I select Academic Career as \"([^\"]*)\"$")
-
+	//graduation steps
+	@Given("^I select Academic Career as \"([^\"]*)\"$")
+	
 	public void academicCareer(String academicCareertext) throws Throwable {
-
-		GraduationPage.selectAcademicCareer(academicCareertext, 6);
-	}
-
-@Given("^I select Graduation Status search parameter as \"([^\"]*)\"$")
+	
+			GraduationPage.selectAcademicCareer(academicCareertext, 6);
+		}
+	
+	@Given("^I select Graduation Status search parameter as \"([^\"]*)\"$")
 	public void graduationStatusParameter(String graduationStatustext) throws Throwable {
-		
-		GraduationPage.selectGraduationStatusSearchParameter(graduationStatustext, 3);
-		
-	}
-
-@Given("^I select Graduation Status as \"([^\"]*)\"$")
+			
+			GraduationPage.selectGraduationStatusSearchParameter(graduationStatustext, 3);
+			
+		}
+	
+	@Given("^I select Graduation Status as \"([^\"]*)\"$")
 	public void graduationStatus(String graduationStatustext) throws Throwable {
-
-		GraduationPage.selectGraduationStatus(graduationStatustext, 4);
 	
-	}
-
-@Given("^I navigate to Manage Graduations$")
+			GraduationPage.selectGraduationStatus(graduationStatustext, 4);
+		
+		}
+	
+	@Given("^I navigate to Manage Graduations$")
 	public void i_navigate_to_Manage_Graduations() throws Throwable {
-	
-	GraduationPage.navigate();
-
-}
-
-@When("^I click Search$")
-	public void i_click_search() throws Throwable {
-
-	GraduationPage.search();
-	
-}
-
-@Then("^I should see Search Results$")
-	public void i_should_see_search_results() throws Throwable {
-	
-	GraduationPage.seeSearchResults();
+		
+		GraduationPage.navigate();
 	
 	}
-
-@Given("^I enter Empl ID as \"([^\"]*)\"$")
+	
+	@When("^I click Search$")
+	public void i_click_search() throws Throwable {
+	
+		GraduationPage.search();
+		
+	}
+	
+	@Then("^I should see Search Results$")
+	public void i_should_see_search_results() throws Throwable {
+		
+		GraduationPage.seeSearchResults();
+		
+		}
+	
+	@Given("^I enter Empl ID as \"([^\"]*)\"$")
 	public void i_enter_Empl_ID_as(String id) throws Throwable {
-
-		GraduationPage.enterEmplID(id);
-}
-
-@Given("^I set Event ID as \"([^\"]*)\"$")
+	
+			GraduationPage.enterEmplID(id);
+	}
+	
+	@Given("^I set Event ID as \"([^\"]*)\"$")
 	public void i_set_event_id_as(String id) throws Throwable {
-
-		GraduationPage.setEventID(id);
-}
-
-@Given("^I am logged in as \"([^\"]*)\"$")
+	
+			GraduationPage.setEventID(id);
+	}
+	
+	@Given("^I am logged in as \"([^\"]*)\"$")
 	public void i_am_logged_in_as(String securityGroup) throws Throwable {
-    //TODO
-    LoginPage.login(securityGroup); 
-}
-
-@Given("^Graduation test data is ready for student \"([^\"]*)\"$")
+	//TODO
+	    LoginPage.login(securityGroup); 
+	}
+	
+	@Given("^Graduation test data is ready for student \"([^\"]*)\"$")
 	public void test_data_is_ready_for_student(String id) throws Throwable {
-//TODO: implement test data mapping
+	//TODO: implement test data mapping
 	    //TODO: move event id into configuration
 		GraduationPage.setEventID("000001091");
 		//TODO: move student id into configuration
@@ -179,158 +180,132 @@ public class testStepsDefinitions extends DriverFactory{
 		}
 		if (id.contains("30048193")) {
 			GraduationPage.selectGraduationStatus("Pending", graduationStatus.PENDING);
+			}
+			GraduationPage.save();
+			GraduationPage.navigate();
 		}
-		GraduationPage.save();
-		GraduationPage.navigate();
-	}
-
-@When("^I update status to \"([^\"]*)\"$")
+	
+	@When("^I update status to \"([^\"]*)\"$")
 	public void i_update_status_to(String status) throws Throwable {
-	    //TODO implement all statuses
-		int index = 0;
-		if (status.contentEquals("eligible")) {
-			index = graduationStatus.ELIGIBLE;
-		}
-		if (status.contentEquals("unsuccessfull")) {
-			index = graduationStatus.UNSUCCESFULL;
-		}
-		if (status.contentEquals("system removed")) {
-			index = graduationStatus.SYSTEM_REMOVED;
-		}
-		if (status.contentEquals("representation")) {
-			index = graduationStatus.RE_PRESENTATION;
-		}
-		if (status.contentEquals("processing error")) {
-			index = graduationStatus.PROCESSIN_ERROR;
-		}
-		if (status.contentEquals("ineligible")) {
-			index = graduationStatus.INELIGIBLE;
-		}
-		if (status.contentEquals("final")) {
-			index = graduationStatus.FINAL;
-		}
-		if (status.contentEquals("conditional")) {
-				index = graduationStatus.CONDITIONAL;		
-		}
-		//TODO: Implement historic date injection. Test is not valid when using "add row"
-		GraduationPage.addRow(); 
-		GraduationPage.selectGraduationStatus(status, index);
-		GraduationPage.save();
+    //TODO implement all statuses
+	int index = 0;
+	if (status.contentEquals("eligible")) {
+		index = graduationStatus.ELIGIBLE;
+	}
+	if (status.contentEquals("unsuccessfull")) {
+		index = graduationStatus.UNSUCCESFULL;
+	}
+	if (status.contentEquals("system removed")) {
+		index = graduationStatus.SYSTEM_REMOVED;
+	}
+	if (status.contentEquals("representation")) {
+		index = graduationStatus.RE_PRESENTATION;
+	}
+	if (status.contentEquals("processing error")) {
+		index = graduationStatus.PROCESSIN_ERROR;
+	}
+	if (status.contentEquals("ineligible")) {
+		index = graduationStatus.INELIGIBLE;
+	}
+	if (status.contentEquals("final")) {
+		index = graduationStatus.FINAL;
+	}
+	if (status.contentEquals("conditional")) {
+			index = graduationStatus.CONDITIONAL;		
+	}
+	//TODO: Implement historic date injection. Test is not valid when using "add row"
+	GraduationPage.addRow(); 
+	GraduationPage.selectGraduationStatus(status, index);
+	GraduationPage.save();
+}
+
+	@Given("^I search student \"([^\"]*)\"$")
+	public void i_search_student(String id) throws Throwable {
+	    //TODO: move event id into configuration
+		GraduationPage.setEventID("000001091");
+		//TODO: move student id into configuration
+		GraduationPage.enterEmplID(id);
+		GraduationPage.search();
 	}
 	
-
-@Given("^I search student \"([^\"]*)\"$")
-public void i_search_student(String id) throws Throwable {
-    //TODO: move event id into configuration
-	GraduationPage.setEventID("000001091");
-	//TODO: move student id into configuration
-	GraduationPage.enterEmplID(id);
-	GraduationPage.search();
-}
-
-@Given("^I Add a new row$")
-public void i_Add_a_new_row() throws Throwable {
-    
-	GraduationPage.addRow();
-}
-
-@Given("^I update graduation status to æConditionalÆ$")
-public void i_update_graduation_status_to_Conditional() throws Throwable {
-    //TODO
-    throw new PendingException();
-}
-
-@Given("^I Flag half as mandatory, and the other half as discarded\\.$")
-public void i_Flag_half_as_mandatory_and_the_other_half_as_discarded() throws Throwable {
-    //TODO
-    throw new PendingException();
-}
-
-@Then("^Graduation status and required enrolments are updated\\.$")
-public void graduation_status_and_required_enrolments_are_updated() throws Throwable {
-    
-}
-
-@When("^I Flag a course as mandatory$")
-public void i_Flag_a_course_as_mandatory() throws Throwable {
-    //TODO
-    throw new PendingException();
-}
-
-@Then("^I unable to flage the same course as conditional$")
-public void i_unable_to_flage_the_same_course_as_conditional() throws Throwable {
-	GraduationPage.markMandatory("0");
-	GraduationPage.markMandatory("1");
-}
-
-@When("^Update the Milestone field$")
-public void update_the_Milestone_field() throws Throwable {
-    //TODO
-    throw new PendingException();
-}
-
-@Then("^The graduation status is updated to æConditionalÆ with a required milestone\\.$")
-public void the_graduation_status_is_updated_to_Conditional_with_a_required_milestone() throws Throwable {
-    //TODO
-    throw new PendingException();
-}
-
-@Given("^I Click on Ceremony Management tab$")
-public void i_Click_on_Ceremony_Management_tab() throws Throwable {
-    //TODO
-    throw new PendingException();
-}
-
-@Given("^I Enter <requirements> as $")
-public void i_Enter_requirements_as() throws Throwable {
-    //TODO
-    throw new PendingException();
-}
-
-
-@Then("^Re-presentation event is saved$")
-public void re_presentation_event_is_saved() throws Throwable {
-    //TODO
-    throw new PendingException();
-}
-
-@Given("^I Tick re-presentation field$")
-public void i_Tick_re_presentation_field() throws Throwable {
-    //TODO
-    throw new PendingException();
-}
-
-@Then("^Error is displayed advising re-presentation ID must be entered$")
-public void error_is_displayed_advising_re_presentation_ID_must_be_entered() throws Throwable {
-    //TODO
-    throw new PendingException();
-}
-
-@When("^I update their hons class$")
-public void i_update_their_hons_class() throws Throwable {
-    //TODO
-    throw new PendingException();
-}
-
-@Then("^I see error message$")
-public void i_see_error_message() throws Throwable {
-    //TODO
-    throw new PendingException();
-}
-
-@Then("^Update was success$")
-public void update_was_success() throws Throwable {
+	@Given("^I Add a new row$")
+	public void i_Add_a_new_row() throws Throwable {
+	    
+		GraduationPage.addRow();
+	}
 	
-	Assert.assertFalse(GraduationPage.alertmsgPresent());
-}
-
-@Then("^Update was failure$")
-public void update_was_failure() throws Throwable {
+	@Given("^I Flag a course as mandatory")
+	public void i_Flag_a_course_as_mandatory() throws Throwable {
+		GraduationPage.markMandatory("0");
+		GraduationPage.markMandatory("1");
+	}
+	
+	@Then("^Graduation status and required enrolments are updated\\.$")
+	public void graduation_status_and_required_enrolments_are_updated() throws Throwable {
+	    
+	}
+	
+	@Then("^Update was success$")
+	public void update_was_success() throws Throwable {
+		
+		Assert.assertFalse(GraduationPage.alertmsgPresent());
+	}
+	
+	@Then("^Update was failure$")
+	public void update_was_failure() throws Throwable {
 	Assert.assertTrue(GraduationPage.alertmsgPresent());
 }
 
+	@Then("^I unable to flag the same course as conditional$")
+	public void i_unable_to_flag_the_same_course_as_conditional() throws Throwable {
+		
+		if (!GraduationPage.checkMandatory("0")) {
+			GraduationPage.markMandatory("0");
+		}
+		
+		Assert.assertTrue(GraduationPage.checkDiscarded("0"));
+	}
+	
+	@When("^Update the Milestone field to \"([^\"]*)\"$$")
+	public void update_the_Milestone_field(String milestone) throws Throwable {
+		
+		GraduationPage.setMilestone(milestone);
 
-//search steps
+	}
+    
+	@Given("^I Click on Ceremony Management tab$")                            
+	public void i_Click_on_Ceremony_Management_tab() throws Throwable {       
+		
+		GraduationPage.navigateToCeremonyManagement();
+		
+	}                                                                         
+	
+	@Given("^I Click on Student Degrees tab$")
+	public void i_Click_on_student_degrees_tab() throws Throwable {       
+		
+		GraduationPage.navigateToStudentDegrees();
+		
+	}   
+	
+	@Given("^I Enter ceremony requirements$")                            
+	public void i_enter_ceremony_requirements() throws Throwable {       
+		
+		GraduationPage.setCeremony("1");
+		GraduationPage.setAttendance(1);
+		GraduationPage.setResidentialCollege("10000120");
+		GraduationPage.setOther("spam spam");
+		GraduationPage.setAddendum();
+		GraduationPage.setValedictoiran();
+		GraduationPage.setMedallist();
+		GraduationPage.setAcademicProcession();
+	}    
+	
+	@Then("^Honours Class is not available$")
+	public void honours_class_is_not_available() throws Throwable {
+	Assert.assertFalse(GraduationPage.honourClassAvaliable());
+}
+
+	//search steps
 	@Given("^I navigate to search match$")
 	public void search_match() throws Throwable {
 		
@@ -381,7 +356,7 @@ public void update_was_failure() throws Throwable {
 	
 	@Then("^I should see my si-net homepage$")
 	public void i_should_see_my_si_net_homepage() throws Throwable {
-
+	
 		Assert.assertTrue(LoginPage.isLoggedIn());
 	}
 	
@@ -391,16 +366,16 @@ public void update_was_failure() throws Throwable {
 	Assert.assertTrue(LoginPage.isLoggedOut());
 	}
 
-// menu journey steps
+	// menu journey steps
 	
-@Given("^I navigate to \"([^\"]*)\"$")
+	@Given("^I navigate to \"([^\"]*)\"$")
 	public void i_navigate_to(String param) throws Throwable {
 		
 		String id = "fldra_" + param;
-		HomePage.navigate(id);
-	}
-
-@Then("^I should see \"([^\"]*)\"$")
+			HomePage.navigate(id);
+		}
+	
+	@Then("^I should see \"([^\"]*)\"$")
 	public boolean i_should_see(String param) throws Throwable {
 		
 		return true;
