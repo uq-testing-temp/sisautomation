@@ -16,6 +16,10 @@ public class HomePage extends DriverFactory{
 	
 	@FindBy(className="PSSRCHACTION")
 	private static WebElement error;
+	
+	@FindBy(id="uq_header")
+	private static WebElement uq_header;
+	
 
 	public HomePage(WebDriver driver) {
         PageFactory.initElements(driver, this);
@@ -32,6 +36,10 @@ public class HomePage extends DriverFactory{
 	public static void navigate(String id) throws InterruptedException {
 		Thread.sleep(timeout.LONG);
 		driver.findElement(By.id(id)).click();
+	}
+
+	public static boolean isLoaded() {
+		return uq_header.isDisplayed();
 	}
 
 }

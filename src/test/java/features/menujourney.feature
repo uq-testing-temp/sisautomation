@@ -1,5 +1,4 @@
 @menujourney
-@smoke
 	Feature: Menu 
 	As a user
 	I want to be able to access every page

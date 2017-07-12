@@ -85,6 +85,12 @@ public class testStepsDefinitions extends DriverFactory{
 		LoginPage.clickSingin();
 	}
 
+	@Then("^I should see welcome screen$")
+	public void i_should_see_welcome_screen() throws Throwable {
+		Assert.assertTrue(HomePage.isLoaded());
+		
+	}
+	
 	@Then("^I should beLoggedIn$")
 	public void i_should_be_logged_in() throws Throwable {
 		Assert.assertTrue(HomePage.loggedIn());
@@ -224,8 +230,8 @@ public void i_search_student(String id) throws Throwable {
 
 @Given("^I Add a new row$")
 public void i_Add_a_new_row() throws Throwable {
-    //TODO
-    throw new PendingException();
+    
+	GraduationPage.addRow();
 }
 
 @Given("^I update graduation status to æConditionalÆ$")
@@ -240,16 +246,9 @@ public void i_Flag_half_as_mandatory_and_the_other_half_as_discarded() throws Th
     throw new PendingException();
 }
 
-@When("^I Save$")
-public void i_Save() throws Throwable {
-    //TODO
-    throw new PendingException();
-}
-
 @Then("^Graduation status and required enrolments are updated\\.$")
 public void graduation_status_and_required_enrolments_are_updated() throws Throwable {
-    //TODO
-    throw new PendingException();
+    
 }
 
 @When("^I Flag a course as mandatory$")
@@ -260,8 +259,8 @@ public void i_Flag_a_course_as_mandatory() throws Throwable {
 
 @Then("^I unable to flage the same course as conditional$")
 public void i_unable_to_flage_the_same_course_as_conditional() throws Throwable {
-    //TODO
-    throw new PendingException();
+	GraduationPage.markMandatory("0");
+	GraduationPage.markMandatory("1");
 }
 
 @When("^Update the Milestone field$")
