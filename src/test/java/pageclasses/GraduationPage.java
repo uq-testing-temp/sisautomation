@@ -46,15 +46,22 @@ public class GraduationPage extends DriverFactory {
 		
 		driver.findElements(By.className("EOPP_SCSECTIONCONTENTLINK")).get(0).click();
 		Thread.sleep(timeout.TINY);		
-		
-
-		
+			
 	}
 
 	public static void enterEmplID(String id) {
 		
 		switchFrame();
 		driver.findElement(By.id("UQ_GR_STUD_SRCH_EMPLID")).sendKeys(id);
+		driver.findElement(By.id("UQ_GR_STUD_SRCH_EMPLID")).sendKeys(id);
+		
+	}
+	
+	public static void enterEmplIDtestamur(String id) {
+		
+		switchFrame();
+		driver.findElement(By.id("UQ_TESTAMR_SRCH_EMPLID")).clear();
+		driver.findElement(By.id("UQ_TESTAMR_SRCH_EMPLID")).sendKeys(id);
 		
 	}
 
@@ -243,6 +250,12 @@ public class GraduationPage extends DriverFactory {
 	
 	public static boolean honourClassAvaliable() {
 		return driver.findElement(By.id("UQ_GR_STUD_DEGR_HONORS_CODE$0")).isEnabled();
+	}
+
+	public static void delete() throws Exception {
+		switchFrame();
+		driver.findElement(By.id("UQ_DRV_TESTAMUR_UQ_DELETE_PB")).click();
+		Thread.sleep(timeout.LONG);		
 	}
 
 	

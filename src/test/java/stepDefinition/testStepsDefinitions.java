@@ -3,6 +3,7 @@ package stepDefinition;
 import java.util.Random;
 
 import org.junit.Assert;
+import org.openqa.selenium.By;
 
 import cucumber.api.PendingException;
 import cucumber.api.Scenario;
@@ -16,6 +17,7 @@ import pageclasses.GraduationPage;
 import pageclasses.HomePage;
 import pageclasses.LoginPage;
 import pageclasses.SearchMatchPage;
+import stepDefinition.DriverFactory.timeout;
 import util.CustomFunctions;
 import util.DebugLog;
 import util.PropertyReader;
@@ -156,12 +158,20 @@ public class testStepsDefinitions extends DriverFactory{
 		
 	}
 	
+	@When("^I click delete$")
+	public void i_click_delete() throws Throwable {
+	
+		GraduationPage.delete();
+		
+	}
+	
 	@When("^I click add$")
 	public void i_click_add() throws Throwable {
 	
 		GraduationPage.search();
 		
 	}
+
 	
 	@Then("^I should see Search Results$")
 	public void i_should_see_search_results() throws Throwable {
@@ -176,6 +186,12 @@ public class testStepsDefinitions extends DriverFactory{
 			GraduationPage.enterEmplID(id);
 	}
 	
+	@Given("^I enter Empl ID testamur as \"([^\"]*)\"$")
+	public void i_enter_Empl_ID_testamur_as(String id) throws Throwable {
+	
+		GraduationPage.enterEmplIDtestamur(id);
+	}
+
 	@Given("^I set Event ID as \"([^\"]*)\"$")
 	public void i_set_event_id_as(String id) throws Throwable {
 	
@@ -346,6 +362,12 @@ public class testStepsDefinitions extends DriverFactory{
     	CampusCommunityPage.addNewEvent();
     }
     
+    @Given("^I navigate to add new meeting$")
+    public void i_navigate_to_add_new_meeting() throws Throwable {
+    
+    	CampusCommunityPage.addNewMeeting();
+    }
+    
     @Given("^I enter Event ID$")
     public void i_enter_event_id() throws Throwable {
     	Random rand = new Random();
@@ -374,6 +396,22 @@ public class testStepsDefinitions extends DriverFactory{
     @Given("^I navigate to Event Management Meetings$")
     public void i_navigate_to_event_management_meetings() throws Throwable {
         CampusCommunityPage.navigateToEventManagementMeetings();
+    }
+
+    @Given("^I navigate to Graduations Management> Testamur Details$")
+    public void i_navigate_to_Graduations_Management_Testamur_Details() throws Throwable {
+    		driver.switchTo().defaultContent();
+    		
+    		Thread.sleep(timeout.LONG);
+    		//TODO implement elements		
+    		driver.findElement(By.id("fldra_UQ_MANAGE_GRADUATIONS")).click();
+//    		menuItem_manageGraduations.click(); 
+    		driver.findElement(By.id("fldra_UQ_GRADUATIONS_MANAGEMENT")).click();
+//    		menuItem_graduationsManagement.click();
+    		Thread.sleep(timeout.TINY);	
+    		driver.findElement(By.id("crefli_UQ_TESTAMUR_DTL_GBL")).click();
+    		Thread.sleep(timeout.TINY);		
+    			
     }
     
 	/**

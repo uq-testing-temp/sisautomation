@@ -57,6 +57,12 @@ public class CampusCommunityPage extends DriverFactory {
 		driver.findElement(By.id("ICTAB_1")).click();
 		Thread.sleep(timeout.LONG);		
 	}
+	
+	public static void addNewMeeting() throws Exception {
+		switchFrame();
+		driver.findElement(By.id("ICTAB_1")).click();
+		Thread.sleep(timeout.LONG);		
+	}
 
 	public static void enterEventID(String eventID) throws InterruptedException {
 		switchFrame();
@@ -93,9 +99,9 @@ public class CampusCommunityPage extends DriverFactory {
 		driver.findElement(By.id("fldra_HCCC_PLAN_EVENTS")).click();
 		Thread.sleep(timeout.SHORT);
 		driver.findElement(By.id("fldra_HCCC_EVENT_MANAGEMENT")).click();
-		Thread.sleep(timeout.SHORT);	
+		Thread.sleep(timeout.MEDIUM);	
+		switchFrame();
 		driver.findElements(By.className("EOPP_SCSECTIONCONTENTLINK")).get(1).click();
-		Thread.sleep(timeout.MEDIUM);			
 	}
 	
 }

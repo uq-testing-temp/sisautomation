@@ -74,7 +74,6 @@ Scenario: Verify Ceremony management - Enter Requirements
 	Then Update was success
 
 #TODO: Was unable to setup consistent re-presentation event dependencies
-#@debug
 #Scenario: Verify Ceremony management. Attempt to Save without entering re-presentation event.
 #	Given I search "Student 6" 
 #	And I Click on Ceremony Management tab
