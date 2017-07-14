@@ -60,7 +60,7 @@ Scenario: Verify update graduation status to Conditional for a UGRD student with
 	When Update the Milestone field to "BLUE CARD"
 	When I click save
 	Then Update was success
-@debug
+
 Scenario: Verify Ceremony management - Enter Requirements
 	Given I enter Empl ID as "42594527"
 	And I set Event ID as "000002556"

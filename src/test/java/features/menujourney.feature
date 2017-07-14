@@ -3,13 +3,14 @@
 	As a user
 	I want to be able to access every page
 	
-	Background:
-		Given I am logged in
+#	Background:
+#		Given I am logged in
 			
 	Scenario Outline: Menu journey smoke
 	
 		Given I navigate to "<page>"
 		Then  I should see <expectedElement>
+		And No errors
 		
 		Examples:
 | page	 				| expectedElement |

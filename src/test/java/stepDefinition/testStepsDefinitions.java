@@ -1,7 +1,8 @@
 package stepDefinition;
 
+import java.util.Random;
+
 import org.junit.Assert;
-import org.openqa.selenium.By;
 
 import cucumber.api.PendingException;
 import cucumber.api.Scenario;
@@ -10,6 +11,7 @@ import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import pageclasses.CampusCommunityPage;
 import pageclasses.GraduationPage;
 import pageclasses.HomePage;
 import pageclasses.LoginPage;
@@ -18,9 +20,16 @@ import util.CustomFunctions;
 import util.DebugLog;
 import util.PropertyReader;
 
+/**
+ * @author uqdalter
+ *
+ */
 public class testStepsDefinitions extends DriverFactory{
 	// TODO Implement dependency injection
 	//common steps 
+	/**
+	 * @param scenario
+	 */
 	@Before
 	public void beforeScenario(Scenario scenario) {
 		new LoginPage(driver);
@@ -58,7 +67,9 @@ public class testStepsDefinitions extends DriverFactory{
 	}
 	
 	
-	//login steps
+	/**
+	 * login steps------------------------------------------------------------------------
+	 */
 	@Given("^I am logged in$")
 	public void i_am_logged_in() throws Throwable {
 		
@@ -104,7 +115,9 @@ public class testStepsDefinitions extends DriverFactory{
 		
 	}
 	
-	//graduation steps
+	/**
+	 * graduation steps---------------------------------------------------------------------
+	 */
 	@Given("^I select Academic Career as \"([^\"]*)\"$")
 	
 	public void academicCareer(String academicCareertext) throws Throwable {
@@ -135,6 +148,13 @@ public class testStepsDefinitions extends DriverFactory{
 	
 	@When("^I click Search$")
 	public void i_click_search() throws Throwable {
+	
+		GraduationPage.search();
+		
+	}
+	
+	@When("^I click add$")
+	public void i_click_add() throws Throwable {
 	
 		GraduationPage.search();
 		
@@ -304,8 +324,58 @@ public class testStepsDefinitions extends DriverFactory{
 	public void honours_class_is_not_available() throws Throwable {
 	Assert.assertFalse(GraduationPage.honourClassAvaliable());
 }
+	
+    @Given("^I navigate to Identify potential graduates$")
+    public void i_navigate_to_identify_potential_graduates() throws Throwable {
+//    	i_navigate_to("HCCC_PLAN_EVENTS");
+//    	i_navigate_to("HCCC_EVENT_MANAGEMENT");
+//    	
+    }
+	
+    @Given("^I navigate to Event Management Events$")
+    public void i_navigate_to_event_management_events() throws Throwable {
+        CampusCommunityPage.navigateToEventManagement();
+    }
 
-	//search steps
+    @Given("^I navigate to add new event$")
+    public void i_navigate_to_add_new_event() throws Throwable {
+    
+    	CampusCommunityPage.addNewEvent();
+    }
+    
+    @Given("^I enter Event ID$")
+    public void i_enter_event_id() throws Throwable {
+    	Random rand = new Random();
+
+    	int  eventID = rand.nextInt(999999) + 1;
+    	
+    	CampusCommunityPage.enterEventID(String.valueOf(eventID));
+    }
+    
+    @Given("^I enter Event Desciption as \"([^\"]*)\"$")
+    public void i_enter_event_idand_i_enter_event_desciption_as_something(String description) throws Throwable {
+    	CampusCommunityPage.enterEventDesc(description);
+    }
+
+    @Given("^I enter Event Type as \"([^\"]*)\"$")
+    public void i_enter_event_type_as_something(String type) throws Throwable {
+    	CampusCommunityPage.enterEventType(type);
+    }
+    
+    @Given("^I enter Academic Institution as \"([^\"]*)\"$")
+    public void i_enter_academic_institution_as(String institution) {
+    	
+    	CampusCommunityPage.enterAcademicInstitution(institution);
+    }
+    
+    @Given("^I navigate to Event Management Meetings$")
+    public void i_navigate_to_event_management_meetings() throws Throwable {
+        CampusCommunityPage.navigateToEventManagementMeetings();
+    }
+    
+	/**
+	 * Search steps ------------------------------------------------------------------------
+	 */
 	@Given("^I navigate to search match$")
 	public void search_match() throws Throwable {
 		
@@ -366,8 +436,10 @@ public class testStepsDefinitions extends DriverFactory{
 	Assert.assertTrue(LoginPage.isLoggedOut());
 	}
 
-	// menu journey steps
 	
+	/**
+	 * menu journey steps ------------------------------------------------------------------------
+	 */
 	@Given("^I navigate to \"([^\"]*)\"$")
 	public void i_navigate_to(String param) throws Throwable {
 		
