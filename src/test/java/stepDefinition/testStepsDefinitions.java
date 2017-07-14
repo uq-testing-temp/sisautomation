@@ -44,7 +44,8 @@ public class testStepsDefinitions extends DriverFactory{
 	public void afterScenario(Scenario scenario) throws Throwable {
 	  
 		String scenarioname = scenario.getName();
-		String screenshot = new PropertyReader().readProperty("screenshot");
+		String screenshotOnPass = new PropertyReader().readProperty("screenshotOnPass");
+		String screenshotOnFail = new PropertyReader().readProperty("screenshotOnFail");
 		
 	  	if (!scenario.isFailed()){
 	  		
@@ -55,10 +56,12 @@ public class testStepsDefinitions extends DriverFactory{
 			
 			DebugLog.LogInfo.warn(scenarioname + ":  test failed");
 			scenarioname = "failed_" + scenarioname;
-			
+			if (screenshotOnFail.equalsIgnoreCase("true")){
+				CustomFunctions.PrintScreenShot(scenarioname);
+			}
 		}
 	  	
-		if (screenshot.equalsIgnoreCase("true")){
+		if (screenshotOnPass.equalsIgnoreCase("true")){
 			CustomFunctions.PrintScreenShot(scenarioname);
 		}
 		

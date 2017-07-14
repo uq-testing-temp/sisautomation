@@ -35,6 +35,7 @@ public class HomePage extends DriverFactory{
 
 	public static void navigate(String id) throws InterruptedException {
 		Thread.sleep(timeout.LONG);
+		driver.switchTo().defaultContent();
 		driver.findElement(By.id(id)).click();
 	}
 

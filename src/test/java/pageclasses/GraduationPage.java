@@ -91,6 +91,13 @@ public class GraduationPage extends DriverFactory {
 		driver.findElement(By.id("#ICSearch")).click();
 		Thread.sleep(timeout.XLONG);
 	}
+	
+	public static void add() throws InterruptedException {
+
+		switchFrame();
+		driver.findElement(By.id("#ICSearch")).click();
+		Thread.sleep(timeout.MEDIUM);
+	}
 
 	public static void seeSearchResults() throws InterruptedException {
 
