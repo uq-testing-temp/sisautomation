@@ -12,3 +12,5 @@ Scenario: 1 Warning message will appear when delete degree from testamur details
 	And I click Search
 	When I click delete
 	Then Update was failure
+
+	
