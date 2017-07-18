@@ -1,10 +1,5 @@
 package stepDefinition;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import org.apache.commons.lang3.tuple.ImmutablePair;
-import org.apache.commons.lang3.tuple.Pair;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -14,6 +9,24 @@ import io.github.bonigarcia.wdm.ChromeDriverManager;
 import util.DebugLog;
 import util.PropertyReader;
 
+import com.google.common.base.Function;
+import com.thoughtworks.selenium.SeleneseTestBase;
+import junit.framework.Assert;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.openqa.selenium.*;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
+
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.NoSuchElementException;
+import java.util.Properties;
+import java.util.concurrent.TimeUnit;
 
 public class DriverFactory {
 //TODO implement fluent waits
@@ -48,8 +61,7 @@ public class DriverFactory {
         public static final int UNSUCCESFULL = 8;
         
     }
-    
-    
+        
     public static class menu {
     	/**
     	 * This is menu elements "id" locators enumerator class
@@ -103,7 +115,6 @@ public class DriverFactory {
         
     }
 
-
     public  DriverFactory() {
         initialize();
     }
@@ -126,7 +137,13 @@ public class DriverFactory {
     	
     	
     	String browser = new PropertyReader().readProperty("browser");
+    	
+    	String webdriver = new PropertyReader().readProperty("webdriver");
+    	
         if (browser.equals("chrome")) {
+        	
+        	DesiredCapabilities capability = DesiredCapabilities.chrome();
+        	
         	ChromeDriverManager.getInstance().setup();
         	ChromeOptions options = new ChromeOptions();
         	options.addArguments("test-type");
@@ -137,12 +154,36 @@ public class DriverFactory {
         	options.addArguments("--disable-default-apps");
         	options.addArguments("test-type=browser");
         	options.addArguments("disable-infobars");
-        	driver = new ChromeDriver(options);
+        	
+        	if (webdriver.equalsIgnoreCase("localhost")) {
+        		
+        		driver = new ChromeDriver(options);
+        		
+        	} else {
+        		
+                try {
+        		
+                	driver = new RemoteWebDriver(new URL("http://" + webdriver + "/wd/hub"), capability);
+                	
+        		} catch (MalformedURLException e) {
+        			// TODO Auto-generated catch block
+        			e.printStackTrace();
+        		}
+        	}
         	
             
         } else {
             System.out.println("I cannot read browser type");
         }
+    	
+
+
+
+//        driver = new FirefoxDriver();  //for local check
+
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
+        driver.manage().window().setSize(new Dimension(1920, 1080));
     }
 
     public WebDriver getDriver() {
