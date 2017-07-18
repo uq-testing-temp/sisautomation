@@ -105,9 +105,11 @@ public class SearchMatchPage extends DriverFactory {
 		
 	}
 
-	public static void save() {
+	public static void save() throws Exception {
 
 		driver.findElement(By.id("#ICSave")).click();
+		Thread.sleep(timeout.MEDIUM);
+		
 		
 	}
 

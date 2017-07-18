@@ -24,14 +24,34 @@ It manages all drivers:
 
 ## Running tests
 
+### Windows
 Help:
 > mvn test -Dcucumber.options="--help"
 
 Running with a tag
 > mvn test -Dcucumber.options="--tags @login"
 
+or:
+
+> its-test @tag
+
 More
 https://cucumber.io/docs/reference/jvm#java
+
+## Running with Docker
+
+Launch docker selenium container:
+
+> docker run -d -p 4444:4444 --name selenium selenium/standalone-chrome:3.4.0-einsteinium
+
+update properties file:
+#webdriver=localhost
+webdriver=192.168.99.100:4444
+
+where 192.168.99.100:4444 is ip and port.
+KNow the ip run:
+docker-machine env default
+
 
 ## Logging
 
@@ -64,6 +84,8 @@ To configure, update 'log4j.properties' file:
 Run with maven:
 
 > mvn test -Dcucumber.options="--tags @login" -Dlog4j.configuration=file:log4j.properties
+
+
 
 # TODO
 - [] Implement [Dependency injection](http://www.thinkcode.se/blog/2017/04/01/sharing-state-between-steps-in-cucumberjvm-using-picocontainer)

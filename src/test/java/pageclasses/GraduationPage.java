@@ -7,11 +7,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
 import stepDefinition.DriverFactory;
+import stepDefinition.DriverFactory.timeout;
 
 
 public class GraduationPage extends DriverFactory {
@@ -52,7 +52,7 @@ public class GraduationPage extends DriverFactory {
 	public static void enterEmplID(String id) {
 		
 		switchFrame();
-		driver.findElement(By.id("UQ_GR_STUD_SRCH_EMPLID")).sendKeys(id);
+		driver.findElement(By.id("UQ_GR_STUD_SRCH_EMPLID")).clear();
 		driver.findElement(By.id("UQ_GR_STUD_SRCH_EMPLID")).sendKeys(id);
 		
 	}
@@ -86,14 +86,23 @@ public class GraduationPage extends DriverFactory {
 	public static void selectAcademicCareer(String academicCareertext, int index) {
 		switchFrame();
 		
-		WebElement acDropDown = driver.findElement(By.id("UQ_GR_STUD_SRCH_ACAD_CAREER"));
+		WebElement acDropDown = driver.findElement(By.id("UQ_GR_STUD_SRCH_ACAD_CAREER")); 
+		acDropDown.click();
+		Select drpdown = new Select(acDropDown);
+		drpdown.selectByIndex(index);
+	}
+	
+	public static void selectAcademicCareerGAT(String academicCareertext, int index) {
+		switchFrame();
+		
+		WebElement acDropDown = driver.findElement(By.id("UQ_RC_GAT_HDR_ACAD_CAREER")); 
 		acDropDown.click();
 		Select drpdown = new Select(acDropDown);
 		drpdown.selectByIndex(index);
 	}
 
 	public static void search() throws InterruptedException {
-
+		Thread.sleep(timeout.LONG);
 		switchFrame();
 		driver.findElement(By.id("#ICSearch")).click();
 		Thread.sleep(timeout.XLONG);
@@ -124,9 +133,10 @@ public class GraduationPage extends DriverFactory {
 		drpdown.selectByIndex(dropdownIndex);
 	}
 
-	public static void save() {
+	public static void save() throws Exception {
 		// TODO move to common page elements
 		driver.findElement(By.id("#ICSave")).click();
+		Thread.sleep(timeout.LONG);
 		
 	}
 
@@ -136,8 +146,9 @@ public class GraduationPage extends DriverFactory {
 		Thread.sleep(timeout.MEDIUM);
 	}
 
-	public static boolean alertmsgPresent() {
-
+	public static boolean alertmsgPresent() throws Exception {
+		Thread.sleep(timeout.MEDIUM);
+		driver.switchTo().defaultContent();
 		Boolean result = true;
 		try {
 			if (driver.findElement(By.id("alertmsg")).isDisplayed()) {
@@ -178,6 +189,7 @@ public class GraduationPage extends DriverFactory {
 
 	public static void setMilestone(String milestone) {
 		switchFrame();
+		driver.findElement(By.id("UQ_GR_STUD_OREQ_MILESTONE$0")).clear();
 		driver.findElement(By.id("UQ_GR_STUD_OREQ_MILESTONE$0")).sendKeys(milestone);
 	}
 
@@ -190,7 +202,6 @@ public class GraduationPage extends DriverFactory {
 		Select drpdown = new Select(gsDropDown);
 		drpdown.selectByIndex(dropdownIndex);
 	}
-
 	
 	public static void setCeremony(CharSequence ceremony) {
 		switchFrame();
@@ -198,7 +209,6 @@ public class GraduationPage extends DriverFactory {
 		driver.findElement(By.id("UQ_GR_STUD_CERE_EVENT_MTG_NBR")).sendKeys(ceremony);
 		
 	}
-	
 
 	public static void setResidentialCollege(String college) {
 		switchFrame();
@@ -207,14 +217,12 @@ public class GraduationPage extends DriverFactory {
 		
 	}
 
-
 	public static void setOther(String string) {
 		switchFrame();
 		driver.findElement(By.id("UQ_GR_STUD_CERE_UQ_GRAD_OTHER")).clear();
 		driver.findElement(By.id("UQ_GR_STUD_CERE_UQ_GRAD_OTHER")).sendKeys(string);
 		
 	}
-
 
 	public static void setAddendum() {
 		if (!driver.findElement(By.id("UQ_GR_STUD_CERE_UQ_GRAD_ADDENDUM")).isSelected()) {
@@ -246,7 +254,6 @@ public class GraduationPage extends DriverFactory {
 		driver.findElement(By.id("ICTAB_1")).click();
 		Thread.sleep(timeout.MEDIUM);		
 	}
-
 	
 	public static boolean honourClassAvaliable() {
 		return driver.findElement(By.id("UQ_GR_STUD_DEGR_HONORS_CODE$0")).isEnabled();
@@ -256,6 +263,114 @@ public class GraduationPage extends DriverFactory {
 		switchFrame();
 		driver.findElement(By.id("UQ_DRV_TESTAMUR_UQ_DELETE_PB")).click();
 		Thread.sleep(timeout.LONG);		
+	}
+
+	public static boolean maililngLinkEnabled() {
+    	switchFrame();    
+    	Boolean result = true;
+        try {
+        	Assert.assertTrue(driver.findElement(By.id("UQ_DERIVED_GRD_UQ_REFRESH_ADDR$0")).isEnabled());
+        } catch (NoSuchElementException e) {
+        	result = false;
+        }
+		return result;
+		
+	}
+
+	public static void selectGraduationStatusGAT(String graduationStatustext, int dropDownIndex) throws Exception {
+		
+		Thread.sleep(timeout.LONG);
+		switchFrame();
+		
+		WebElement gsDropDown = driver.findElement(By.id("UQ_RC_GAT_HDR_UQ_GRAD_APP_STATUS"));
+		gsDropDown.click();
+		Select drpdown = new Select(gsDropDown);
+		drpdown.selectByIndex(dropDownIndex);
+		
+	}
+	
+	public static void selectAcademicProgramGAT(String program) throws Exception {
+		Thread.sleep(timeout.MEDIUM);
+		switchFrame();
+		driver.findElement(By.id("UQ_RC_GAT_HDR_ACAD_PROG")).sendKeys(program);		
+	}
+
+	public static void navigateToTestamurDetails() throws Exception {
+		driver.switchTo().defaultContent();
+		
+		Thread.sleep(timeout.LONG);
+		driver.findElement(By.id("fldra_UQ_MANAGE_GRADUATIONS")).click();
+		driver.findElement(By.id("fldra_UQ_GRADUATIONS_MANAGEMENT")).click();
+		Thread.sleep(timeout.TINY);	
+		driver.findElement(By.id("crefli_UQ_TESTAMUR_DTL_GBL")).click();
+		Thread.sleep(timeout.TINY);			
+	}
+
+	public static void enterRegisteredPostNumber(CharSequence number) throws InterruptedException {
+    	Thread.sleep(timeout.LONG);
+    	switchFrame();
+        driver.findElement(By.id("UQ_TESTAMUR_DTL_UQ_GRAD_REG_POST$0")).clear();		
+        driver.findElement(By.id("UQ_TESTAMUR_DTL_UQ_GRAD_REG_POST$0")).sendKeys(number);
+	}
+
+	public static void navigateToGATProduction() throws InterruptedException {
+		driver.switchTo().defaultContent();
+		
+		Thread.sleep(timeout.LONG);
+		driver.findElement(By.id("fldra_UQ_MANAGE_GRADUATIONS")).click();
+		driver.findElement(By.id("crefli_UQ_RUNCTL_GAT_GBL")).click();
+		Thread.sleep(timeout.TINY);	
+		driver.switchTo().frame("ptifrmtgtframe");		
+	}
+
+	public static void addValue(String runControlID) throws Exception {
+    	
+    	Thread.sleep(timeout.LONG);
+    	switchFrame();
+    	driver.findElement(By.className("PTUNDERLINE")).click();
+    	Thread.sleep(timeout.MEDIUM);
+    	driver.findElement(By.id("PRCSRUNCNTL_RUN_CNTL_ID")).clear();
+    	driver.findElement(By.id("PRCSRUNCNTL_RUN_CNTL_ID")).sendKeys(runControlID);
+		driver.findElement(By.id("#ICSearch")).click();
+		Thread.sleep(timeout.MEDIUM);		
+	}
+
+	
+	public static void selectAcademicGroup(String group) throws Exception {
+		
+		Thread.sleep(timeout.MEDIUM);
+		switchFrame();
+		
+		driver.findElements(By.id("UQ_RC_GAT_HDR_ACAD_GROUP")).clear();
+		driver.findElement(By.id("UQ_RC_GAT_HDR_ACAD_GROUP")).sendKeys(group);
+	}
+
+
+	public static void selectReportFormat(String option) {
+		
+		if (option.equalsIgnoreCase("CSV")) {
+			driver.findElement(By.id("UQ_RC_GAT_HDR_UQ_GAT_RPT_OPTION_LBL")).click();
+		}
+		if (option.equalsIgnoreCase("PDF")) {
+			driver.findElement(By.id("UQ_RC_GAT_HDR_UQ_GAT_RPT_OPTION$30$_LBL")).click();
+		}
+				
+	}
+
+	public static void clickRun() throws Exception {
+		driver.findElement(By.id("PRCSRQSTDLG_WRK_LOADPRCSRQSTDLGPB")).click();
+		Thread.sleep(timeout.LONG);		
+	}
+
+	
+	public static boolean schedulerRequestIsDisplayed() throws Exception {
+		Thread.sleep(timeout.LONG);
+		driver.switchTo().activeElement();
+		if (driver.findElement(By.id("#ICSave")).isDisplayed()) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	

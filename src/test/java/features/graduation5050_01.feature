@@ -4,6 +4,7 @@ Feature: GD_PTSC_5050.01_Graduation Event and Meeting Setup
 
 Background:
 	Given I am logged in as "UQCTO"
+
 @smoke
 Scenario: 1 New Event is saved
 	Given I navigate to Event Management Events
@@ -28,3 +29,4 @@ Scenario: 2 New Meeting is saved
 #	And I enter Academic Institution as "UQUNI"
 #	When I click save
 #	Then Update was success 
+

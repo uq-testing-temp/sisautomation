@@ -15,8 +15,7 @@ Scenario: Search an Undergraduate
 	When I click Search
 	Then I should see Search Results
 	
-Scenario Outline:  Verify add and update graduation status to eligible, 
-				   Unsuccessful, Final, Ineligible, System Removed, Re-presentation
+Scenario Outline:  Verify add and update graduation status to eligible, Unsuccessful, Final, Ineligible, System Removed, Re-presentation
 	Given Graduation test data is ready for student "<id>"
 	And I search student "<id>"
 	When I update status to "<dest>"
@@ -26,11 +25,10 @@ Scenario Outline:  Verify add and update graduation status to eligible,
 	  | student		|	id			|	origin			|	dest			|	result	|
 	  | Student 1	| 	30048193	|	pending 		| 	eligible		| 	success |
 	  | Student 2	|	30048193	|	conditional		|	eligible		|	success	|
-	  | Student 2 	|	30048193	|	conditional		|	unsuccessfull	|	success	|
-	  | Student 3 	|   30048193	|	conditional		|	final			|	success	|
-	  | Student 3 	|   30048193	|	conditional		|	ineligible		|	success	|
-#	  | Student 3 	|   30048193	|	conditional		|	system removed	|	success	|
-	  | Student 3 	|   30048193	|	conditional		|	representation	|	success	|
+	  | Student 2 	|	30048193	|	conditional		|	UNSUCCESFULL	|	success	|
+	  | Student 3 	|   30048193	|	conditional		|	final			|	failure	|
+	  | Student 3 	|   30048193	|	conditional		|	ineligible		|	failure	|
+	  | Student 3 	|   30048193	|	conditional		|	representation	|	failure	|
 
 Scenario: Verify update graduation status to Conditional and multiple current term enrolments for a UGRD student
 
@@ -50,7 +48,7 @@ Scenario: Attempt to flag a course as both mandatory and discarded (should not b
 	And I Add a new row 
 	And I update status to "Conditional"
 	Then I unable to flag the same course as conditional
-  
+
 Scenario: Verify update graduation status to Conditional for a UGRD student with graduation status pending. 
 		  Update milestone field
 	Given I enter Empl ID as "42594527"
@@ -73,19 +71,6 @@ Scenario: Verify Ceremony management - Enter Requirements
 	When I click save
 	Then Update was success
 
-#TODO: Was unable to setup consistent re-presentation event dependencies
-#Scenario: Verify Ceremony management. Attempt to Save without entering re-presentation event.
-#	Given I search "Student 6" 
-#	And I Click on Ceremony Management tab
-#	And I Tick re-presentation field
-#	When I save
-#	Then Error is displayed advising re-presentation ID must be entered 
-
-#
-#Scenario: Verify Ceremony management - Re-presentation event
-#	Given I search "Student 6" 
-#	When Choose the re-presentaion event from the list. If no future GRAD events found then the following error message is displayed to the staff “This student has exhausted all re-presentation options based
-#	Then Re-presentation event is saved. 
 
 Scenario: No Honours Class allowed without a degree: 
 	Given I enter Empl ID as "30889499"
@@ -93,5 +78,6 @@ Scenario: No Honours Class allowed without a degree:
 	And I click Search
 	When I Click on Student Degrees tab
 	Then Honours Class is not available
+
 	
 	

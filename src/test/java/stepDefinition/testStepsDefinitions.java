@@ -5,7 +5,6 @@ import java.util.Random;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 
-import cucumber.api.PendingException;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
@@ -16,8 +15,8 @@ import pageclasses.CampusCommunityPage;
 import pageclasses.GraduationPage;
 import pageclasses.HomePage;
 import pageclasses.LoginPage;
+import pageclasses.ManageUQAwardsPage;
 import pageclasses.SearchMatchPage;
-import stepDefinition.DriverFactory.timeout;
 import util.CustomFunctions;
 import util.DebugLog;
 import util.PropertyReader;
@@ -172,7 +171,6 @@ public class testStepsDefinitions extends DriverFactory{
 		
 	}
 
-	
 	@Then("^I should see Search Results$")
 	public void i_should_see_search_results() throws Throwable {
 		
@@ -231,7 +229,7 @@ public class testStepsDefinitions extends DriverFactory{
 	if (status.contentEquals("eligible")) {
 		index = graduationStatus.ELIGIBLE;
 	}
-	if (status.contentEquals("unsuccessfull")) {
+	if (status.contentEquals("UNSUCCESFULL")) {
 		index = graduationStatus.UNSUCCESFULL;
 	}
 	if (status.contentEquals("system removed")) {
@@ -277,11 +275,6 @@ public class testStepsDefinitions extends DriverFactory{
 	public void i_Flag_a_course_as_mandatory() throws Throwable {
 		GraduationPage.markMandatory("0");
 		GraduationPage.markMandatory("1");
-	}
-	
-	@Then("^Graduation status and required enrolments are updated\\.$")
-	public void graduation_status_and_required_enrolments_are_updated() throws Throwable {
-	    
 	}
 	
 	@Then("^Update was success$")
@@ -344,13 +337,6 @@ public class testStepsDefinitions extends DriverFactory{
 	Assert.assertFalse(GraduationPage.honourClassAvaliable());
 }
 	
-    @Given("^I navigate to Identify potential graduates$")
-    public void i_navigate_to_identify_potential_graduates() throws Throwable {
-//    	i_navigate_to("HCCC_PLAN_EVENTS");
-//    	i_navigate_to("HCCC_EVENT_MANAGEMENT");
-//    	
-    }
-	
     @Given("^I navigate to Event Management Events$")
     public void i_navigate_to_event_management_events() throws Throwable {
         CampusCommunityPage.navigateToEventManagement();
@@ -400,21 +386,113 @@ public class testStepsDefinitions extends DriverFactory{
 
     @Given("^I navigate to Graduations Management> Testamur Details$")
     public void i_navigate_to_Graduations_Management_Testamur_Details() throws Throwable {
-    		driver.switchTo().defaultContent();
-    		
-    		Thread.sleep(timeout.LONG);
-    		//TODO implement elements		
-    		driver.findElement(By.id("fldra_UQ_MANAGE_GRADUATIONS")).click();
-//    		menuItem_manageGraduations.click(); 
-    		driver.findElement(By.id("fldra_UQ_GRADUATIONS_MANAGEMENT")).click();
-//    		menuItem_graduationsManagement.click();
-    		Thread.sleep(timeout.TINY);	
-    		driver.findElement(By.id("crefli_UQ_TESTAMUR_DTL_GBL")).click();
-    		Thread.sleep(timeout.TINY);		
+
+    	GraduationPage.navigateToTestamurDetails();
     			
     }
     
-	/**
+    @Given("^I navigate to Manage UQ Awards> Student Summary$")
+    public void i_navigate_to_Manage_UQ_Awards_Student_Summary() throws Throwable {
+    	ManageUQAwardsPage.navigate();
+    	ManageUQAwardsPage.navigateStudentSummary();
+    }
+
+    @Given("^I enter Empl ID UQ award as \"([^\"]*)\"$")
+    public void i_enter_Empl_ID_UQ_award_as(String id) throws Throwable {
+    	ManageUQAwardsPage.enterEmplID(id);
+    }
+
+    @When("^I change Award status to Verified$")
+    public void i_change_Award_status_to_Verified() throws Throwable {
+
+    	ManageUQAwardsPage.changeAwardStatus("verified", 7);
+    	
+    }
+    
+    @When("^I clear Registered Post Number$")
+    public void i_clear_Registered_Post_Number() throws Throwable {
+    	
+    	GraduationPage.enterRegisteredPostNumber("");
+    }
+    
+    @When("^I enter Registered Post Number as \"([^\"]*)\"$$")
+    public void i_enter_Registered_Post_Number_as(String number) throws Throwable {
+    	GraduationPage.enterRegisteredPostNumber(number);
+    }
+
+    @Then("^Refresh mailing address links is enabled$")
+    public void refresh_mailing_address_links_is_enabled() throws Throwable {
+    	
+    	Assert.assertTrue(GraduationPage.maililngLinkEnabled());
+    }
+    
+    @Then("^Refresh mailing address links is disabled$")
+    public void refresh_mailing_address_links_is_disabled() throws Throwable {
+    	
+    	Assert.assertFalse(GraduationPage.maililngLinkEnabled());
+    }
+    
+    @Given("^I navigate to Manage Graduations > GAT Production$")
+    public void i_navigate_to_Manage_Graduations_GAT_Production() throws Throwable {
+    	GraduationPage.navigateToGATProduction();
+		
+    }
+
+    @Given("^I add a new value$")
+    public void i_add_a_new_value() throws Throwable {
+    	Random rand = new Random();
+    	String  runControlID = String.valueOf(rand.nextInt(999999) + 1);
+
+    	GraduationPage.addValue(runControlID);
+    }
+    
+	@Given("^I select Graduation Status GAT as \"([^\"]*)\"$")
+	public void i_select_graduation_status_as(String graduationStatustext) throws Throwable {
+		
+		if (graduationStatustext.equalsIgnoreCase("Final")) {
+			GraduationPage.selectGraduationStatusGAT(graduationStatustext, 4);
+		}
+	}
+    
+	@Given("^I choose Academic Group as \"([^\"]*)\"$")
+	public void i_choose_Academic_Group_as(String group) throws Throwable {
+
+		GraduationPage.selectAcademicGroup(group);
+	}
+	
+	@Given("^I choose report option as \"([^\"]*)\"$")
+	public void i_choose_report_option_as(String option) throws Throwable {
+		
+		GraduationPage.selectReportFormat(option);
+	}
+	
+	@Given("^I click Run$")
+	public void i_click_Run() throws Throwable {
+	    
+		GraduationPage.clickRun();
+	}
+	
+	@Then("^I should see Process Scheduler Request$")
+	public void i_should_see_Process_Scheduler_Request() throws Throwable {
+		
+		Assert.assertTrue(GraduationPage.schedulerRequestIsDisplayed());
+	}
+	
+	@Given("^I select Academic Career GAT as \"([^\"]*)\"$")
+	public void i_select_Academic_Career_GAT_as(String academicCareertext) throws Throwable {
+		
+		if (academicCareertext.equalsIgnoreCase("Undergrad")) {
+			GraduationPage.selectAcademicCareerGAT(academicCareertext, 6);
+		}
+	}
+
+	@Given("^I enter Academic Program as \"([^\"]*)\"$")
+	public void i_enter_Academic_Program_as(String program) throws Throwable {
+	    
+		GraduationPage.selectAcademicProgramGAT(program);
+	}
+	
+    /**
 	 * Search steps ------------------------------------------------------------------------
 	 */
 	@Given("^I navigate to search match$")
@@ -494,5 +572,12 @@ public class testStepsDefinitions extends DriverFactory{
 		return true;
 	}
 
+	@Given("^I wait for \"([^\"]*)\" seconds$")
+	public void i_wait(int delay) throws Throwable {
+
+		Thread.sleep(delay * 1000);
+
+	}
+	
 }
 

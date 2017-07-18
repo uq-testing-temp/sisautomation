@@ -1,6 +1,6 @@
 @graduation
-@graduation_5010_02
 @skipped
+@graduation_5020_01
 Feature: GD_PTSC_5020.01_Identify Potential Graduands Process
 
 #Prerequisites	Values or Status
@@ -15,7 +15,6 @@ Feature: GD_PTSC_5020.01_Identify Potential Graduands Process
 #8  UGRD student with > 2 units outstanding towards their program minimum unit requirements, with an EGTM matching the run control term	
 #9  PGCW student with > 2 units outstanding towards their program minimum unit requirements, with an EGTM matching the run control term 	
 #10 NAWD student with EGTM matching the run control term	
-
 
 Background:
 	Given I am logged in as "UQCTO"
