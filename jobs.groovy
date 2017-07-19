@@ -13,6 +13,32 @@ def systems = [
 def gitUrl = "https://git.its.uq.edu.au/its-eas-testing/"
 
 for(system in systems) {
+    
+    buildMonitorView("${system} monitor") {
+        description("All jobs for project ${system}")
+        jobs {
+            regex("${system}.*")
+        }
+	}
+    
+    listView("${system} jobs") {
+        description("All jobs for project ${system}")
+        filterBuildQueue()
+        filterExecutors()
+        jobs {
+            regex("${system}.*")
+        }
+        columns {
+            status()
+            weather()
+            name()
+            lastSuccess()
+            lastFailure()
+            lastDuration()
+            buildButton()
+        }
+	}
+    
     for(tag in tags) {
         job("${system}-${tag}") {
             scm {
