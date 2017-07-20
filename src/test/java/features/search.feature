@@ -1,3 +1,4 @@
+@regression
 @search
 @smoke
 	Feature: Search

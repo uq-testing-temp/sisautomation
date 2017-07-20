@@ -89,3 +89,16 @@ Run with maven:
 
 # TODO
 - [] Implement [Dependency injection](http://www.thinkcode.se/blog/2017/04/01/sharing-state-between-steps-in-cucumberjvm-using-picocontainer)
+
+#Jenkins plugins
+https://plugins.jenkins.io/gitlab-plugin
+https://plugins.jenkins.io/gitlab-logo
+https://plugins.jenkins.io/gitlab-hook
+https://plugins.jenkins.io/job-dsl
+https://plugins.jenkins.io/description-setter
+https://plugins.jenkins.io/cucumber-reports
+https://plugins.jenkins.io/greenballs
+https://plugins.jenkins.io/build-monitor-plugin
+
+
+

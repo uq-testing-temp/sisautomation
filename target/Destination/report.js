@@ -81,7 +81,7 @@ formatter.examples({
   "keyword": "Examples"
 });
 formatter.before({
-  "duration": 5215218277,
+  "duration": 2518567832,
   "status": "passed"
 });
 formatter.background({
@@ -100,7 +100,7 @@ formatter.match({
   "location": "testStepsDefinitions.i_am_on_login_page()"
 });
 formatter.result({
-  "duration": 355582026,
+  "duration": 345417461,
   "status": "passed"
 });
 formatter.scenario({
@@ -160,7 +160,7 @@ formatter.match({
   "location": "testStepsDefinitions.enter_username(String)"
 });
 formatter.result({
-  "duration": 91381503,
+  "duration": 125369640,
   "status": "passed"
 });
 formatter.match({
@@ -173,29 +173,29 @@ formatter.match({
   "location": "testStepsDefinitions.enter_password(String)"
 });
 formatter.result({
-  "duration": 60261988,
+  "duration": 96872384,
   "status": "passed"
 });
 formatter.match({
   "location": "testStepsDefinitions.click_signin()"
 });
 formatter.result({
-  "duration": 710903742,
+  "duration": 748927313,
   "status": "passed"
 });
 formatter.match({
   "location": "testStepsDefinitions.i_should_be_logged_in()"
 });
 formatter.result({
-  "duration": 34746424,
+  "duration": 192683277,
   "status": "passed"
 });
 formatter.after({
-  "duration": 1216279106,
+  "duration": 329081464,
   "status": "passed"
 });
 formatter.before({
-  "duration": 4290560457,
+  "duration": 1595422748,
   "status": "passed"
 });
 formatter.background({
@@ -214,7 +214,7 @@ formatter.match({
   "location": "testStepsDefinitions.i_am_on_login_page()"
 });
 formatter.result({
-  "duration": 288022056,
+  "duration": 236840698,
   "status": "passed"
 });
 formatter.scenario({
@@ -274,7 +274,7 @@ formatter.match({
   "location": "testStepsDefinitions.enter_username(String)"
 });
 formatter.result({
-  "duration": 75472802,
+  "duration": 107179690,
   "status": "passed"
 });
 formatter.match({
@@ -287,25 +287,25 @@ formatter.match({
   "location": "testStepsDefinitions.enter_password(String)"
 });
 formatter.result({
-  "duration": 63125386,
+  "duration": 94676938,
   "status": "passed"
 });
 formatter.match({
   "location": "testStepsDefinitions.click_signin()"
 });
 formatter.result({
-  "duration": 177702688,
+  "duration": 242632395,
   "status": "passed"
 });
 formatter.match({
   "location": "testStepsDefinitions.i_should_see_an_error()"
 });
 formatter.result({
-  "duration": 39995832,
+  "duration": 70274800,
   "status": "passed"
 });
 formatter.after({
-  "duration": 1110473314,
+  "duration": 310622177,
   "status": "passed"
 });
 });

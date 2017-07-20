@@ -1,3 +1,4 @@
+@regression
 @graduation
 @skipped
 @graduation_5020_01

@@ -1,3 +1,4 @@
+@regression
 @graduation
 @graduation_5080_01
 Feature: GD_PTSC_5080.01_Graduation Advisement Transcript

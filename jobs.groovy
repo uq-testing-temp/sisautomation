@@ -2,7 +2,8 @@ def tags = [
     "smoke", 
     "login", 
     "menujourney", 
-    "regression"
+    "regression",
+   	"debug"
 ]
 
 def systems = [
@@ -52,11 +53,29 @@ for(system in systems) {
                 }
             }
             steps {
-                shell"""#!/bin/sh
-                        Xvfb -ac :99 -screen 0 1280x1024x16 &
-                        export DISPLAY=:99
-						mvn test -Dcucumber.options=\"--tags @${tag}\""""
-            }
+                shell {"""#!/bin/bash
+set -axeE
+
+#defining port for selenium #TODO: select free port automatically
+export SELENIUM_PORT=\$(for port in \$(seq 4444 65000); do echo -ne \"\\035\" | telnet 127.0.0.1 \$port > /dev/null 2>&1; [ \$? -eq 1 ] && echo \"\$port\" && break; done)
+
+# cleaning up container if exist
+sudo docker rm -f selenium-\$SELENIUM_PORT || true
+
+# launching selenium hub docker container
+sudo docker run --name selenium-\$SELENIUM_PORT -d -p \$SELENIUM_PORT:\$SELENIUM_PORT -v /dev/shm:/dev/shm selenium/standalone-chrome:3.4.0-einsteinium 
+
+#getting docker ip. The test will grab the environment variable
+export SELENIUM_IP=\$(sudo docker inspect --format '{{ .NetworkSettings.IPAddress }}' selenium-\$SELENIUM_PORT)
+
+#running the test
+mvn test -Dcucumber.options=\"--tags @${tag}\" -Dlog4j.configuration=file:log4j.properties"""
+                      }
+                shell {"""#!/bin/bash
+$SELENIUM_PORT=`cat env_SELENIUM_PORT.txt`
+# cleaning up the container 
+sudo docker rm -f selenium-\$SELENIUM_PORT || true"""
+                      }
              publishers {
                 cucumberReports {
                     jsonReportPath('target/')

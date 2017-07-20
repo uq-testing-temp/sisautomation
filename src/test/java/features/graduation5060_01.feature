@@ -1,3 +1,4 @@
+@regression
 @graduation
 @graduation_5060_01
 Feature: GD_PTSC_5060.01_Graduation Event and Meeting Setup

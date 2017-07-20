@@ -1,3 +1,4 @@
+@regression
 @graduation
 @graduation_5070_07
 Feature: GD_PTSC_5070.07_Revoke Degree 
