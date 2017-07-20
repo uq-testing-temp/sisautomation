@@ -25,6 +25,7 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.NoSuchElementException;
+import java.util.Optional;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
@@ -123,23 +124,11 @@ public class DriverFactory {
 
     	if (driver == null)
     		createNewDriverInstance();
-
     }
 
     private void createNewDriverInstance() {
-//TODO implement binaries management of all browsers
-//    	ChromeDriverManager.getInstance().setup(); // Done
-//    	InternetExplorerDriverManager.getInstance().setup();
-//    	OperaDriverManager.getInstance().setup();
-//    	EdgeDriverManager.getInstance().setup();
-//    	PhantomJsDriverManager.getInstance().setup();
-//    	FirefoxDriverManager.getInstance().setup();
-    	
     	
     	String browser = new PropertyReader().readProperty("browser");
-    	
-    	String webdriver = new PropertyReader().readProperty("webdriver");
-    	
         if (browser.equals("chrome")) {
         	
         	DesiredCapabilities capability = DesiredCapabilities.chrome();
@@ -154,36 +143,25 @@ public class DriverFactory {
         	options.addArguments("--disable-default-apps");
         	options.addArguments("test-type=browser");
         	options.addArguments("disable-infobars");
-        	
-        	if (webdriver.equalsIgnoreCase("localhost")) {
-        		
+
+        	String seleniumIP = System.getenv("SELENIUM_IP");
+        	String seleniumPort = System.getenv("SELENIUM_PORT");
+        	if (seleniumIP == null || seleniumIP.isEmpty()) {
+        		seleniumIP = new PropertyReader().readProperty("webdriver");
         		driver = new ChromeDriver(options);
-        		
         	} else {
-        		
                 try {
-        		
-                	driver = new RemoteWebDriver(new URL("http://" + webdriver + "/wd/hub"), capability);
-                	
+                	driver = new RemoteWebDriver(new URL("http://" + seleniumIP + ":" + seleniumPort + "/wd/hub"), capability);
+                    driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+                    driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
+                    driver.manage().window().setSize(new Dimension(1920, 1080));
         		} catch (MalformedURLException e) {
-        			// TODO Auto-generated catch block
         			e.printStackTrace();
         		}
         	}
-        	
-            
         } else {
             System.out.println("I cannot read browser type");
         }
-    	
-
-
-
-//        driver = new FirefoxDriver();  //for local check
-
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-        driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
-        driver.manage().window().setSize(new Dimension(1920, 1080));
     }
 
     public WebDriver getDriver() {
