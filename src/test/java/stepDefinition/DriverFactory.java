@@ -149,12 +149,16 @@ public class DriverFactory {
         	if (seleniumIP == null || seleniumIP.isEmpty()) {
         		seleniumIP = new PropertyReader().readProperty("webdriver");
         		driver = new ChromeDriver(options);
+        		System.out.println("Ip = " + seleniumIP);
+        		System.out.println("Port = " + seleniumPort);
         	} else {
                 try {
                 	driver = new RemoteWebDriver(new URL("http://" + seleniumIP + ":" + seleniumPort + "/wd/hub"), capability);
                     driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
                     driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
                     driver.manage().window().setSize(new Dimension(1920, 1080));
+            		System.out.println("Ip = " + seleniumIP);
+            		System.out.println("Port = " + seleniumPort);
         		} catch (MalformedURLException e) {
         			e.printStackTrace();
         		}
@@ -162,6 +166,8 @@ public class DriverFactory {
         } else {
             System.out.println("I cannot read browser type");
         }
+        
+        
     }
 
     public WebDriver getDriver() {
