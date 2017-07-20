@@ -144,21 +144,15 @@ public class DriverFactory {
         	options.addArguments("test-type=browser");
         	options.addArguments("disable-infobars");
 
-        	String seleniumIP = System.getenv("SELENIUM_IP");
         	String seleniumPort = System.getenv("SELENIUM_PORT");
-        	if (seleniumIP == null || seleniumIP.isEmpty()) {
-        		seleniumIP = new PropertyReader().readProperty("webdriver");
+        	if (seleniumPort == null || seleniumPort.isEmpty()) {
         		driver = new ChromeDriver(options);
-        		System.out.println("Ip = " + seleniumIP);
-        		System.out.println("Port = " + seleniumPort);
         	} else {
                 try {
-                	driver = new RemoteWebDriver(new URL("http://" + seleniumIP + ":" + seleniumPort + "/wd/hub"), capability);
+                	driver = new RemoteWebDriver(new URL("http://localhost:" + seleniumPort + "/wd/hub"), capability);
                     driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
                     driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
                     driver.manage().window().setSize(new Dimension(1920, 1080));
-            		System.out.println("Ip = " + seleniumIP);
-            		System.out.println("Port = " + seleniumPort);
         		} catch (MalformedURLException e) {
         			e.printStackTrace();
         		}
