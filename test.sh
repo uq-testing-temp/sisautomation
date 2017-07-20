@@ -1,24 +1,23 @@
 #!/bin/bash
+set -axeE
 
 clear
 echo -e "\e[0m--------------------------------------------------------------------------------"
 echo -e "\e[1m Environment variables required:"
 echo -e "\e[1m  \$TAG=$TAG"
 
- 
-echo -e "\033[1m Starting docker"
-docker rm -f selenium || true
-docker run --name selenium -d -p 4444:4444 -v /dev/shm:/dev/shm selenium/standalone-chrome:3.4.0-einsteinium 
+#defining port for selenium #TODO: select free port automatically
+export SELENIUM_PORT=$(for port in $(seq 4444 65000); do echo -ne "\035" | telnet 127.0.0.1 $port > /dev/null 2>&1; [ $? -eq 1 ] && echo "$port" && break; done)
 
-echo -e "\033[1m Running test"
-mvn clean test -Dcucumber.options="--tags $TAG" -Dlog4j.configuration=file:log4j.properties
-STATUS=$?
+# cleaning up container if exist
+sudo docker rm -f selenium-$SELENIUM_PORT || true
 
-if [ $STATUS -eq 0 ]; then
-echo -e "\e[42m Test Passed"
-else
-echo -e "\e[41m Test Failed"
-fi
-echo -e "\e[0m--------------------------------------------------------------------------------"
+# launching selenium hub docker container
+sudo docker run --name selenium-$SELENIUM_PORT -d -p $SELENIUM_PORT:4444 -v /dev/shm:/dev/shm selenium/standalone-chrome:3.4.0-einsteinium 
 
-docker rm -f selenium || true
+# allowing time to start 
+sleep 5
+
+#running the test
+mvn test -Dcucumber.options="--tags @login" -Dlog4j.configuration=file:Log4j.xml
+echo $SELENIUM_PORT > env_SELENIUM_PORT.txt
