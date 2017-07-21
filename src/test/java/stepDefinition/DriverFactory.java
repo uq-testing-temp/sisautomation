@@ -115,6 +115,25 @@ public class DriverFactory {
     	public static final String PT_PEOPLETOOLS  					= "fldra_PT_PEOPLETOOLS";
         
     }
+    
+    public static class sfmenu {
+    	/**
+    	 * This is menu elements "id" locators enumerator class
+	     */
+    	public static final String UQ_SF_REPORTS = "fldra_UQ_SF_REPORTS";
+    	public static final String HCCC_CALCULATE_TUITION_AND_FEE = "fldra_HCCC_CALCULATE_TUITION_AND_FEE";
+    	public static final String HCCC_MAINTAIN_RECEIVABLES = "fldra_HCCC_MAINTAIN_RECEIVABLES";
+    	public static final String HCCC_BILL_CUSTOMERS = "fldra_HCCC_BILL_CUSTOMERS";
+    	public static final String HCCC_RUN_CASHIERING = "fldra_HCCC_RUN_CASHIERING";
+    	public static final String HCCC_ADMINISTER_PAYMENT_PLANS = "fldra_HCCC_ADMINISTER_PAYMENT_PLANS";
+    	public static final String HCSF_IHC = "fldra_HCSF_IHC";
+    	public static final String HCCC_COLLECT_RECEIVABLES = "fldra_HCCC_COLLECT_RECEIVABLES";
+    	public static final String HCCC_ADMINISTER_SF_GL_INTERFAC = "fldra_HCCC_ADMINISTER_SF_GL_INTERFAC";
+    	public static final String HCSF_ADMINISTER_STUDYLINK = "fldra_HCSF_ADMINISTER_STUDYLINK";
+    	public static final String HCCC_MANAGE_TAX_REPORTING = "fldra_HCCC_MANAGE_TAX_REPORTING";
+    	public static final String HCSF_BANKING = "fldra_HCSF_BANKING";
+    	public static final String HCSF_SSF_STUDENT_FINANCIAL_NLD = "fldra_HCSF_SSF_STUDENT_FINANCIAL_NLD";
+    }
 
     public  DriverFactory() {
         initialize();

@@ -1,5 +1,7 @@
 package stepDefinition;
 
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.util.Random;
 
 import org.junit.Assert;
@@ -17,6 +19,8 @@ import pageclasses.HomePage;
 import pageclasses.LoginPage;
 import pageclasses.ManageUQAwardsPage;
 import pageclasses.SearchMatchPage;
+import pageclasses.StudentFinancialsPage;
+import stepDefinition.DriverFactory.sfmenu;
 import util.CustomFunctions;
 import util.DebugLog;
 import util.PropertyReader;
@@ -415,7 +419,7 @@ public class testStepsDefinitions extends DriverFactory{
     	GraduationPage.enterRegisteredPostNumber("");
     }
     
-    @When("^I enter Registered Post Number as \"([^\"]*)\"$$")
+    @When("^I enter Registered Post Number as \"([^\"]*)\"$")
     public void i_enter_Registered_Post_Number_as(String number) throws Throwable {
     	GraduationPage.enterRegisteredPostNumber(number);
     }
@@ -578,6 +582,38 @@ public class testStepsDefinitions extends DriverFactory{
 		Thread.sleep(delay * 1000);
 
 	}
-	
+
+	/**
+	 * student financials steps ------------------------------------------------------------------------
+	 */
+	@Given("^I navigate to Student Financials > Customer Accounts$")
+	public void i_navigate_to_Student_Financials_Customer_Accounts() throws Throwable {
+	    StudentFinancialsPage.navigate();
+	    StudentFinancialsPage.navigateToViewCustomerAccounts();
+	}
+
+	@When("^I enter student id SF as \"([^\"]*)\"$")
+	public void i_enter_student_id_SF_as(String student) throws Throwable {
+		StudentFinancialsPage.enterEmplID(student);
+	}
+
+	@Then("^I should see student account balance$")
+	public void i_should_see_student_account_balance() throws Throwable {
+	    Assert.assertTrue(StudentFinancialsPage.canSeeBalances());
+	}
+
+	@Then("^I should be able to access every page$")
+	public void i_should_be_able_to_access_every_page() throws Throwable {
+	    StudentFinancialsPage.navigate();
+	    
+	    sfmenu uuiDd=new sfmenu();
+	    Field[] fields= uuiDd.getClass().getDeclaredFields(); // get all declared fields
+	    for(Field field:fields){
+	       if(field.getType().equals(String.class)){ // if it is a String field
+	          System.out.println("navigating to: "+field.getName());
+	          Assert.assertTrue(StudentFinancialsPage.navigateTo((String) field.get(uuiDd)));
+	        }
+	    }
+	}
 }
 

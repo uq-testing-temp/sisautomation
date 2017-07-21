@@ -33,10 +33,11 @@ public class HomePage extends DriverFactory{
 		return error.isDisplayed();
 	}
 
-	public static void navigate(String id) throws InterruptedException {
+	public static boolean navigate(String id) throws InterruptedException {
 		Thread.sleep(timeout.LONG);
 		driver.switchTo().defaultContent();
 		driver.findElement(By.id(id)).click();
+		return true;
 	}
 
 	public static boolean isLoaded() {

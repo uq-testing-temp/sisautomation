@@ -10,7 +10,12 @@ def tags = [
     "login", 
     "menujourney", 
     "regression",
-   	"debug"
+   	"debug",
+   	"studentfinances",
+   	"healthcheck",
+   	"search",
+   	"employmenthistory",
+   	"employeeSearch"
 ]
 
 systems.each { system ->
