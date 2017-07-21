@@ -7,6 +7,7 @@ Feature: GD_PTSC_5080.01_Graduation Advisement Transcript
 Background:
 	Given I am logged in as "UQCTO"
 
+@skipped
 Scenario Outline: 1 Generate GAT’s by Graduation Status and ‘List of Graduands (CSV)’
 	Given I navigate to Manage Graduations > GAT Production
 	And I add a new value

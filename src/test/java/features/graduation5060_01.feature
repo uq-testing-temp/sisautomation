@@ -17,6 +17,7 @@ Scenario: 6 Update Registered Post Number - enabled
 	Then Update was success 
 	And Refresh mailing address links is enabled
 
+@skipped
 Scenario: 6 Update Registered Post Number - disabled
 		  Attempt to update mailing address on testamur details page.
 	Given I navigate to Graduations Management> Testamur Details
