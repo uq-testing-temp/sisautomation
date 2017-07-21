@@ -99,6 +99,8 @@ https://plugins.jenkins.io/description-setter
 https://plugins.jenkins.io/cucumber-reports
 https://plugins.jenkins.io/greenballs
 https://plugins.jenkins.io/build-monitor-plugin
-
-
+https://plugins.jenkins.io/test-stability
+https://plugins.jenkins.io/conditional-buildstep
+https://wiki.jenkins.io/display/JENKINS/AnsiColor+Plugin
+https://wiki.jenkins-ci.org/display/JENKINS/Simple+Theme+Plugin
 
