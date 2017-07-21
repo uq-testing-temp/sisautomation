@@ -2,7 +2,7 @@ def gitUrl = "https://git.its.uq.edu.au/its-eas-testing/"
 
 def systems = [
 	"sisautomation",
-  	"myaurion"
+  	"MyAurion"
 ]
 
 def tags = [
