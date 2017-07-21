@@ -1,4 +1,5 @@
 #!/bin/bash
+
 # cleaning up old containers
 docker ps | grep 'hours ago' | awk '{print $1}' | xargs --no-run-if-empty docker rm -f
 
