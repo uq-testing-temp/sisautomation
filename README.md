@@ -1,4 +1,4 @@
-[![Build Status](https://ci.devops.its.uq.edu.au/user/uqdalter/my-views/view/ITS/job/ITS-Testing-graduations-debug/badge/icon)](https://ci.devops.its.uq.edu.au/user/uqdalter/my-views/view/ITS/job/ITS-Testing-graduations-debug/)
+[![Smoke test Status](http://10.48.56.66:8080/buildStatus/icon?job=sisautomation-smoke)](http://10.48.56.66:8080/job/sisautomation-smoke/)
 
 # sisautomation
 SI Net Automation
