@@ -13,7 +13,7 @@ def tags = [
    	"debug"
 ]
 
-for(system in systems) {
+systems.each { system ->
     buildMonitorView("${system} monitor") {
         description("All jobs for project ${system}")
         jobs { regex("${system}.*")}
@@ -33,7 +33,7 @@ for(system in systems) {
             buildButton()
         }
 	}
-    for(tag in tags) {
+    tags.each { tag ->
         job("${system}-${tag}") {
             scm {
                 git {
