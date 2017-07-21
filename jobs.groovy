@@ -10,12 +10,7 @@ def tags = [
     "login", 
     "menujourney", 
     "regression",
-   	"debug",
-   	"studentfinances",
-   	"healthcheck",
-   	"search",
-   	"employmenthistory",
-   	"employeeSearch"
+   	"debug"
 ]
 
 systems.each { system ->
@@ -58,6 +53,10 @@ systems.each { system ->
             }
             steps {
                 shell ("""#!/bin/bash
+					# cleaning up old conainers
+					docker ps | grep 'hours ago' | awk '{print \$1}' | xargs --no-run-if-empty docker rm -f"""
+                )
+                shell ("""#!/bin/bash
                     #selecting free port for selenium #TODO
                     export SELENIUM_PORT=\$(for port in \$(seq 4444 65000); do echo -ne \"\\035\" | telnet 127.0.0.1 \$port > /dev/null 2>&1; [ \$? -eq 1 ] && echo \"\$port\" && break; done)
 					echo \$SELENIUM_PORT > env_SELENIUM_PORT.txt"""
@@ -72,19 +71,13 @@ systems.each { system ->
                 shell ("""#!/bin/bash
 					export SELENIUM_PORT=`cat env_SELENIUM_PORT.txt`
                     #running the test
-                    mvn test -Dcucumber.options=\"--tags @${tag} --tags ~@skipped\" -Dlog4j.configuration=file:Log4j.xml"""
+                    mvn test -Dcucumber.options=\"--tags @${tag}\" -Dlog4j.configuration=file:Log4j.xml"""
 				)
-                conditionalSteps  {
-                    condition { alwaysRun() }
-                    runner('Fail')
-                    steps {
-                    shell ("""#!/bin/bash
-                        export SELENIUM_PORT=`cat env_SELENIUM_PORT.txt`
-                        # cleaning up the container 
-                        sudo docker rm -f selenium-\$SELENIUM_PORT || true"""
-                    )
-                    }
-                }
+                shell ("""#!/bin/bash
+                    export SELENIUM_PORT=`cat env_SELENIUM_PORT.txt`
+                    # cleaning up the container 
+                    sudo docker rm -f selenium-\$SELENIUM_PORT || true"""
+                      )
             }
             publishers {
                 cucumberReports {
