@@ -79,7 +79,7 @@ systems.each { system ->
             steps {
                 shell ("""#!/bin/bash
 					# cleaning up old conainers
-					docker ps | grep 'ago' | awk '{print \$1}' | xargs --no-run-if-empty docker rm -f"""
+					docker ps | grep 'hours ago\\|days ago' | awk '{print \$1}' | xargs --no-run-if-empty docker rm -f"""
                 )
                 shell ("""#!/bin/bash
                     #selecting free port for selenium #TODO
