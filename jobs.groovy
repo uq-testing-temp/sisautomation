@@ -119,7 +119,7 @@ systems.each { system ->
                 archiveJunit('target/surefire-reports/*.xml') {
                     allowEmptyResults()
                     retainLongStdout()
-                    healthScaleFactor(1.5)
+                    healthScaleFactor(5)
                     testDataPublishers {
                 		publishTestStabilityData()
             		}
