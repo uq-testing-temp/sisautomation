@@ -30,7 +30,12 @@ def myaurionTags = [
 	"HRProfile",
 	"PersonalDetails",
 	"TrainingCourses",
-	"Leave"
+	"Leave",
+	"MyTasksAsSupervisor",
+	"payroll",
+	"StaffSchedule",
+	"Timesheet",
+	"TrainingCourses"
 ]
 
 systems.each { system ->
