@@ -101,8 +101,10 @@ systems.each { system ->
                 )
                 shell ("""#!/bin/bash
 					export SELENIUM_PORT=`cat env_SELENIUM_PORT.txt`
-                    #running the test
-                    mvn test -Dcucumber.options=\"--tags @${tag} --tags ~@skipped\" -Dlog4j.configuration=file:Log4j.xml"""
+                    #running the test with retry attempts
+					for i in {1..3}; do 
+                    	mvn test -Dcucumber.options=\"--tags @${tag} --tags ~@skipped\" -Dlog4j.configuration=file:Log4j.xml && break || sleep 5
+					done"""
 				)
                 shell ("""#!/bin/bash
                     export SELENIUM_PORT=`cat env_SELENIUM_PORT.txt`
