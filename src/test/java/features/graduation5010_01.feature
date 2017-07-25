@@ -34,7 +34,7 @@ Scenario Outline:  Verify add and update graduation status to eligible, Unsucces
 @smoke
 Scenario: Verify update graduation status to Conditional and multiple current term enrolments for a UGRD student
 
-	Given I enter Empl ID as "42594527"
+	Given I enter Empl ID as "42552992"
 	And I set Event ID as "000002556"
 	And I click Search
 	And I Add a new row 
@@ -44,7 +44,7 @@ Scenario: Verify update graduation status to Conditional and multiple current te
     Then Update was success
 
 Scenario: Attempt to flag a course as both mandatory and discarded (should not be possible).
-	Given I enter Empl ID as "42594527"
+	Given I enter Empl ID as "42552992"
 	And I set Event ID as "000002556"
 	And I click Search
 	And I Add a new row 
@@ -53,7 +53,7 @@ Scenario: Attempt to flag a course as both mandatory and discarded (should not b
 
 Scenario: Verify update graduation status to Conditional for a UGRD student with graduation status pending. 
 		  Update milestone field
-	Given I enter Empl ID as "42594527"
+	Given I enter Empl ID as "42552992"
 	And I set Event ID as "000002556"
 	And I click Search
 	And I Add a new row 
@@ -62,7 +62,7 @@ Scenario: Verify update graduation status to Conditional for a UGRD student with
 	Then Update was success
 
 Scenario: Verify Ceremony management - Enter Requirements
-	Given I enter Empl ID as "42594527"
+	Given I enter Empl ID as "42552992"
 	And I set Event ID as "000002556"
 	And I click Search
 	And I Add a new row 

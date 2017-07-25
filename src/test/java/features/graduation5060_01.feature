@@ -9,7 +9,7 @@ Background:
 Scenario: 6 Update Registered Post Number - enabled
 		  Attempt to update mailing address on testamur details page.
 	Given I navigate to Graduations Management> Testamur Details
-	And I enter Empl ID testamur as "42594527"
+	And I enter Empl ID testamur as "42552992"
 	And I click Search
 	When I clear Registered Post Number
 	And I click save
@@ -20,7 +20,7 @@ Scenario: 6 Update Registered Post Number - enabled
 Scenario: 6 Update Registered Post Number - disabled
 		  Attempt to update mailing address on testamur details page.
 	Given I navigate to Graduations Management> Testamur Details
-	And I enter Empl ID testamur as "42594527"
+	And I enter Empl ID testamur as "42552992"
 	And I click Search
 	When I enter Registered Post Number as "42"
 	And I click save
