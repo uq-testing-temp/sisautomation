@@ -1,4 +1,5 @@
 @healthcheck		
+@smoke
 	Feature: Health check
 	
 	Scenario: Able to login 

@@ -6,7 +6,6 @@ Feature: GD_PTSC_5060.01_Graduation Event and Meeting Setup
 Background:
 	Given I am logged in as "UQCTO"
 
-@smoke
 Scenario: 6 Update Registered Post Number - enabled
 		  Attempt to update mailing address on testamur details page.
 	Given I navigate to Graduations Management> Testamur Details

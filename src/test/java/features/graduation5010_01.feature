@@ -8,7 +8,6 @@ Background:
 	Given I am logged in as "UQCTO"
 	And I navigate to Manage Graduations
 
-@smoke
 Scenario: Search an Undergraduate 
 	Given I enter Empl ID as "30007846"		
 	And I set Event ID as "000001730"
@@ -32,6 +31,7 @@ Scenario: Search an Undergraduate
 #	  | Student 3 	|   30048193	|	conditional		|	ineligible		|	failure	|
 #	  | Student 3 	|   30048193	|	conditional		|	representation	|	failure	|
 
+@smoke
 Scenario: Verify update graduation status to Conditional and multiple current term enrolments for a UGRD student
 
 	Given I enter Empl ID as "42594527"

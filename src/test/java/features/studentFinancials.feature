@@ -9,7 +9,6 @@
 		Given I am logged in
 
 @menujourney
-@smoke	
 Scenario: All Student Financials pages are acesible for staff account
 
 	Given I should be able to access every page
