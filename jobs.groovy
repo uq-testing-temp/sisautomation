@@ -76,7 +76,7 @@ systems.each { system ->
                     branch('**/master')
                 }
             }
-            triggers { cron('@hourly') }
+            triggers { cron('@daily') }
             wrappers { 
                 timeout { absolute(60) } 
                 colorizeOutput()
