@@ -15,21 +15,21 @@ Scenario: Search an Undergraduate
 	When I click Search
 	Then I should see Search Results
 
-#@skipped
-#Scenario Outline:  Verify add and update graduation status to eligible, Unsuccessful, Final, Ineligible, System Removed, Re-presentation
-#	Given Graduation test data is ready for student "<id>"
-#	And I search student "<id>"
-#	When I update status to "<dest>"
-#	Then Update was <result>
-#	  
-#	  Examples:
-#	  | student		|	id			|	origin			|	dest			|	result	|
-#	  | Student 1	| 	30048193	|	pending 		| 	eligible		| 	success |
-#	  | Student 2	|	30048193	|	conditional		|	eligible		|	success	|
-#	  | Student 2 	|	30048193	|	conditional		|	UNSUCCESFULL	|	success	|
-#	  | Student 3 	|   30048193	|	conditional		|	final			|	failure	|
-#	  | Student 3 	|   30048193	|	conditional		|	ineligible		|	failure	|
-#	  | Student 3 	|   30048193	|	conditional		|	representation	|	failure	|
+
+Scenario Outline:  Verify add and update graduation status to eligible, Unsuccessful, Final, Ineligible, System Removed, Re-presentation
+	Given Graduation test data is ready for student "<id>"
+	And I search student "<id>"
+	When I update status to "<dest>"
+	Then Update was <result>
+	  
+	  Examples:
+	  | student		|	id			|	origin			|	dest			|	result	|
+	  | Student 1	| 	30048193	|	pending 		| 	eligible		| 	success |
+	  | Student 2	|	30048193	|	conditional		|	eligible		|	success	|
+	  | Student 2 	|	30048193	|	conditional		|	UNSUCCESFULL	|	success	|
+	  | Student 3 	|   30048193	|	conditional		|	final			|	failure	|
+	  | Student 3 	|   30048193	|	conditional		|	ineligible		|	failure	|
+	  | Student 3 	|   30048193	|	conditional		|	representation	|	failure	|
 
 @smoke
 Scenario: Verify update graduation status to Conditional and multiple current term enrolments for a UGRD student
