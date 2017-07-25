@@ -1,11 +1,9 @@
 package stepDefinition;
 
 import java.lang.reflect.Field;
-import java.lang.reflect.Method;
 import java.util.Random;
 
 import org.junit.Assert;
-import org.openqa.selenium.By;
 
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
@@ -20,7 +18,6 @@ import pageclasses.LoginPage;
 import pageclasses.ManageUQAwardsPage;
 import pageclasses.SearchMatchPage;
 import pageclasses.StudentFinancialsPage;
-import stepDefinition.DriverFactory.sfmenu;
 import util.CustomFunctions;
 import util.DebugLog;
 import util.PropertyReader;
@@ -75,6 +72,19 @@ public class testStepsDefinitions extends DriverFactory{
 	}
 	
 	
+@Then("^I should be able to access every page$")
+	public void i_should_be_able_to_access_every_page() throws Throwable {
+    
+    menu uuiDd=new menu();
+    Field[] fields= uuiDd.getClass().getDeclaredFields(); // get all declared fields
+    for(Field field:fields){
+       if(field.getType().equals(String.class)){ // if it is a String field
+          System.out.println("navigating to: "+field.getName());
+          Assert.assertTrue(StudentFinancialsPage.navigateTo((String) field.get(uuiDd)));
+        }
+    }
+}
+
 	/**
 	 * login steps------------------------------------------------------------------------
 	 */
@@ -602,8 +612,8 @@ public class testStepsDefinitions extends DriverFactory{
 	    Assert.assertTrue(StudentFinancialsPage.canSeeBalances());
 	}
 
-	@Then("^I should be able to access every page$")
-	public void i_should_be_able_to_access_every_page() throws Throwable {
+	@Then("^I should be able to access every SF page$")
+	public void i_should_be_able_to_access_every_sf_page() throws Throwable {
 	    StudentFinancialsPage.navigate();
 	    
 	    sfmenu uuiDd=new sfmenu();
@@ -615,5 +625,7 @@ public class testStepsDefinitions extends DriverFactory{
 	        }
 	    }
 	}
+	
+	
 }
 

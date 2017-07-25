@@ -11,7 +11,7 @@
 @menujourney
 Scenario: All Student Financials pages are acesible for staff account
 
-	Given I should be able to access every page
+	Given I should be able to access every SF page
 
 @smoke
 	Scenario: Able to access student balances
