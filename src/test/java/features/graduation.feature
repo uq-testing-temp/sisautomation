@@ -27,11 +27,11 @@ Scenario Outline:  Verify add and update graduation status to eligible, Unsucces
 	  Examples:
 	  | student		|	id			|	origin			|	dest			|	result	|
 	  | Student 1	| 	30048193	|	pending 		| 	eligible		| 	success |
-	  | Student 2	|	30048193	|	conditional		|	eligible		|	success	|
-	  | Student 2 	|	30048193	|	conditional		|	UNSUCCESFULL	|	success	|
-	  | Student 3 	|   30048193	|	conditional		|	final			|	failure	|
-	  | Student 3 	|   30048193	|	conditional		|	ineligible		|	failure	|
-	  | Student 3 	|   30048193	|	conditional		|	representation	|	failure	|
+#	  | Student 2	|	30048193	|	conditional		|	eligible		|	success	|
+#	  | Student 2 	|	30048193	|	conditional		|	UNSUCCESFULL	|	success	|
+#	  | Student 3 	|   30048193	|	conditional		|	final			|	failure	|
+#	  | Student 3 	|   30048193	|	conditional		|	ineligible		|	failure	|
+#	  | Student 3 	|   30048193	|	conditional		|	representation	|	failure	|
 
 @graduation_5010_01
 @smoke
