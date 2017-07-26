@@ -38,7 +38,7 @@ Scenario Outline:  Verify add and update graduation status to eligible, Unsucces
 Scenario: Verify update graduation status to Conditional and multiple current term enrolments for a UGRD student
 
 	Given I enter Empl ID as "42552992"
-	And I set Event ID as "000002556"
+	And I set Event ID as "000001912"
 	And I click Search
 	And I Add a new row 
 	And I update status to "Conditional"
@@ -49,7 +49,7 @@ Scenario: Verify update graduation status to Conditional and multiple current te
 @graduation_5010_01
 Scenario: Attempt to flag a course as both mandatory and discarded (should not be possible).
 	Given I enter Empl ID as "42552992"
-	And I set Event ID as "000002556"
+	And I set Event ID as "000001912"
 	And I click Search
 	And I Add a new row 
 	And I update status to "Conditional"
@@ -59,7 +59,7 @@ Scenario: Attempt to flag a course as both mandatory and discarded (should not b
 Scenario: Verify update graduation status to Conditional for a UGRD student with graduation status pending. 
 		  Update milestone field
 	Given I enter Empl ID as "42552992"
-	And I set Event ID as "000002556"
+	And I set Event ID as "000001912"
 	And I click Search
 	And I Add a new row 
 	When Update the Milestone field to "BLUE CARD"
@@ -69,7 +69,7 @@ Scenario: Verify update graduation status to Conditional for a UGRD student with
 @graduation_5010_01
 Scenario: Verify Ceremony management - Enter Requirements
 	Given I enter Empl ID as "42552992"
-	And I set Event ID as "000002556"
+	And I set Event ID as "000001912"
 	And I click Search
 	And I Add a new row 
 	And I update status to "Conditional"
@@ -82,7 +82,7 @@ Scenario: Verify Ceremony management - Enter Requirements
 @graduation_5010_01
 Scenario: No Honours Class allowed without a degree: 
 	Given I enter Empl ID as "30889499"
-	And I set Event ID as "000002556"
+	And I set Event ID as "000001912"
 	And I click Search
 	When I Click on Student Degrees tab
 	Then Honours Class is not available
