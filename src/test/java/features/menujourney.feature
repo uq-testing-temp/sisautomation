@@ -5,4 +5,4 @@
 
 	Scenario: Menu journey smoke
 	Given I am logged in
-	Then I should be able to access every SF page
+	Then I should be able to access every page
