@@ -373,5 +373,11 @@ public class GraduationPage extends DriverFactory {
 		}
 	}
 
+	public static void clickClear() {
+		switchFrame();
+		driver.findElement(By.id("#ICClear")).click();
+		
+	}
+
 	
 }

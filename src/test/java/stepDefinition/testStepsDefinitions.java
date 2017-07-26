@@ -203,6 +203,12 @@ public class testStepsDefinitions extends DriverFactory{
 	
 		GraduationPage.enterEmplIDtestamur(id);
 	}
+	
+	@Given("^I click clear")
+	public void i_click_clear() throws Throwable {
+	
+		GraduationPage.clickClear();
+	}
 
 	@Given("^I set Event ID as \"([^\"]*)\"$")
 	public void i_set_event_id_as(String id) throws Throwable {

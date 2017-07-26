@@ -141,6 +141,7 @@ Scenario: 6 Update Registered Post Number - disabled
 @graduation_5070_07 
 Scenario: 1 Warning message will appear when delete degree from testamur details
 	Given I navigate to Graduations Management> Testamur Details
+	And I click clear
 	And I enter Empl ID testamur as "30000614"
 	And I click Search
 	When I click delete
