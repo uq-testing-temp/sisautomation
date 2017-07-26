@@ -119,6 +119,7 @@ Scenario: 2 New Meeting is saved
 Scenario: 6 Update Registered Post Number - enabled
 		  Attempt to update mailing address on testamur details page.
 	Given I navigate to Graduations Management> Testamur Details
+	And I click clear
 	And I enter Empl ID testamur as "42552992"
 	And I click Search
 	When I clear Registered Post Number
@@ -130,6 +131,7 @@ Scenario: 6 Update Registered Post Number - enabled
 Scenario: 6 Update Registered Post Number - disabled
 		  Attempt to update mailing address on testamur details page.
 	Given I navigate to Graduations Management> Testamur Details
+	And I click clear
 	And I enter Empl ID testamur as "42552992"
 	And I click Search
 	When I enter Registered Post Number as "42"
