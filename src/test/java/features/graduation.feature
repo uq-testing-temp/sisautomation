@@ -101,7 +101,7 @@ Scenario: 1 New Event is saved
 	Then Update was success 
 
 # GD_PTSC_5060.01_Graduation Event and Meeting Setup
-@graduation_5060_01
+@graduation_5050_01
 @skipped
 Scenario: 2 New Meeting is saved
 	Given I navigate to Event Management Meetings
@@ -127,7 +127,6 @@ Scenario: 6 Update Registered Post Number - enabled
 	And Refresh mailing address links is enabled
 
 @graduation_5060_01
-@skipped
 Scenario: 6 Update Registered Post Number - disabled
 		  Attempt to update mailing address on testamur details page.
 	Given I navigate to Graduations Management> Testamur Details
@@ -158,7 +157,6 @@ Scenario: Check award status:
 
 #GD_PTSC_5080.01_Graduation Advisement Transcript
 @graduation_5080_01
-@skipped
 Scenario Outline: 1 Generate GAT’s by Graduation Status and ‘List of Graduands (CSV)’
 	Given I navigate to Manage Graduations > GAT Production
 	And I add a new value
