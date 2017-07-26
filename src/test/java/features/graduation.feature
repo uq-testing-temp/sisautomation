@@ -16,7 +16,6 @@ Scenario: Search an Undergraduate
 	When I click Search
 	Then I should see Search Results
 
-@debug
 @graduation_5010_01
 Scenario Outline:  Verify add and update graduation status to eligible, Unsuccessful, Final, Ineligible, System Removed, Re-presentation
 	Given Graduation test data is ready for student "<id>"
@@ -80,6 +79,7 @@ Scenario: Verify Ceremony management - Enter Requirements
 	Then Update was success
 
 @graduation_5010_01
+@debug
 Scenario: No Honours Class allowed without a degree: 
 	Given I enter Empl ID as "30889499"
 	And I set Event ID as "000001912"

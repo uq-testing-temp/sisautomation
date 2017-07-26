@@ -256,7 +256,7 @@ public class GraduationPage extends DriverFactory {
 	}
 	
 	public static boolean honourClassAvaliable() {
-		return driver.findElement(By.id("UQ_GR_STUD_DEGR_HONORS_CODE$0")).isEnabled();
+		return driver.findElement(By.id("UQ_GR_STUD_DEGR_HONORS_CODE$0")).isDisplayed();
 	}
 
 	public static void delete() throws Exception {
