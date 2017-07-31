@@ -10,7 +10,8 @@ def commonTags = [
     "login", 
     "menujourney", 
     "regression",
-   	"debug"
+   	"debug",
+   	"healthcheck"
 ]
 
 def sisautomationTags = [
