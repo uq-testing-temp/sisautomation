@@ -33,6 +33,7 @@ public class DriverFactory {
 //TODO implement fluent waits
     protected static WebDriver driver;
     public static final String URL = new PropertyReader().readProperty("URL");
+    public static final String fluidURL = new PropertyReader().readProperty("fluidURL");
     public static Logger logger = Logger.getLogger(DriverFactory.class);
     
     public static class timeout {

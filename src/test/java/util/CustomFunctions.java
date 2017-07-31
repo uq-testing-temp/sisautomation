@@ -1,6 +1,13 @@
 package util;
 import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 import java.util.Objects;
+import java.util.Set;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
@@ -8,10 +15,10 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
+import com.opencsv.CSVReader;
+
 import stepDefinition.DriverFactory;
 public class CustomFunctions extends DriverFactory {
-	
-//	private static String date = LocalDateTime.now().toString().replaceAll("[^a-zA-Z0-9]", "");
 	
 	static long unixTime = System.currentTimeMillis() / 1000L;
 	
@@ -42,5 +49,65 @@ public class CustomFunctions extends DriverFactory {
 	    }
 	    
 	}
+	
+		@SuppressWarnings("resource")
+		public static HashMap<String, String> readCSV(String csvFile) throws Throwable {
+        
+		csvFile = "src/data/" + csvFile;
+		
+        CSVReader reader = null;
+        
+        reader = new CSVReader(new FileReader(csvFile));
+        String[] line;
+        
+        HashMap<String, String> hmap = new HashMap<String, String>();
+        
+        while ((line = reader.readNext()) != null) {
 
+        	hmap.put(line[0], (line[1]).replaceAll("\\s",""));
+        }
+        
+        /* Display content using Iterator*/
+        Set<?> set = hmap.entrySet();
+        Iterator<?> iterator = set.iterator();
+        
+        while(iterator.hasNext()) {
+        	@SuppressWarnings("rawtypes")
+			Map.Entry mentry = (Map.Entry)iterator.next();
+           	System.out.print("Reading data... key is: "+ mentry.getKey() + " value is: ");
+           	System.out.println(mentry.getValue());
+        }
+        
+//	        /* Get values based on key*/
+//	        String var= hmap.get("HC_SETUP_HRMS");
+//	        System.out.println("Value at index 2 is: "+var);
+
+        return hmap;
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -22,6 +22,7 @@ def sisautomationTags = [
 	"graduation_5080_01",
 	"search",
 	"studentfinances",
+	"csv"
 ]
 
 def myaurionTags = [

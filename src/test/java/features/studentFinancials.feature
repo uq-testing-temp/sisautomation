@@ -19,3 +19,7 @@ Scenario: All Student Financials pages are acesible for staff account
 	And I enter student id SF as "41761854"
 	When I click Search
 	Then I should see student account balance
+	
+@csv
+	Scenario: Smoke test using external data source (CSV table)
+	Given I navigate to each menu item specified in "rootMenuDictionary.csv"

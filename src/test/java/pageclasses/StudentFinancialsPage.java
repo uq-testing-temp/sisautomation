@@ -1,15 +1,12 @@
 package pageclasses;
 
 
-import java.lang.reflect.Field;
-
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
 import stepDefinition.DriverFactory;
-
 
 public class StudentFinancialsPage extends DriverFactory {
 	
@@ -67,4 +64,5 @@ public class StudentFinancialsPage extends DriverFactory {
 		Thread.sleep(timeout.TINY);
 		return true;	
 	}
+
 }

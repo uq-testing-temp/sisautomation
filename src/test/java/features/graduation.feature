@@ -80,7 +80,6 @@ Scenario: Verify Ceremony management - Enter Requirements
 
 @graduation_5010_01
 @skipped
-@debug
 Scenario: No Honours Class allowed without a degree: 
 	Given I enter Empl ID as "30889499"
 	And I set Event ID as "000001912"

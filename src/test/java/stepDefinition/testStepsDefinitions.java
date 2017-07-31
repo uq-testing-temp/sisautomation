@@ -1,9 +1,17 @@
 package stepDefinition;
 
+import java.io.FileReader;
+import java.io.IOException;
 import java.lang.reflect.Field;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 import java.util.Random;
+import java.util.Set;
 
 import org.junit.Assert;
+
+import com.opencsv.CSVReader;
 
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
@@ -630,6 +638,34 @@ public class testStepsDefinitions extends DriverFactory{
 	          Assert.assertTrue(StudentFinancialsPage.navigateTo((String) field.get(uuiDd)));
 	        }
 	    }
+	}
+	
+	@Given("^I navigate to each menu item specified in \"([^\"]*)\"$")
+	public void i_navigate_to_each_menu_item_specified_in(String csvFile) throws Throwable {
+	    
+		StudentFinancialsPage.navigate();
+		
+		 HashMap<String, String> hmap = CustomFunctions.readCSV(csvFile);
+		
+        Set<?> set = hmap.entrySet();
+        Iterator<?> iterator = set.iterator();
+        
+        while(iterator.hasNext()) {
+        	@SuppressWarnings("rawtypes")
+			Map.Entry mentry = (Map.Entry)iterator.next();
+           	System.out.print("Navigating to menu "+ mentry.getKey() + " with element id: ");
+           	System.out.println(mentry.getValue());
+           	Assert.assertTrue(StudentFinancialsPage.navigateTo((String) mentry.getValue()));
+        }
+		
+//	    sfmenu uuiDd=new sfmenu();
+//	    Field[] fields= uuiDd.getClass().getDeclaredFields(); // get all declared fields
+//	    for(Field field:fields){
+//	       if(field.getType().equals(String.class)){ // if it is a String field
+//	          System.out.println("navigating to: "+field.getName());
+//	          Assert.assertTrue(StudentFinancialsPage.navigateTo((String) field.get(uuiDd)));
+//	        }
+//	    }
 	}
 	
 	
