@@ -706,14 +706,13 @@ public class testStepsDefinitions extends DriverFactory{
 
 	@Given("^I navigate to > Student Financials > View Customer Accounts$")
 	public void i_navigate_to_Student_Financials_View_Customer_Accounts() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
+		StudentFinancialsPage.navigate();
+		StudentFinancialsPage.navigateToViewCustomerAccounts();
 	}
 
 	@Then("^I should see relevant student account details$")
 	public void i_should_see_relevant_student_account_details() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
+		Assert.assertTrue(StudentFinancialsPage.seeCustomerAccount());
 	}
 
 	@Given("^I navigate to > Student Financials û View Corporate Account$")

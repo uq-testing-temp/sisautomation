@@ -44,7 +44,7 @@ Scenario: All Student Financials pages are acesible for staff account
 @SF103	
 	Scenario: Verify customer Account. All details for a given student should be relevant and correct
 	Given I navigate to > Student Financials > View Customer Accounts
-	When I search student id IHC as "41761854"
+	When I enter enterEmplID as "41761854"
 	Then I should see relevant student account details
 
 @SF107	

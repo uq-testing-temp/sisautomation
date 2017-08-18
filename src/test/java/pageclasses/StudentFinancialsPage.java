@@ -105,6 +105,14 @@ public class StudentFinancialsPage extends DriverFactory {
 		driver.findElement(By.id("crefli_UQ_STUD_ACCT_PNG_GBL")).click();
 		Thread.sleep(timeout.MEDIUM);	
 	}
+	
+	public static void navigateToIHCFinancials_View_Customer_Accounts() throws InterruptedException {
+		Thread.sleep(timeout.SHORT);
+		driver.switchTo().defaultContent();
+		Thread.sleep(timeout.SHORT);
+		driver.findElement(By.id("crefli_HC_ACCOUNT_VW_GBL4")).click();
+		Thread.sleep(timeout.MEDIUM);	
+	}
 
 	public static void search() throws InterruptedException {
 		switchFrame();
@@ -118,6 +126,14 @@ public class StudentFinancialsPage extends DriverFactory {
 		boolean charge = driver.findElement(By.id("UQ_STUD_ACCT_VW_UQ_ACCT_CHARGE$0")).isDisplayed();
 		boolean refund = driver.findElement(By.id("win0divUQ_STUD_ACCT_VW_UQ_REFUND_AMT$0")).isDisplayed();
 		return pageOpen&&charge&&refund;
+	}
+
+	public static boolean seeCustomerAccount() {
+		switchFrame();
+		boolean pageOpen = driver.findElement(By.id("win0divSF_PAGE_TITLES_MNT_CST_PAGE_TITL2lbl")).isDisplayed();
+		boolean type = driver.findElement(By.id("ACCT_TYP_TBL_SF_DESCRSHORT$0")).isDisplayed();
+		boolean accountNumber = driver.findElement(By.id("ACCOUNT_VW_ACCOUNT_NBR$0")).isDisplayed();
+		return pageOpen&&type&&accountNumber;
 	}
 
 }
