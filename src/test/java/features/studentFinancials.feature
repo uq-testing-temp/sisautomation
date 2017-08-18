@@ -37,8 +37,8 @@ Scenario: All Student Financials pages are acesible for staff account
 	
 @SF104 
 	Scenario: Verify UQ Student Account	All charges, refunds and payments made by the student should be displayed correctly
-	Given I navigate to > Student Financials – View UQ Student Accounts
-	When I search student id IHC as "41761854"
+	Given I navigate to > Student Financials > View UQ Student Accounts
+	When I enter enterEmplID as "41761854"
 	Then I should see charges and refunds
 
 @SF103	

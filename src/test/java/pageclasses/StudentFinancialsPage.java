@@ -79,6 +79,7 @@ public class StudentFinancialsPage extends DriverFactory {
 
 	public static void searchIHCstudent(String student) throws InterruptedException {
 		switchFrame();
+		Thread.sleep(timeout.TINY);
 		driver.findElement(By.id("SSF_ADMPRG_SRCH_EMPLID")).sendKeys(student);
 		driver.findElement(By.id("#ICSearch")).click();
 		Thread.sleep(timeout.LONG);
@@ -95,6 +96,28 @@ public class StudentFinancialsPage extends DriverFactory {
 	public static boolean anticipatedAmountAUD(String amount) {
 		
 		return driver.findElement(By.id("SSF_IHC_STDNT_SSF_IHC_RPT_AMT$0")).getText().equalsIgnoreCase(amount);
+	}
+
+	public static void navigateToIHCFinancials_View_UQ_Student_Accounts() throws InterruptedException {
+		Thread.sleep(timeout.SHORT);
+		driver.switchTo().defaultContent();
+		Thread.sleep(timeout.SHORT);
+		driver.findElement(By.id("crefli_UQ_STUD_ACCT_PNG_GBL")).click();
+		Thread.sleep(timeout.MEDIUM);	
+	}
+
+	public static void search() throws InterruptedException {
+		switchFrame();
+		driver.findElement(By.id("#ICSearch")).click();
+		Thread.sleep(timeout.XLONG);
+	}
+
+	public static boolean seeChargesAndrefunds() {
+		switchFrame();
+		boolean pageOpen = driver.findElement(By.id("win0divUQ_STUD_ACCT_VWGP$0")).isDisplayed();
+		boolean charge = driver.findElement(By.id("UQ_STUD_ACCT_VW_UQ_ACCT_CHARGE$0")).isDisplayed();
+		boolean refund = driver.findElement(By.id("win0divUQ_STUD_ACCT_VW_UQ_REFUND_AMT$0")).isDisplayed();
+		return pageOpen&&charge&&refund;
 	}
 
 }

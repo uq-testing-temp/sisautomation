@@ -671,6 +671,18 @@ public class testStepsDefinitions extends DriverFactory{
 		StudentFinancialsPage.searchIHCstudent(student);
 	}
 
+	@When("^I search student id UQ acc as \"([^\"]*)\"$")
+	public void i_search_student_id_UQ_acc_as(String student) throws Throwable {
+		StudentFinancialsPage.enterEmplID(student);
+		StudentFinancialsPage.search();
+	}
+	
+	@When("^I enter enterEmplID as \"([^\"]*)\"$")
+	public void i_enter_emplid_as(String student) throws Throwable {
+		StudentFinancialsPage.enterEmplID(student);
+		StudentFinancialsPage.search();
+	}
+	
 	@Then("^I should see OSHC details$")
 	public void i_should_see_OSHC_details() throws Throwable {
 	    Assert.assertTrue(StudentFinancialsPage.canSeeIHCSMDetails());
@@ -681,16 +693,15 @@ public class testStepsDefinitions extends DriverFactory{
 		Assert.assertTrue(StudentFinancialsPage.anticipatedAmountAUD("0.00"));
 	}
 
-	@Given("^I navigate to > Student Financials û View UQ Student Accounts$")
+	@Given("^I navigate to > Student Financials > View UQ Student Accounts$")
 	public void i_navigate_to_Student_Financials_View_UQ_Student_Accounts() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
+		StudentFinancialsPage.navigate();
+		StudentFinancialsPage.navigateToIHCFinancials_View_UQ_Student_Accounts();
 	}
 
 	@Then("^I should see charges and refunds$")
 	public void i_should_see_charges_and_refunds() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
+		Assert.assertTrue(StudentFinancialsPage.seeChargesAndrefunds());
 	}
 
 	@Given("^I navigate to > Student Financials > View Customer Accounts$")
