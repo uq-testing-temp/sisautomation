@@ -13,6 +13,7 @@ import org.junit.Assert;
 
 import com.opencsv.CSVReader;
 
+import cucumber.api.PendingException;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
@@ -657,17 +658,70 @@ public class testStepsDefinitions extends DriverFactory{
            	System.out.println(mentry.getValue());
            	Assert.assertTrue(StudentFinancialsPage.navigateTo((String) mentry.getValue()));
         }
-		
-//	    sfmenu uuiDd=new sfmenu();
-//	    Field[] fields= uuiDd.getClass().getDeclaredFields(); // get all declared fields
-//	    for(Field field:fields){
-//	       if(field.getType().equals(String.class)){ // if it is a String field
-//	          System.out.println("navigating to: "+field.getName());
-//	          Assert.assertTrue(StudentFinancialsPage.navigateTo((String) field.get(uuiDd)));
-//	        }
-//	    }
 	}
-	
+
+	@Given("^I navigate to Student Financials > International Health Coverage > Student Maintenance$")
+	public void i_navigate_to_Student_Financials_International_Health_Coverage_Student_Maintenance() throws Throwable {
+		StudentFinancialsPage.navigate();
+		StudentFinancialsPage.navigateToIHCStudentMaintanance();
+	}
+
+	@When("^I search student id IHC as \"([^\"]*)\"$")
+	public void i_search_student_id_IHC_as(String student) throws Throwable {
+		StudentFinancialsPage.searchIHCstudent(student);
+	}
+
+	@Then("^I should see OSHC details$")
+	public void i_should_see_OSHC_details() throws Throwable {
+	    Assert.assertTrue(StudentFinancialsPage.canSeeIHCSMDetails());
+	}
+
+	@Then("^I should see Balance and Anticipated Aid as (\\d+) AUD$")
+	public void i_should_see_Balance_and_Anticipated_Aid_as_AUD(int arg1) throws Throwable {
+		Assert.assertTrue(StudentFinancialsPage.anticipatedAmountAUD("0.00"));
+	}
+
+	@Given("^I navigate to > Student Financials û View UQ Student Accounts$")
+	public void i_navigate_to_Student_Financials_View_UQ_Student_Accounts() throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new PendingException();
+	}
+
+	@Then("^I should see charges and refunds$")
+	public void i_should_see_charges_and_refunds() throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new PendingException();
+	}
+
+	@Given("^I navigate to > Student Financials > View Customer Accounts$")
+	public void i_navigate_to_Student_Financials_View_Customer_Accounts() throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new PendingException();
+	}
+
+	@Then("^I should see relevant student account details$")
+	public void i_should_see_relevant_student_account_details() throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new PendingException();
+	}
+
+	@Given("^I navigate to > Student Financials û View Corporate Account$")
+	public void i_navigate_to_Student_Financials_View_Corporate_Account() throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new PendingException();
+	}
+
+	@When("^I search External Org ID as \"([^\"]*)\"$")
+	public void i_search_External_Org_ID_as(String arg1) throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new PendingException();
+	}
+
+	@Then("^I should see Corp Accounts details$")
+	public void i_should_see_Corp_Accounts_details() throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new PendingException();
+	}
 	
 }
 

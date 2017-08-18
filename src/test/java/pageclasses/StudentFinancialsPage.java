@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
 import stepDefinition.DriverFactory;
+import stepDefinition.DriverFactory.timeout;
 
 public class StudentFinancialsPage extends DriverFactory {
 	
@@ -42,6 +43,17 @@ public class StudentFinancialsPage extends DriverFactory {
 		driver.findElement(By.id("crefli_HC_ACCOUNT_VW_GBL4")).click();
 		Thread.sleep(timeout.MEDIUM);	
 	}
+
+	public static void navigateToIHCStudentMaintanance() throws InterruptedException {
+
+		Thread.sleep(timeout.SHORT);
+		driver.switchTo().defaultContent();
+		Thread.sleep(timeout.SHORT);
+		driver.findElement(By.id("fldra_HCSF_IHC")).click();
+		Thread.sleep(timeout.SHORT);
+		driver.findElement(By.id("crefli_HC_SSF_IHC_STDNT_GBL")).click();
+		Thread.sleep(timeout.MEDIUM);	
+	}
 	
 	public static void enterEmplID(String student) {
 		switchFrame();
@@ -63,6 +75,26 @@ public class StudentFinancialsPage extends DriverFactory {
 		driver.findElement(By.id(id)).click();
 		Thread.sleep(timeout.TINY);
 		return true;	
+	}
+
+	public static void searchIHCstudent(String student) throws InterruptedException {
+		switchFrame();
+		driver.findElement(By.id("SSF_ADMPRG_SRCH_EMPLID")).sendKeys(student);
+		driver.findElement(By.id("#ICSearch")).click();
+		Thread.sleep(timeout.LONG);
+		
+	}
+
+	public static boolean canSeeIHCSMDetails() {
+		switchFrame();
+		boolean pageOpen = driver.findElement(By.id("win0divPSPAGECONTAINER")).isDisplayed();
+		boolean nameDisplayed = driver.findElement(By.id("HCR_PERSON_NM_I_NAME_DISPLAY")).isDisplayed();
+		return pageOpen&&nameDisplayed;
+	}
+
+	public static boolean anticipatedAmountAUD(String amount) {
+		
+		return driver.findElement(By.id("SSF_IHC_STDNT_SSF_IHC_RPT_AMT$0")).getText().equalsIgnoreCase(amount);
 	}
 
 }
