@@ -715,22 +715,20 @@ public class testStepsDefinitions extends DriverFactory{
 		Assert.assertTrue(StudentFinancialsPage.seeCustomerAccount());
 	}
 
-	@Given("^I navigate to > Student Financials û View Corporate Account$")
+	@Given("^I navigate to > Student Financials > View Corporate Account$")
 	public void i_navigate_to_Student_Financials_View_Corporate_Account() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
+		StudentFinancialsPage.navigate();
+		StudentFinancialsPage.navigateToIHCFinancials_View_Corporate_Accounts();
 	}
 
 	@When("^I search External Org ID as \"([^\"]*)\"$")
-	public void i_search_External_Org_ID_as(String arg1) throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
+	public void i_search_External_Org_ID_as(String student) throws Throwable {
+		StudentFinancialsPage.searchExternalOrgID(student);
 	}
 
 	@Then("^I should see Corp Accounts details$")
 	public void i_should_see_Corp_Accounts_details() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
+		Assert.assertTrue(StudentFinancialsPage.seeCorpAccount());
 	}
 	
 }

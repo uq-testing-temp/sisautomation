@@ -113,6 +113,14 @@ public class StudentFinancialsPage extends DriverFactory {
 		driver.findElement(By.id("crefli_HC_ACCOUNT_VW_GBL4")).click();
 		Thread.sleep(timeout.MEDIUM);	
 	}
+	
+	public static void navigateToIHCFinancials_View_Corporate_Accounts() throws InterruptedException {
+		Thread.sleep(timeout.SHORT);
+		driver.switchTo().defaultContent();
+		Thread.sleep(timeout.SHORT);
+		driver.findElement(By.id("crefli_HC_ACCOUNT_ORG_SF_GBL4")).click();
+		Thread.sleep(timeout.MEDIUM);	
+	}
 
 	public static void search() throws InterruptedException {
 		switchFrame();
@@ -135,5 +143,20 @@ public class StudentFinancialsPage extends DriverFactory {
 		boolean accountNumber = driver.findElement(By.id("ACCOUNT_VW_ACCOUNT_NBR$0")).isDisplayed();
 		return pageOpen&&type&&accountNumber;
 	}
-
+	
+	public static void searchExternalOrgID(String student) throws InterruptedException {
+		switchFrame();
+		Thread.sleep(timeout.TINY);
+		driver.findElement(By.id("ACCT_ORG_ALL_VW_EXT_ORG_ID")).sendKeys(student);
+		driver.findElement(By.id("#ICSearch")).click();
+		Thread.sleep(timeout.LONG);
+	}
+	
+	public static boolean seeCorpAccount() {
+		switchFrame();
+		boolean pageOpen = driver.findElement(By.id("win0divSF_PAGE_TITLES_MNT_CST_PAGE_TITLElbl")).isDisplayed();
+		boolean type = driver.findElement(By.id("ACCT_TYP_TBL_SF_DESCRSHORT$0")).isDisplayed();
+		boolean accountNumber = driver.findElement(By.id("ACCOUNT_ORG_SF_ACCOUNT_NBR$0")).isDisplayed();
+		return pageOpen&&type&&accountNumber;
+	}
 }

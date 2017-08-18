@@ -49,6 +49,6 @@ Scenario: All Student Financials pages are acesible for staff account
 
 @SF107	
 	Scenario: Verify Corporate Account.	All students assigned to Third Party Contract should have correct charges
-	Given I navigate to > Student Financials – View Corporate Account
+	Given I navigate to > Student Financials > View Corporate Account
 	When I search External Org ID as "41018558"
 	Then I should see Corp Accounts details
