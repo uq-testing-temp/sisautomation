@@ -16,9 +16,9 @@ Scenario: All Student Financials pages are acesible for staff account
 	Scenario: Able to access student balances
 	Given I navigate to Student Financials > Customer Accounts
 	And I enter student id SF as "41761854"
-	When I click Search
+	When I click SearchSF
 	Then I should see student account balance
-	
+@debug
 @csv
 	Scenario: Smoke test using external data source (CSV table)
 	Given I navigate to each menu item specified in "rootMenuDictionary.csv"
@@ -52,3 +52,28 @@ Scenario: All Student Financials pages are acesible for staff account
 	Given I navigate to > Student Financials > View Corporate Account
 	When I search External Org ID as "41018558"
 	Then I should see Corp Accounts details
+
+@SF001
+  Scenario: Verify configuration of tuition groups to assign a set of fees according to specific rule	Configurations are set as per rules
+  Given I navigate to Student Financials > Tution and Fees > Tuition Calculation
+  
+@SF002
+  Scenario: Verify configuration of HECS Band Fees	Configurations set correctly
+  Given I navigate to Student Financials > Tution and Fees > Tuition Calculation
+  
+@SF003
+  Scenario: Verify configuration of a group of courses for use with third-party contracts or course fees.	Configurations set correctly
+  Given I navigate to Student Financials > Tution and Fees > Tuition Calculation
+  
+@SF004
+  Scenario: Verify configuration of fees for all courses within a given course list.	Configurations set correctly
+  Given I navigate to Student Financials > Tution and Fees > Tuition Calculation
+  
+@SF005
+  Scenario: Verify Configuration of term fee codes to link to tuition groups.	Configurations set correctly
+  Given I navigate to Student Financials > Tution and Fees > Tuition Calculation
+  
+@SF006
+  Scenario: Verify configuration of transaction fees for adding or dropping classes as of a specific date.	Configurations set correctly
+  Given I navigate to Student Financials > Tution and Fees > Tuition Calculation
+  	

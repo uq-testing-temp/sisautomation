@@ -1,6 +1,8 @@
 package pageclasses;
 
 
+import java.util.concurrent.TimeUnit;
+
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.By;
@@ -8,7 +10,10 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.Wait;
 
 import stepDefinition.DriverFactory;
 import stepDefinition.DriverFactory.timeout;
@@ -101,11 +106,12 @@ public class GraduationPage extends DriverFactory {
 		drpdown.selectByIndex(index);
 	}
 
+	@SuppressWarnings("unchecked")
 	public static void search() throws InterruptedException {
 		Thread.sleep(timeout.LONG);
 		switchFrame();
 		driver.findElement(By.id("#ICSearch")).click();
-		Thread.sleep(timeout.XLONG);
+		Thread.sleep(timeout.LONG);
 	}
 	
 	public static void add() throws InterruptedException {

@@ -1,7 +1,6 @@
 package stepDefinition;
 
 import org.apache.log4j.Logger;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
@@ -18,8 +17,10 @@ import org.junit.BeforeClass;
 import org.openqa.selenium.*;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -181,6 +182,7 @@ public class DriverFactory {
             System.out.println("I cannot read browser type");
         }
         
+//        driver.manage().timeouts().implicitlyWait(1000, TimeUnit.MILLISECONDS);
         
     }
 
@@ -204,7 +206,21 @@ public class DriverFactory {
     		
     		DebugLog.Error("Unable to switch to frame: " + e);
     		
-    	}
+    	}	
 		return true;
     }
+    
+	public static WebElement fluentElement(By locator) {
+		
+		new WebDriverWait(driver, 10)
+		.until(ExpectedConditions.invisibilityOfElementLocated(By.id("processing")));
+		
+		WebElement element = (new WebDriverWait(driver, 10))
+				   .until(ExpectedConditions.elementToBeClickable(locator));
+		
+		new WebDriverWait(driver, 10)
+			.until(ExpectedConditions.invisibilityOfElementLocated(By.id("processing")));
+				
+		return element;
+	}
 }

@@ -611,6 +611,13 @@ public class testStepsDefinitions extends DriverFactory{
 	/**
 	 * student financials steps ------------------------------------------------------------------------
 	 */
+	@When("^I click SearchSF$")
+	public void i_click_searchSF() throws Throwable {
+	
+		StudentFinancialsPage.searchSF();
+		
+	}
+	
 	@Given("^I navigate to Student Financials > Customer Accounts$")
 	public void i_navigate_to_Student_Financials_Customer_Accounts() throws Throwable {
 	    StudentFinancialsPage.navigate();
@@ -635,7 +642,7 @@ public class testStepsDefinitions extends DriverFactory{
 	    Field[] fields= uuiDd.getClass().getDeclaredFields(); // get all declared fields
 	    for(Field field:fields){
 	       if(field.getType().equals(String.class)){ // if it is a String field
-	          System.out.println("navigating to: "+field.getName());
+	          System.out.println("navigating to: " + field.getName());
 	          Assert.assertTrue(StudentFinancialsPage.navigateTo((String) field.get(uuiDd)));
 	        }
 	    }
@@ -656,6 +663,7 @@ public class testStepsDefinitions extends DriverFactory{
 			Map.Entry mentry = (Map.Entry)iterator.next();
            	System.out.print("Navigating to menu "+ mentry.getKey() + " with element id: ");
            	System.out.println(mentry.getValue());
+           	Thread.sleep(500);
            	Assert.assertTrue(StudentFinancialsPage.navigateTo((String) mentry.getValue()));
         }
 	}
@@ -731,5 +739,10 @@ public class testStepsDefinitions extends DriverFactory{
 		Assert.assertTrue(StudentFinancialsPage.seeCorpAccount());
 	}
 	
+	@Given("^I navigate to Student Financials > Tution and Fees > Tuition Calculation$")
+	public void i_navigate_to_Student_Financials_Tution_and_Fees_Tuition_Calculation() throws Throwable {
+		StudentFinancialsPage.navigate();		
+		StudentFinancialsPage.navigateToIHCFinancials_tutionAndFees_calculation();
+	}
 }
 

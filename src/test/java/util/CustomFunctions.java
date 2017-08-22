@@ -8,12 +8,20 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.opencsv.CSVReader;
 
@@ -77,13 +85,29 @@ public class CustomFunctions extends DriverFactory {
            	System.out.print("Reading data... key is: "+ mentry.getKey() + " value is: ");
            	System.out.println(mentry.getValue());
         }
-        
-//	        /* Get values based on key*/
-//	        String var= hmap.get("HC_SETUP_HRMS");
-//	        System.out.println("Value at index 2 is: "+var);
 
         return hmap;
 	}
+		
+		@SuppressWarnings({ "unchecked", "rawtypes" })
+		public static void fluentwait(WebElement element) {
+			
+			Wait wait = new FluentWait(driver)
+				    .withTimeout(10000, TimeUnit.MILLISECONDS)
+				    .pollingEvery(500, TimeUnit.MILLISECONDS)
+					.ignoring(NoSuchElementException.class);
+
+			wait.until(ExpectedConditions.visibilityOf(element));
+		}
+
+
+		public static WebElement fluentElement(By locator) {
+			
+			WebElement element = (new WebDriverWait(driver, 10))
+					   .until(ExpectedConditions.elementToBeClickable(locator));
+			
+			return element;
+		}
 }
 
 
