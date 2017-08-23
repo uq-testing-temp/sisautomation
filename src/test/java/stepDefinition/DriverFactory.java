@@ -46,6 +46,8 @@ public class DriverFactory {
         public static final int MEDIUM = 1000;
         public static final int LONG = 2000;
         public static final int XLONG = 5000;
+        public static final int PROCESSING = 5000;
+        
         
     }
     
@@ -221,13 +223,13 @@ public class DriverFactory {
     
 	public static WebElement fluentElement(By locator) {
 		
-		new WebDriverWait(driver, 10)
+		new WebDriverWait(driver, timeout.PROCESSING)
 		.until(ExpectedConditions.invisibilityOfElementLocated(By.id("processing")));
 		
 		WebElement element = (new WebDriverWait(driver, 10))
 				   .until(ExpectedConditions.elementToBeClickable(locator));
 		
-		new WebDriverWait(driver, 10)
+		new WebDriverWait(driver, timeout.PROCESSING)
 			.until(ExpectedConditions.invisibilityOfElementLocated(By.id("processing")));
 				
 		return element;
