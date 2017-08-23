@@ -112,7 +112,7 @@ public class CustomFunctions extends DriverFactory {
 
 
 		public static void checkElementPresense(String element) {
-			String bodyText = driver.findElement(By.tagName("body")).getText();
+			String bodyText = fluentElement(By.tagName("body")).getText();
 			Assert.assertTrue(element + " element not found!", bodyText.contains(element));
 		}
 }
