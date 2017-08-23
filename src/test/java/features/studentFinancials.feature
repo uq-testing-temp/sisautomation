@@ -87,8 +87,11 @@ Scenario: All Student Financials pages are acesible for staff account
     
 @SF106
     Scenario: Verify TPC for Corporation	Contract details and student details should be displayed correctly
-    Given I navigate to > Student Financials > Payment Plans >   Third Party Contract >   Create – Find an existing value
-    And PAss
+    Given I navigate to > Student Financials > Payment Plans > Third Party Contract > Create
+    And Enter External Org ID as "40448747"
+    When I click Search OrgID
+    And I select the latest result
+    Then I should see correct TPC details
     
 @SF118
     Scenario: Verify the display of the HECS, Fee-help, and SA-help eCAF within mySI-net and the related conditions for post 2005 students.	HECS, Fee-HELP and SA-HELP eCAF details should be displayed correctly as per the conditions for all students enrolled after 2005

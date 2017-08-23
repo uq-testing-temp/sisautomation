@@ -167,4 +167,14 @@ public class StudentFinancialsPage extends DriverFactory {
 		fluentElement(By.id("BI_BILL_HDR_VW2_EXT_ORG_ID")).clear();
 		fluentElement(By.id("BI_BILL_HDR_VW2_EXT_ORG_ID")).sendKeys(orgID);		
 	}
+
+	public static void navigateToStudentFinancialsPayment_Plans_Third_Party_Contract_Create() {
+		driver.switchTo().defaultContent();
+		fluentElement(By.id("fldra_HCCC_ADMINISTER_PAYMENT_PLANS")).click();
+		fluentElement(By.id("fldra_HCCC_THIRDPARTY")).click(); 
+		fluentElement(By.id("crefli_HC_TP_CONTRACT_GBL")).click();
+		switchFrame();
+		CustomFunctions.fluentwait(fluentElement(By.id("app_label")));
+		
+	}
 }

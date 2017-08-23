@@ -766,14 +766,23 @@ public class testStepsDefinitions extends DriverFactory{
 	
 	@When("^I click Search OrgID$")
 	public void i_click_search_orgid() throws Throwable {
-	
 		CommonPageElements.search();
-		
 	}
 	
 	@When("^I select the latest result$")
 	public void i_select_the_latest_result() throws Throwable {
 		CommonPageElements.selectFirstResult();
+	}
+	
+	@Given("^I navigate to > Student Financials > Payment Plans > Third Party Contract > Create$")
+	public void i_navigate_to_Student_Financials_Payment_Plans_Third_Party_Contract_Create() throws Throwable {
+		StudentFinancialsPage.navigate();
+		StudentFinancialsPage.navigateToStudentFinancialsPayment_Plans_Third_Party_Contract_Create();
+	}
+
+	@Then("^I should see correct TPC details$")
+	public void i_should_see_correct_TPC_details() throws Throwable {
+	    CustomFunctions.checkElementPresense("Third Party Contract");
 	}
 }
 
