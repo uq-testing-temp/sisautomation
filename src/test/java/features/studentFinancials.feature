@@ -76,4 +76,33 @@ Scenario: All Student Financials pages are acesible for staff account
 @SF006
   Scenario: Verify configuration of transaction fees for adding or dropping classes as of a specific date.	Configurations set correctly
   Given I navigate to Student Financials > Tution and Fees > Tuition Calculation
+  
+@SF065
+    Scenario: Verify information displayed on invoice	Information displayed on the invoice should be correct
+    Given I navigate to > Student Financials > Bill Customers> Corporate Bills >   Review Invoice
+    And Enter External Org ID as "40448747"
+    When I click Search OrgID
+    And I select the latest result
+    Then I should see correct invoice details
+    
+@SF106
+    Scenario: Verify TPC for Corporation	Contract details and student details should be displayed correctly
+    Given I navigate to > Student Financials > Payment Plans >   Third Party Contract >   Create – Find an existing value
+    And PAss
+    
+@SF118
+    Scenario: Verify the display of the HECS, Fee-help, and SA-help eCAF within mySI-net and the related conditions for post 2005 students.	HECS, Fee-HELP and SA-HELP eCAF details should be displayed correctly as per the conditions for all students enrolled after 2005
+    Given I navigate to mySI-net >   Financial – HECS-HELP eCAF/ FEE-HELP eCAF/ SA-HELP eCAF
+    And PAss
+    
+@SF120
+    Scenario: Verify CANs for HECS, Fee-help, and SA-help students	CAN for the listed students is extracted
+    Given I navigate to > Student Financials >
+    And PAss
+    
+@SF121
+    Scenario: Verify the statement of charges and payments for students	Statement of charges and payments should be correct as per student details
+    Given I navigate to > Student Financials >
+    And PAss
+    
   	

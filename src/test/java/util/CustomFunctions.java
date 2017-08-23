@@ -11,6 +11,7 @@ import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.OutputType;
@@ -108,30 +109,10 @@ public class CustomFunctions extends DriverFactory {
 			
 			return element;
 		}
+
+
+		public static void checkElementPresense(String element) {
+			String bodyText = driver.findElement(By.tagName("body")).getText();
+			Assert.assertTrue(element + " element not found!", bodyText.contains(element));
+		}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

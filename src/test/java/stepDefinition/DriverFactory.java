@@ -31,8 +31,8 @@ import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 public class DriverFactory {
-//TODO implement fluent waits
-    protected static WebDriver driver;
+
+	protected static WebDriver driver;
     public static final String URL = new PropertyReader().readProperty("URL");
     public static final String fluidURL = new PropertyReader().readProperty("fluidURL");
     public static Logger logger = Logger.getLogger(DriverFactory.class);
@@ -135,6 +135,15 @@ public class DriverFactory {
     	public static final String HCCC_MANAGE_TAX_REPORTING = "fldra_HCCC_MANAGE_TAX_REPORTING";
     	public static final String HCSF_BANKING = "fldra_HCSF_BANKING";
     	public static final String HCSF_SSF_STUDENT_FINANCIAL_NLD = "fldra_HCSF_SSF_STUDENT_FINANCIAL_NLD";
+    }
+    
+    public static class cmnElements {
+    	/**
+    	 * This is common elements "id" locators enumerator class
+	     */
+    	public static final String SEARCHBUTTON = "#ICSearch";
+    	public static final String CLEARBUTTON = "#ICClear";
+    	public static final String FIRSTRESULT = "SEARCH_RESULT1";
     }
 
     public  DriverFactory() {

@@ -21,6 +21,7 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import pageclasses.CampusCommunityPage;
+import pageclasses.CommonPageElements;
 import pageclasses.GraduationPage;
 import pageclasses.HomePage;
 import pageclasses.LoginPage;
@@ -743,6 +744,36 @@ public class testStepsDefinitions extends DriverFactory{
 	public void i_navigate_to_Student_Financials_Tution_and_Fees_Tuition_Calculation() throws Throwable {
 		StudentFinancialsPage.navigate();		
 		StudentFinancialsPage.navigateToIHCFinancials_tutionAndFees_calculation();
+	}
+	
+	@Given("^I navigate to > Student Financials > Bill Customers> Corporate Bills >   Review Invoice$")
+	public void i_navigate_to_Student_Financials_Bill_Customers_Corporate_Bills_Review_Invoice() throws Throwable {
+		StudentFinancialsPage.navigate();
+		StudentFinancialsPage.navigateToStudentFinancialsBillCustomersCorporateBillsReviewInvoice();
+	}
+
+	@Given("^Enter External Org ID as \"([^\"]*)\"$")
+	public void enter_External_Org_ID_as(String orgID) throws Throwable {
+		StudentFinancialsPage.enterOrgID(orgID);
+	}
+
+	@Then("^I should see correct invoice details$")
+	public void i_should_see_correct_invoice_details() throws Throwable {
+	    CustomFunctions.checkElementPresense("External Org ID");
+	    CustomFunctions.checkElementPresense("Total Billed");
+    
+	}
+	
+	@When("^I click Search OrgID$")
+	public void i_click_search_orgid() throws Throwable {
+	
+		CommonPageElements.search();
+		
+	}
+	
+	@When("^I select the latest result$")
+	public void i_select_the_latest_result() throws Throwable {
+		CommonPageElements.selectFirstResult();
 	}
 }
 

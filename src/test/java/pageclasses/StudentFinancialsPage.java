@@ -113,8 +113,7 @@ public class StudentFinancialsPage extends DriverFactory {
 	}
 	
 	public static void search() throws InterruptedException {
-		switchFrame();
-		fluentElement(By.id("#ICSearch")).click();
+		CommonPageElements.search();
 	}
 
 	public static boolean seeChargesAndrefunds() {
@@ -152,5 +151,20 @@ public class StudentFinancialsPage extends DriverFactory {
 		WebElement element = (new WebDriverWait(driver, 10))
 				   .until(ExpectedConditions.elementToBeClickable(By.id("#ICSearch")));
 		element.click();
+	}
+
+	public static void navigateToStudentFinancialsBillCustomersCorporateBillsReviewInvoice() {
+		driver.switchTo().defaultContent();
+		fluentElement(By.id("fldra_HCCC_BILL_CUSTOMERS")).click();
+		fluentElement(By.id("fldra_HCSF_CORPORATE_BILLS")).click(); 
+		fluentElement(By.id("crefli_HC_BI_BILL_HEADER_ORG_GBL")).click();
+		switchFrame();
+		CustomFunctions.fluentwait(driver.findElement(By.id("app_label")));
+	}
+
+	public static void enterOrgID(String orgID) {
+		switchFrame();
+		fluentElement(By.id("BI_BILL_HDR_VW2_EXT_ORG_ID")).clear();
+		fluentElement(By.id("BI_BILL_HDR_VW2_EXT_ORG_ID")).sendKeys(orgID);		
 	}
 }
