@@ -1,34 +1,29 @@
 package stepDefinition;
 
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
 import org.apache.log4j.Logger;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.NoSuchFrameException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-
-import io.github.bonigarcia.wdm.ChromeDriverManager;
-import util.DebugLog;
-import util.PropertyReader;
-
-import com.google.common.base.Function;
-import com.thoughtworks.selenium.SeleneseTestBase;
-import junit.framework.Assert;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.openqa.selenium.*;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.FluentWait;
-import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.NoSuchElementException;
-import java.util.Optional;
-import java.util.Properties;
-import java.util.concurrent.TimeUnit;
+import io.github.bonigarcia.wdm.ChromeDriverManager;
+import pageclasses.CommonPageElements;
+import stepDefinition.DriverFactory.timeout;
+import util.DebugLog;
+import util.PropertyReader;
 
 public class DriverFactory {
 
@@ -39,7 +34,7 @@ public class DriverFactory {
     
     public static class timeout {
     	/**
-    	 * This is a timeout enumerator class
+    	 * Timeouts enumerator class
 	     */
         public static final int TINY = 100;
         public static final int SHORT = 250;
@@ -47,13 +42,16 @@ public class DriverFactory {
         public static final int LONG = 2000;
         public static final int XLONG = 5000;
         public static final int PROCESSING = 5000;
+        public static final int FLUENTWAIT = 10;
+		public static final long FLUENTPOLLING = 500;
+        
         
         
     }
     
     public static class graduationStatus {
     	/**
-    	 * This is a timeout enumerator class
+    	 * Graduation statuses enumerator class
 	     */
         public static final int CONDITIONAL = 0;
         public static final int ELIGIBLE = 1;
@@ -165,7 +163,7 @@ public class DriverFactory {
         	
         	DesiredCapabilities capability = DesiredCapabilities.chrome();
         	
-        	ChromeDriverManager.getInstance().setup();
+//        	ChromeDriverManager.getInstance().setup();
         	ChromeOptions options = new ChromeOptions();
         	options.addArguments("test-type");
         	options.addArguments("start-maximized");
@@ -193,7 +191,7 @@ public class DriverFactory {
             System.out.println("I cannot read browser type");
         }
         
-//        driver.manage().timeouts().implicitlyWait(1000, TimeUnit.MILLISECONDS);
+//        driver.manage().timeouts().implicitlyWait(5000, TimeUnit.MILLISECONDS);
         
     }
 
@@ -210,8 +208,9 @@ public class DriverFactory {
     	
     	try {
     		
-			driver.switchTo().defaultContent();
-			driver.switchTo().frame("ptifrmtgtframe");
+    		driver.switchTo().defaultContent();
+    		Thread.sleep(timeout.TINY);
+    		driver.switchTo().frame("ptifrmtgtframe");
     	
     	} catch (Exception e) {
     		
@@ -221,17 +220,66 @@ public class DriverFactory {
 		return true;
     }
     
+    
 	public static WebElement fluentElement(By locator) {
 		
 		new WebDriverWait(driver, timeout.PROCESSING)
-		.until(ExpectedConditions.invisibilityOfElementLocated(By.id("processing")));
+			.until(ExpectedConditions.invisibilityOfElementLocated(By.id("processing")));
 		
-		WebElement element = (new WebDriverWait(driver, 10))
-				   .until(ExpectedConditions.elementToBeClickable(locator));
+		WebElement element = (new WebDriverWait(driver, timeout.FLUENTWAIT, timeout.FLUENTPOLLING))
+			.until(ExpectedConditions.elementToBeClickable(locator));
 		
 		new WebDriverWait(driver, timeout.PROCESSING)
 			.until(ExpectedConditions.invisibilityOfElementLocated(By.id("processing")));
 				
 		return element;
+	}
+	
+	public static WebElement frameElement(By locator) {
+		
+		driver.switchTo().defaultContent();
+		
+		int minIndex = 0;
+		int maxIndex = 10;
+		int maxRetries = 2;
+		int retry = 0;
+	
+		while (true){
+			
+			if (retry > maxRetries) break;
+			
+			for(int i=maxIndex; i>minIndex; i--){
+		         try {
+	//	         	System.out.println("Trying to find frame with index: "+i);
+		         	driver.switchTo().frame(i);
+		         	System.out.println("Succesfully switched to frame with index"+i);
+		         	try {
+						Thread.sleep(timeout.TINY);
+					} catch (InterruptedException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+		         	try {
+		         		driver.findElement(locator);
+	         			System.out.println("Succesfully located the element within frame with index"+i);
+	         			retry = maxRetries;
+	         			break;
+		         	} catch (NoSuchElementException e) {
+	//	         		System.out.println("Element was not located within frame with index "+i);
+		         	}
+		         	
+		         } catch (NoSuchFrameException e) {
+	//	             System.out.println("Frame with index "+i+" not found");
+		             try {
+						Thread.sleep(timeout.TINY);
+					} catch (InterruptedException e1) {
+						e1.printStackTrace();
+					}
+		         }
+			}
+			retry++;
+		}
+				
+	return fluentElement(locator);
 	}
 }

@@ -1,13 +1,12 @@
 package util;
 import java.io.File;
 import java.io.FileReader;
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
@@ -112,7 +111,21 @@ public class CustomFunctions extends DriverFactory {
 
 
 		public static void checkElementPresense(String element) {
+			
+			driver.switchTo().defaultContent();
 			String bodyText = fluentElement(By.tagName("body")).getText();
-			Assert.assertTrue(element + " element not found!", bodyText.contains(element));
+			boolean outsideFrame = bodyText.contains(element);
+			
+			switchFrame();
+			String bodyTextFrame = fluentElement(By.tagName("body")).getText();
+			boolean withinFrame = bodyTextFrame.contains(element);
+			Assert.assertTrue(element + " element not found!", outsideFrame||withinFrame);
+		}
+
+
+		public static String getRandomLong() {
+			
+			int value = ThreadLocalRandom.current().nextInt(100000, 9999999);
+			return Integer.toString(value);
 		}
 }

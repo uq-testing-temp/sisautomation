@@ -5,12 +5,19 @@ import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.Random;
 import java.util.Set;
 
 import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.NoSuchFrameException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
+import com.gargoylesoftware.htmlunit.ElementNotFoundException;
 import com.opencsv.CSVReader;
 
 import cucumber.api.PendingException;
@@ -28,6 +35,7 @@ import pageclasses.LoginPage;
 import pageclasses.ManageUQAwardsPage;
 import pageclasses.SearchMatchPage;
 import pageclasses.StudentFinancialsPage;
+import stepDefinition.DriverFactory.cmnElements;
 import util.CustomFunctions;
 import util.DebugLog;
 import util.PropertyReader;
@@ -782,7 +790,38 @@ public class testStepsDefinitions extends DriverFactory{
 
 	@Then("^I should see correct TPC details$")
 	public void i_should_see_correct_TPC_details() throws Throwable {
-	    CustomFunctions.checkElementPresense("Third Party Contract");
+	    CustomFunctions.checkElementPresense("Third Party Contract Detail");
+	}
+	
+	@Given("^I navigate to Student Financials > UQ Student Financials Reports > Payment Allocation$")
+	public void i_navigate_to_Student_Financials_UQ_Student_Financials_Reports_Payment_Allocation() throws Throwable {
+		StudentFinancialsPage.navigate();
+		StudentFinancialsPage.navigateToStudent_Financials_UQ_Student_Financials_Reports_Payment_Allocation();
+	}
+
+	@Given("^I add a New Value$")
+	public void i_add_a_New_Value() throws Throwable {
+		StudentFinancialsPage.addPaymentAllocationNewValue();
+		StudentFinancialsPage.runControlID("random");
+		CommonPageElements.search();
+		if (driver.findElements(By.id(cmnElements.FIRSTRESULT)).size() > 0) {
+			CommonPageElements.selectFirstResult();
+		}
+		
+	}
+
+	@When("^I choose reporting option as \"([^\"]*)\"$")
+	public void i_choose_Overnight_reporting(String option) throws Throwable {
+		StudentFinancialsPage.runOptions(option);
+		CommonPageElements.runButton().click();
+		CommonPageElements.saveButton().click();
+	}
+
+	@Then("^I should see Run status as Processing$")
+	public void i_should_see_Run_status_as_Processing() throws Throwable {
+		CommonPageElements.processMonitorLink().click();
+		CommonPageElements.refreshButton().click();
+		CustomFunctions.checkElementPresense("Processing");
 	}
 }
 

@@ -164,17 +164,54 @@ public class StudentFinancialsPage extends DriverFactory {
 
 	public static void enterOrgID(String orgID) {
 		switchFrame();
-		fluentElement(By.id("BI_BILL_HDR_VW2_EXT_ORG_ID")).clear();
-		fluentElement(By.id("BI_BILL_HDR_VW2_EXT_ORG_ID")).sendKeys(orgID);		
+		fluentElement(By.id("TP_CONTRCT_SRCH_EXT_ORG_ID")).clear();
+		fluentElement(By.id("TP_CONTRCT_SRCH_EXT_ORG_ID")).sendKeys(orgID);		
 	}
 
 	public static void navigateToStudentFinancialsPayment_Plans_Third_Party_Contract_Create() {
 		driver.switchTo().defaultContent();
 		fluentElement(By.id("fldra_HCCC_ADMINISTER_PAYMENT_PLANS")).click();
-		fluentElement(By.id("fldra_HCCC_THIRDPARTY")).click(); 
-		fluentElement(By.id("crefli_HC_TP_CONTRACT_GBL")).click();
+		fluentElement(By.id("fldra_HCCC_THIRDPARTY")).click();
+		fluentElement(By.linkText("Create")).click();
 		switchFrame();
 		CustomFunctions.fluentwait(fluentElement(By.id("app_label")));
 		
+	}
+
+	public static void navigateToStudent_Financials_UQ_Student_Financials_Reports_Payment_Allocation() {
+		driver.switchTo().defaultContent();
+		fluentElement(By.id("fldra_UQ_SF_REPORTS")).click();
+		fluentElement(By.linkText("Payment Allocation")).click(); 
+		switchFrame();
+		CustomFunctions.fluentwait(fluentElement(By.id("app_label")));
+		
+	}
+
+	public static void addPaymentAllocationNewValue() {
+		fluentElement(By.className("PTUNDERLINE")).click();
+	}
+
+	public static void runControlID(String string) {
+		CommonPageElements.enterTextField("PRCSRUNCNTL_RUN_CNTL_ID", CustomFunctions.getRandomLong());
+		
+	}
+
+	public static void runOptions(String option) {
+		
+		switch (option) {
+		
+			case "overnight": 
+				fluentElement(By.id("UQ_RC_RECS_UPDATE_FL")).click();
+				break;
+				
+			case "monthly": 
+				fluentElement(By.id("UQ_RC_RECS_UPDATE_FL$5$")).click();
+				break;
+			
+			case "adhoc": 
+				fluentElement(By.id("UQ_RC_RECS_UPDATE_FL$6$")).click();
+				break;
+			
+		}
 	}
 }

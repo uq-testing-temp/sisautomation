@@ -5,9 +5,11 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
 import stepDefinition.DriverFactory;
+import stepDefinition.DriverFactory.timeout;
 
 
 public class CommonPageElements extends DriverFactory {
@@ -48,6 +50,28 @@ public class CommonPageElements extends DriverFactory {
 	public static void selectFirstResult() {
 		switchFrame();
 		fluentElement(By.id(cmnElements.FIRSTRESULT)).click();
+	}
+
+	public static void enterTextField(String id, String keys) {
+		fluentElement(By.id(id)).clear();
+		fluentElement(By.id(id)).sendKeys(keys);		
+	}
+
+	public static WebElement runButton() {
+		return fluentElement(By.id("PRCSRQSTDLG_WRK_LOADPRCSRQSTDLGPB"));
+	}
+
+	public static WebElement saveButton() {
+		return frameElement(By.id("#ICSave"));
+	}
+
+	public static WebElement processMonitorLink() throws InterruptedException {
+		switchFrame();
+		return fluentElement(By.id("PRCSRQSTDLG_WRK_LOADPRCSMONITORPB"));
+	}
+
+	public static WebElement refreshButton() {
+		return fluentElement(By.id("REFRESH_BTN"));
 	}
 	
 }
