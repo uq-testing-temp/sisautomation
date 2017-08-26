@@ -166,7 +166,7 @@ public class DriverFactory {
 //        	ChromeDriverManager.getInstance().setup();
         	ChromeOptions options = new ChromeOptions();
         	options.addArguments("test-type");
-        	options.addArguments("start-maximized");
+//        	options.addArguments("start-maximized");
         	options.addArguments("--js-flags=--expose-gc");  
         	options.addArguments("--enable-precise-memory-info"); 
         	options.addArguments("--disable-popup-blocking");
@@ -182,7 +182,7 @@ public class DriverFactory {
                 	driver = new RemoteWebDriver(new URL("http://localhost:" + seleniumPort + "/wd/hub"), capability);
                     driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
                     driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
-                    driver.manage().window().setSize(new Dimension(1920, 1080));
+                    driver.manage().window().setSize(new Dimension(1080, 800));
         		} catch (MalformedURLException e) {
         			e.printStackTrace();
         		}
@@ -190,7 +190,7 @@ public class DriverFactory {
         } else {
             System.out.println("I cannot read browser type");
         }
-        
+        driver.manage().window().setSize(new Dimension(1080, 800));
 //        driver.manage().timeouts().implicitlyWait(5000, TimeUnit.MILLISECONDS);
         
     }
@@ -207,11 +207,11 @@ public class DriverFactory {
     public static boolean switchFrame() {
     	
     	try {
-    		
+    		Thread.sleep(timeout.SHORT);
     		driver.switchTo().defaultContent();
-    		Thread.sleep(timeout.TINY);
+    		Thread.sleep(timeout.SHORT);
     		driver.switchTo().frame("ptifrmtgtframe");
-    	
+    		Thread.sleep(timeout.SHORT);
     	} catch (Exception e) {
     		
     		DebugLog.Error("Unable to switch to frame: " + e);

@@ -37,7 +37,7 @@ public class LoginPage extends DriverFactory {
 		
 		String URL= new PropertyReader().readProperty("URL");
 		driver.get(URL + "/ps/uqsinetsignin.html");
-        driver.manage().window().maximize();
+//        driver.manage().window().maximize();
 	}
 
 	

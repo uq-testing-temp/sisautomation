@@ -206,12 +206,37 @@ public class StudentFinancialsPage extends DriverFactory {
 				
 			case "monthly": 
 				fluentElement(By.id("UQ_RC_RECS_UPDATE_FL$5$")).click();
+				CommonPageElements.enterTextField("UQ_RC_RECS_FROM_DATE", "01/08/2016");
+				CommonPageElements.enterTextField("UQ_RC_RECS_TO_DATE", "01/08/2017");
 				break;
 			
 			case "adhoc": 
 				fluentElement(By.id("UQ_RC_RECS_UPDATE_FL$6$")).click();
+				CommonPageElements.enterTextField("UQ_RC_RECS_FROM_DATE", "01/08/2016");
+				CommonPageElements.enterTextField("UQ_RC_RECS_TO_DATE", "01/08/2017");
 				break;
 			
 		}
+	}
+
+	public static void navigateToStudent_Financials_Refunds_Student_Bank_Details() {
+		fluentElement(By.id("fldra_HCCC_REFUND_CUSTOMERS")).click();
+		fluentElement(By.linkText("Student Bank Details")).click();
+		switchFrame();
+		CustomFunctions.fluentwait(fluentElement(By.id("app_label")));		
+	}
+	
+	public static void navigateToStudent_Financials_Refunds_Student_Refund() {
+		fluentElement(By.id("fldra_HCCC_REFUND_CUSTOMERS")).click();
+		fluentElement(By.linkText("Student Refund")).click();
+		switchFrame();
+		CustomFunctions.fluentwait(fluentElement(By.id("app_label")));		
+	}
+	
+	public static void navigateToStudent_Financials_Refund_with_Extra_Amount() {
+		fluentElement(By.id("fldra_HCCC_REFUND_CUSTOMERS")).click();
+		fluentElement(By.linkText("Refund with Extra Amount")).click();
+		switchFrame();
+		CustomFunctions.fluentwait(fluentElement(By.id("app_label")));		
 	}
 }

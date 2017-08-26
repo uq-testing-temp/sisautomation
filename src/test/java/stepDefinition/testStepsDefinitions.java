@@ -24,6 +24,7 @@ import cucumber.api.PendingException;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -807,21 +808,56 @@ public class testStepsDefinitions extends DriverFactory{
 		if (driver.findElements(By.id(cmnElements.FIRSTRESULT)).size() > 0) {
 			CommonPageElements.selectFirstResult();
 		}
-		
 	}
 
 	@When("^I choose reporting option as \"([^\"]*)\"$")
 	public void i_choose_Overnight_reporting(String option) throws Throwable {
 		StudentFinancialsPage.runOptions(option);
 		CommonPageElements.runButton().click();
-		CommonPageElements.saveButton().click();
+		CommonPageElements.saveButtonFrame().click();
 	}
 
-	@Then("^I should see Run status as Processing$")
+	@Then("^I should see Run status as Processing or Queued$")
 	public void i_should_see_Run_status_as_Processing() throws Throwable {
 		CommonPageElements.processMonitorLink().click();
 		CommonPageElements.refreshButton().click();
 		CustomFunctions.checkElementPresense("Processing");
 	}
+	
+	@Given("^I navigate to Student Financials > Refunds - Student Bank Details$")
+	public void i_navigate_to_Student_Financials_Refunds_Student_Bank_Details() throws Throwable {
+		StudentFinancialsPage.navigate();
+		StudentFinancialsPage.navigateToStudent_Financials_Refunds_Student_Bank_Details();
+	}
+	
+	@Given("^I navigate to Student Financials > Refunds - Refund with Extra Amount$")
+	public void i_navigate_to_Student_Financials_Refunds_Refund_with_Extra_Amount() throws Throwable {
+		StudentFinancialsPage.navigate();
+		StudentFinancialsPage.navigateToStudent_Financials_Refund_with_Extra_Amount();
+	}
+
+	@Given("^I enter and save bank details$")
+	public void i_enter_and_save_bank_details() throws Throwable {
+	    CommonPageElements.enterTextField("UQ_DDP_DISTRIB_BANK_CD$0", "QIB");
+	    CommonPageElements.enterTextField("UQ_DDP_DISTRIB_BRANCH_EC_CD$0", "924001");
+	    CommonPageElements.enterTextField("UQ_DDP_DISTRIB_UQ_ACCOUNT_NBR$0", "54524");
+	    CommonPageElements.enterTextField("UQ_DDP_DISTRIB_UQ_ACCOUNT_TITLE$0", "Zbirka,Kai");
+	    CommonPageElements.saveButton().click();
+	}
+	
+	@Given("^I search ID as \"([^\"]*)\"$")
+	public void i_enter_ID_as(String id) throws Throwable {
+	
+			CommonPageElements.enterID(id);
+			CommonPageElements.search();
+	}
+	
+	@Given("^I search business unit as \"([^\"]*)\"$")
+	public void i_enter_business_unit_as(String id) throws Throwable {
+	
+			CommonPageElements.enterTextField("BUS_UNIT_TBL_SF_BUSINESS_UNIT", id);
+			CommonPageElements.search();
+	}
+	
 }
 

@@ -61,8 +61,12 @@ public class CommonPageElements extends DriverFactory {
 		return fluentElement(By.id("PRCSRQSTDLG_WRK_LOADPRCSRQSTDLGPB"));
 	}
 
-	public static WebElement saveButton() {
+	public static WebElement saveButtonFrame() {
 		return frameElement(By.id("#ICSave"));
+	}
+	
+	public static WebElement saveButton() {
+		return fluentElement(By.id("#ICSave"));
 	}
 
 	public static WebElement processMonitorLink() throws InterruptedException {
@@ -72,6 +76,10 @@ public class CommonPageElements extends DriverFactory {
 
 	public static WebElement refreshButton() {
 		return fluentElement(By.id("REFRESH_BTN"));
+	}
+
+	public static void enterID(String id) {
+		enterTextField("PEOPLE_SRCH_EMPLID", id);
 	}
 	
 }

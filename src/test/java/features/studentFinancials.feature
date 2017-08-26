@@ -69,15 +69,34 @@ Scenario: All Student Financials pages are acesible for staff account
     And I select the latest result
     Then I should see correct TPC details
  
-@skipped
-@SF118
-    Scenario: Verify the display of the HECS, Fee-help, and SA-help eCAF within mySI-net and the related conditions for post 2005 students.	HECS, Fee-HELP and SA-HELP eCAF details should be displayed correctly as per the conditions for all students enrolled after 2005
-    Given I navigate to mySI-net >   Financial – HECS-HELP eCAF/ FEE-HELP eCAF/ SA-HELP eCAF
-    And skipped
-
-@SF108	
+@SF108
 	Scenario: Verify Monthly reporting	Monthly reports should be extracted correctly
 	Given I navigate to Student Financials > UQ Student Financials Reports > Payment Allocation
 	And I add a New Value
-	When I choose reporting option as "overnight"
-	Then I should see Run status as Processing
+	When I choose reporting option as "monthly"
+	Then I should see Run status as Processing or Queued
+	
+@SF109
+	Scenario: Verify Adhoc  reporting.	Adhoc  reports should be extracted correctly
+	Given I navigate to Student Financials > UQ Student Financials Reports > Payment Allocation
+	And I add a New Value
+	And I choose reporting option as "adhoc"
+	Then I should see Run status as Processing or Queued
+
+
+	Scenario: Verify Overnight  reporting.	Adhoc  reports should be extracted correctly
+	Given I navigate to Student Financials > UQ Student Financials Reports > Payment Allocation
+	And I add a New Value
+	 
+	And I choose reporting option as "overnight"
+	Then I should see Run status as Processing or Queued
+	
+@SF077
+	Scenario: Verify the AP interface works correctly for student refunds. 3090.01 3090.02 Refund reports are generated and student and refund details should be listed correctly
+	Given I navigate to Student Financials > Refunds - Student Bank Details
+	And I search ID as "44315829"
+	And I enter and save bank details
+	Then I navigate to Student Financials > Refunds - Refund with Extra Amount
+	And I search business unit as "UQUNI"
+	
+	
