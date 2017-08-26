@@ -164,8 +164,7 @@ public class StudentFinancialsPage extends DriverFactory {
 
 	public static void enterOrgID(String orgID) {
 		switchFrame();
-		fluentElement(By.id("TP_CONTRCT_SRCH_EXT_ORG_ID")).clear();
-		fluentElement(By.id("TP_CONTRCT_SRCH_EXT_ORG_ID")).sendKeys(orgID);		
+		CommonPageElements.enterTextField("BI_BILL_HDR_VW2_EXT_ORG_ID", orgID);
 	}
 
 	public static void navigateToStudentFinancialsPayment_Plans_Third_Party_Contract_Create() {

@@ -751,14 +751,13 @@ public class testStepsDefinitions extends DriverFactory{
 	
 	@Given("^I navigate to Student Financials > Tution and Fees > Tuition Calculation$")
 	public void i_navigate_to_Student_Financials_Tution_and_Fees_Tuition_Calculation() throws Throwable {
-		StudentFinancialsPage.navigate();		
+		StudentFinancialsPage.navigate();
 		StudentFinancialsPage.navigateToIHCFinancials_tutionAndFees_calculation();
 	}
 	
-	@Given("^I navigate to > Student Financials > Bill Customers> Corporate Bills >   Review Invoice$")
+	@Given("^I navigate to > Student Financials > Bill Customers> Corporate Bills > Review Invoice$")
 	public void i_navigate_to_Student_Financials_Bill_Customers_Corporate_Bills_Review_Invoice() throws Throwable {
-		StudentFinancialsPage.navigate();
-		StudentFinancialsPage.navigateToStudentFinancialsBillCustomersCorporateBillsReviewInvoice();
+		menuNavigation("Student Financials > Bill Customers> Corporate Bills > Review Invoice");
 	}
 
 	@Given("^Enter External Org ID as \"([^\"]*)\"$")

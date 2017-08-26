@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.log4j.Logger;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.NoSuchElementException;
@@ -281,5 +282,28 @@ public class DriverFactory {
 		}
 				
 	return fluentElement(locator);
+	}
+
+	/**
+	 * @param path
+	 * 			string, path to the menu item to navigate as seen in test cases, separated by ">" 
+	 * 			ex:  "Student Financials > Bill Customers> Corporate Bills > Review Invoice".
+	 * 			Will fail if actual link text is not equal to the path. No tolerance to typos
+	 * @return
+	 * 		  true if navigation was successful
+	 */
+	public boolean menuNavigation(String path) {
+		
+		String[] links = path.split(">");
+		
+		for (String link: links) {
+			
+			link = link.replaceAll("^\\s+", "").replaceAll("\\s+$", "");
+	        System.out.println("Navigating to \""+link+"\"... ");
+			driver.switchTo().defaultContent();
+			fluentElement(By.linkText(link)).click();
+	    }
+		
+		return true;
 	}
 }

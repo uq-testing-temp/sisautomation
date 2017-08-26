@@ -55,12 +55,13 @@ Scenario: All Student Financials pages are acesible for staff account
 
 @SF065
     Scenario: Verify information displayed on invoice	Information displayed on the invoice should be correct
-    Given I navigate to > Student Financials > Bill Customers> Corporate Bills >   Review Invoice
+    Given I navigate to > Student Financials > Bill Customers> Corporate Bills > Review Invoice
     And Enter External Org ID as "40448747"
     When I click Search OrgID
     And I select the latest result
     Then I should see correct invoice details
-    
+
+@regression
 @SF106
     Scenario: Verify TPC for Corporation	Contract details and student details should be displayed correctly
     Given I navigate to > Student Financials > Payment Plans > Third Party Contract > Create
