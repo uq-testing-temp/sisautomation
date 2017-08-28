@@ -126,20 +126,14 @@ Scenario: All Student Financials pages are acesible for staff account
 	When I click save
 	Then Saved succesfully
 
-@debug
-	Scenario: Removing Negative Service Indicators. A Negative Service Indicator (NSI) may be placed on a student's record if they have an outstanding fee liability. Once payment has been made, the NSI is removed in an overnight batch process. In some instances, students may need to urgently access their studies report, or perform other mySI-net actions immediately. In such cases, the NSI can be removed manually.
-	Given I Navigate to: Campus Community > Service Indicators >Person >Manage Service Indicators
-	And Navigate to: Campus Community > Service Indicators >Person >Manage Service Indicators
-	And Enter the student number in the ID field.
-	When Click the Search button.
-	Then The Manage Service Indicators page will display. 
-	And This page is used to add and remove service indicators. 
-	And If the student has multiple NSIs, you would need to locate the correct NSI by checking each Code.
-	Then To view more information about the “FEE” negative service indicator, click the “FEE” link.
-	Then The Edit Service Indicator page will display. The page contains a range of information about the service indicator. It also lists the services that are impacted as a result of the service indicator. With these details you can verify that this “FEE” indicator is the correct NSI to be removed.
-	And I click the Release button to remove the NSI  
-	When I click on the Release button you will be asked to confirm the delete. Click the OK button.
-	Then I have now completed the process for removing a NSI. 
+	Scenario: Adding and Removing Negative Service Indicators. A Negative Service Indicator (NSI) may be placed on a student's record if they have an outstanding fee liability. Once payment has been made, the NSI is removed in an overnight batch process. In some instances, students may need to urgently access their studies report, or perform other mySI-net actions immediately. In such cases, the NSI can be removed manually.
+	Given I Navigate to Campus Community > Service Indicators >Person >Manage Service Indicators
+	And Enter the student number in the ID field as "40005690"
+	When I click Search
+	Then The Manage Service Indicators page will display
+	When I add service indicator
+	Then A new service indicator should be displayed
+	When I delete service indicator
 
 	Scenario: Re-Coding FEE-HELP Status
 	Given I Navigate to: Records and Enrolments > Student Term Information > Term Activate a Student

@@ -82,5 +82,11 @@ public class CommonPageElements extends DriverFactory {
 	public static void enterID(String id) {
 		enterTextField("PEOPLE_SRCH_EMPLID", id);
 	}
+
+	public static void enterTextFieldFrame(String id, String keys) {
+		frameElement(By.id(id)).clear();
+		frameElement(By.id(id)).sendKeys(keys);
+		
+	}
 	
 }

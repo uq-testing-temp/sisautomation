@@ -951,5 +951,44 @@ public class testStepsDefinitions extends DriverFactory{
 	    // Write code here that turns the phrase above into concrete actions
 	    throw new PendingException();
 	}
+	
+	@Given("^I Navigate to Campus Community > Service Indicators >Person >Manage Service Indicators$")
+	public void i_Navigate_to_Campus_Community_Service_Indicators_Person_Manage_Service_Indicators() throws Throwable {
+	    menuNavigation("Campus Community > Service Indicators >Person >Manage Service Indicators");
+	}
+
+	@Given("^Enter the student number in the ID field as \"([^\"]*)\"$")
+	public void enter_the_student_number_in_the_ID_field_as(String id) throws Throwable {
+	    StudentFinancialsPage.enterPpleSearchID(id);
+	}
+
+	@Then("^The Manage Service Indicators page will display$")
+	public void the_Manage_Service_Indicators_page_will_display() throws Throwable {
+		Assert.assertFalse(CommonPageElements.alertmsgPresent());
+	}
+
+	@Then("^I add service indicator$")
+	public void i_add_service_indicator() throws Throwable {
+	    StudentFinancialsPage.addServiceIndicator();
+	}
+	
+	@Then("^A new service indicator should be displayed$")
+	public void a_new_service_indicator_should_be_displayed() throws Throwable {
+	    Assert.assertTrue(StudentFinancialsPage.serviceIndicator().isDisplayed());
+	}
+
+	@When("^I delete service indicator$")
+	public void i_delete_service_indicator() throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+		StudentFinancialsPage.serviceIndicator().click();
+		StudentFinancialsPage.releaseButton().click();
+		CommonPageElements.saveButtonFrame();
+		
+	}
+
+	@Then("^A new service indicator should be deleted$")
+	public void a_new_service_indicator_should_be_deleted() throws Throwable {
+	    StudentFinancialsPage.serviceIndicatorMessage().isDisplayed();
+	}
 }
 

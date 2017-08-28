@@ -280,4 +280,25 @@ public class StudentFinancialsPage extends DriverFactory {
 	public static WebElement regionalTab() {
 		return fluentElement(By.id("ICTAB_2"));
 	}
+
+	public static void addServiceIndicator() {
+		switchFrame();
+		fluentElement(By.id("SCC_SI_WRK_SCC_SI_LNK3")).click();
+		CommonPageElements.enterTextFieldFrame("SRVC_IND_DATA_SRVC_IND_CD$0", "ACR");
+		CommonPageElements.saveButtonFrame().click();
+		
+	}
+
+	public static WebElement serviceIndicator() {
+		switchFrame();
+		return fluentElement(By.id("SRVC_IND_CODE$0"));
+	}
+
+	public static WebElement releaseButton() {
+		return frameElement(By.id("SCC_SI_WRK_SCC_SI_RELEASE_BTN"));
+	}
+
+	public static WebElement serviceIndicatorMessage() {
+		return fluentElement(By.id("SCC_SI_WRK_SCC_SI_DATA_GRP5"));
+	}
 }
