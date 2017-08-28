@@ -53,6 +53,7 @@ public class CommonPageElements extends DriverFactory {
 	}
 
 	public static void enterTextField(String id, String keys) {
+		switchFrame();
 		fluentElement(By.id(id)).clear();
 		fluentElement(By.id(id)).sendKeys(keys);		
 	}

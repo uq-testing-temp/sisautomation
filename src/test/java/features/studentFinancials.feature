@@ -99,7 +99,7 @@ Scenario: All Student Financials pages are acesible for staff account
 	Then I navigate to Student Financials > Refunds - Refund with Extra Amount
 	And I search business unit as "UQUNI"
 	
-@debug
+
 	Scenario: Tuition Calculation. Checks prior to fees calculation
 	Given I navigate to Records and Enrolment > Student Term Information > Term Activate a Student
 	And I search the Student Number "40005690"
@@ -111,19 +111,22 @@ Scenario: All Student Financials pages are acesible for staff account
 	Then The Loan Election page will display
 	Then I ensure that the Primary Academic Program correctly reflects the students current active program as "Master Laws"
 	And Also ensure that the Liability Status code has been populated. The liability status is populated overnight for new students or via the Commonwealth Supported eCAF for Commonwealth Supported students
-	
+
+@skipped
 	Scenario: Entering/verifying Tax File Number (TFN). Some students may not supply a Tax File Number (TFN) when they initially apply for a HECS-HELP / FEE-HELP Loan. This process outlines how to verify that a TFN has been previously entered and/or enter a new TFN for a student.
-	Given I Navigate to: Campus Community > Personal Information > Add/Update a Person 
-	And I Enter the student number in the ID field.
-	When I Click the Search button.
-	Then The Biographical Details page will display. The TFN field is located on the "Regional" tab.  	
-	When Click the Regional tab.
-	Then The Regional page will display. If a TFN has previously been entered in the system, the Tax File Number section will display "TFN on file". This indicates that the TFN has already been entered. System security masks this TFN, given that this is sensitive and confidential information. If required, the TFN can be re-entered by selecting the Re-Enter TFN checkbox. In this case, the TFN has been previously entered.
+	Given I Navigate to Campus Community > Personal Information > Add/Update a Person
+	And I Enter the student number in the ID field as "40005690"
+	When I click Search
+	Then The Biographical Details page will display  	
+	When Click the Regional tab
+	Then The Regional page will display
 	When I Click the Re-Enter TFN option
-	And I enter the TFN into the Tax File Number field. In this case, "451156249" is entred.
-	When I Click the Save button.
-	Then You have now completed the process for entering/verifying a Tax File Number for a student.
-	
+# TODO coould not find TFN option
+	And I enter the TFN into the Tax File Number field as "451156249"
+	When I click save
+	Then Saved succesfully
+
+@debug
 	Scenario: Removing Negative Service Indicators. A Negative Service Indicator (NSI) may be placed on a student's record if they have an outstanding fee liability. Once payment has been made, the NSI is removed in an overnight batch process. In some instances, students may need to urgently access their studies report, or perform other mySI-net actions immediately. In such cases, the NSI can be removed manually.
 	Given I Navigate to: Campus Community > Service Indicators >Person >Manage Service Indicators
 	And Navigate to: Campus Community > Service Indicators >Person >Manage Service Indicators

@@ -238,4 +238,46 @@ public class StudentFinancialsPage extends DriverFactory {
 		switchFrame();
 		CustomFunctions.fluentwait(fluentElement(By.id("app_label")));		
 	}
+
+	public static void searchStudentNumber(String number) throws InterruptedException {
+		CommonPageElements.enterTextField("STDNT_SRCH_EMPLID", number);
+		CommonPageElements.search();
+	}
+
+	public static boolean termActivationTabOpen() {
+		return fluentElement(By.id("HCR_PERSON_NM_I_NAME_DISPLAY")).isDisplayed();
+	}
+
+	public static String academicCareerText() {
+
+		return fluentElement(By.id("PSXLATITEM_XLATLONGNAME$0")).getText();
+	}
+
+	public static String getStudentCareerNbr() {
+		
+		return fluentElement(By.id("STDNT_CAR_TERM_STDNT_CAR_NBR$0")).getText();
+	}
+	
+	public static boolean enrolCheckbox() {
+		
+		return fluentElement(By.id("STDNT_CAR_TERM_ELIG_TO_ENROLL$0")).isEnabled();
+	}
+
+	public static String getAcademicProgramm() {
+		switchFrame();
+		return fluentElement(By.id("ACAD_PROG_TBL_DESCR$0")).getText();
+	}
+
+	public static String getliabilityCode() {
+		return fluentElement(By.id("SSR_HECS_ELEC_SSR_HECS_XMPT_STAT$0")).getText();
+	}
+
+	public static void enterPpleSearchID(String id) {
+		CommonPageElements.enterTextField("PEOPLE_SRCH_EMPLID", id);
+		
+	}
+
+	public static WebElement regionalTab() {
+		return fluentElement(By.id("ICTAB_2"));
+	}
 }

@@ -186,7 +186,7 @@ public class testStepsDefinitions extends DriverFactory{
 	@When("^I click Search$")
 	public void i_click_search() throws Throwable {
 	
-		GraduationPage.search();
+		CommonPageElements.search();
 		
 	}
 	
@@ -858,5 +858,98 @@ public class testStepsDefinitions extends DriverFactory{
 			CommonPageElements.search();
 	}
 	
+	@Given("^I navigate to Records and Enrolment > Student Term Information > Term Activate a Student$")
+	public void i_navigate_to_Records_and_Enrolment_Student_Term_Information_Term_Activate_a_Student() throws Throwable {
+	    menuNavigation("Records and Enrollment > Student Term Information > Term Activate a Student");
+	}
+
+	@Given("^I search the Student Number \"([^\"]*)\"$")
+	public void i_search_the_Student_Number(String number) throws Throwable {
+	    StudentFinancialsPage.searchStudentNumber(number);
+	}
+
+	@When("^The Term Activation page displayed$")
+	public void the_Term_Activation_page_displayed() throws Throwable {
+	    Assert.assertTrue(StudentFinancialsPage.termActivationTabOpen());
+	}
+
+	@Then("^Ensure that the correct Academic Career is displayed as \"([^\"]*)\"$")
+	public void ensure_that_the_correct_Academic_Career_is_displayed_as(String academicCareerText) throws Throwable {
+		Assert.assertTrue(StudentFinancialsPage.academicCareerText().contains(academicCareerText));
+	}
+
+	@Then("^I Ensure the Student Career Nbr refers to the students current active program as \"([^\"]*)\"$")
+	public void i_Ensure_the_Student_Career_Nbr_refers_to_the_student_s_current_active_program(String nbr) throws Throwable {
+		Assert.assertTrue(StudentFinancialsPage.getStudentCareerNbr().contains(nbr));
+	}
+	
+	@Then("^I Ensure that the Eligible To Enrol checkbox is selected$")
+	public void i_Ensure_that_the_Eligible_To_Enrol_checkbox_is_selected() throws Throwable {
+		Assert.assertTrue(StudentFinancialsPage.enrolCheckbox());
+	}
+
+	@When("^I click Loan Election tab$")
+	public void i_click_Loan_Election_tab() throws Throwable {
+	    fluentElement(By.id("ICTAB_1")).click();
+	}
+
+	@Then("^The Loan Election page will display$")
+	public void the_Loan_Election_page_will_display() throws Throwable {
+	    Assert.assertFalse(CommonPageElements.alertmsgPresent());
+	}
+
+
+	@Then("^I ensure that the Primary Academic Program correctly reflects the students current active program as \"([^\"]*)\"$")
+	public void i_ensure_that_the_Primary_Academic_Program_correctly_reflects_the_student_s_current_active_program(String program) throws Throwable {
+	    Assert.assertTrue(StudentFinancialsPage.getAcademicProgramm().contains(program));
+	} 
+
+	@Then("^Also ensure that the Liability Status code has been populated\\. The liability status is populated overnight for new students or via the Commonwealth Supported eCAF for Commonwealth Supported students$")
+	public void also_ensure_that_the_Liability_Status_code_has_been_populated_The_liability_status_is_populated_overnight_for_new_students_or_via_the_Commonwealth_Supported_eCAF_for_Commonwealth_Supported_students() throws Throwable {
+	    Assert.assertTrue(StudentFinancialsPage.getliabilityCode().isEmpty());
+	}
+	
+	@Given("^I Navigate to Campus Community > Personal Information > Add/Update a Person$")
+	public void i_Navigate_to_Campus_Community_Personal_Information_Add_Update_a_Person() throws Throwable {
+	    menuNavigation("Campus Community > Personal Information > Add/Update a Person");
+	}
+
+	@Given("^I Enter the student number in the ID field as \"([^\"]*)\"$")
+	public void i_Enter_the_student_number_in_the_ID_field_as(String id) throws Throwable {
+	    StudentFinancialsPage.enterPpleSearchID(id);
+	}
+
+	@Then("^The Biographical Details page will display$")
+	public void the_Biographical_Details_page_will_display() throws Throwable {
+	    Assert.assertTrue(CommonPageElements.alertmsgPresent());
+	}
+
+	@When("^Click the Regional tab$")
+	public void click_the_Regional_tab() throws Throwable {
+	    StudentFinancialsPage.regionalTab().click();
+	}
+
+	@Then("^The Regional page will display$")
+	public void the_Regional_page_will_display() throws Throwable {
+		Assert.assertTrue(CommonPageElements.alertmsgPresent());
+	}
+
+	@When("^I Click the Re-Enter TFN option$")
+	public void i_Click_the_Re_Enter_TFN_option() throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new PendingException();
+	}
+
+	@When("^I enter the TFN into the Tax File Number field as \"([^\"]*)\"$")
+	public void i_enter_the_TFN_into_the_Tax_File_Number_field_as(String arg1) throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new PendingException();
+	}
+
+	@Then("^Saved succesfully$")
+	public void saved_succesfully() throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new PendingException();
+	}
 }
 
