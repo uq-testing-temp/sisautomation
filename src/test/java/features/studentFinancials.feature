@@ -99,17 +99,17 @@ Scenario: All Student Financials pages are acesible for staff account
 	Then I navigate to Student Financials > Refunds - Refund with Extra Amount
 	And I search business unit as "UQUNI"
 	
-
-	Scenario: Tuition Calculation. Checks prior to fees calculation. Manual p.1
+@debug
+	Scenario: Tuition Calculation. Checks prior to fees calculation
 	Given I navigate to Records and Enrolment > Student Term Information > Term Activate a Student
 	And I search the Student Number "40005690"
 	When The Term Activation page displayed 
 	Then Ensure that the correct Academic Career is displayed as "Postgraduate Coursework"
-	And I Eensure the Student Career Nbr refers to the student’s current active program, and that the Eligible To Enrol checkbox is selected
+	And I Ensure the Student Career Nbr refers to the students current active program as ""
+	And I Ensure that the Eligible To Enrol checkbox is selected
 	When I click Loan Election tab
 	Then The Loan Election page will display
-	When Navigate to the correct Academic Career and current Term
-	Then I ensure that the Primary Academic Program correctly reflects the student’s current active program
+	Then I ensure that the Primary Academic Program correctly reflects the students current active program as "Master Laws"
 	And Also ensure that the Liability Status code has been populated. The liability status is populated overnight for new students or via the Commonwealth Supported eCAF for Commonwealth Supported students
 	
 	Scenario: Entering/verifying Tax File Number (TFN). Some students may not supply a Tax File Number (TFN) when they initially apply for a HECS-HELP / FEE-HELP Loan. This process outlines how to verify that a TFN has been previously entered and/or enter a new TFN for a student.
