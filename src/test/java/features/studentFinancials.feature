@@ -136,14 +136,13 @@ Scenario: All Student Financials pages are acesible for staff account
 	When I delete service indicator
 
 	Scenario: Re-Coding FEE-HELP Status
-	Given I Navigate to: Records and Enrolments > Student Term Information > Term Activate a Student
-	And Enter the student number in the ID field. In this case, enter "40001991".
-	When Click the Search button.
-	Then The Term Activation page will display. 
-	When Navigate to the correct Academic Career and current Term, and ensure the Student Career Nbr and Program are correct. 
-	And I Click the Loan Election tab.
-	Then The Loan Election page will display. 
-	And I Ensure the Primary Academic Program is correct. In this case, the Liability Status field needs to be updated to Paid Full - Award or Enabling (302). This is done by simply overwriting the code that is currently in this field, and saving the record. 
+	Given I Navigate to: Records and Enrollment > Student Term Information > Term Activate a Student
+	And Enter the student number in the ID field. In this case, enter "40005690"
+	And I click Loan Election tab
+	Then The Loan Election page will display
+	And I update liability code to "20"
+	When I save the record
+	Then Update was successful
 
 	
 	Scenario: Verifying Citizenship Status

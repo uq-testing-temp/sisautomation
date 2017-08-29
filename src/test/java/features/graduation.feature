@@ -43,7 +43,7 @@ Scenario: Verify update graduation status to Conditional and multiple current te
 	And I update status to "Conditional"
 	And I Flag a course as mandatory
 	When I click save
-    Then Update was success
+    Then Update was successful
 
 @graduation_5010_01
 Scenario: Attempt to flag a course as both mandatory and discarded (should not be possible).
@@ -63,7 +63,7 @@ Scenario: Verify update graduation status to Conditional for a UGRD student with
 	And I Add a new row 
 	When Update the Milestone field to "BLUE CARD"
 	When I click save
-	Then Update was success
+	Then Update was successful
 
 @graduation_5010_01
 Scenario: Verify Ceremony management - Enter Requirements
@@ -76,7 +76,7 @@ Scenario: Verify Ceremony management - Enter Requirements
 	And I Click on Ceremony Management tab
 	And I Enter ceremony requirements
 	When I click save
-	Then Update was success
+	Then Update was successful
 
 @graduation_5010_01
 @skipped
@@ -98,7 +98,7 @@ Scenario: 1 New Event is saved
 	And I enter Event Type as "GRAD"
 	And I enter Academic Institution as "UQUNI"
 	When I click save
-	Then Update was success 
+	Then Update was successful 
 
 # GD_PTSC_5060.01_Graduation Event and Meeting Setup
 @graduation_5050_01
@@ -113,7 +113,7 @@ Scenario: 2 New Meeting is saved
 	And I enter Event Type as "GRAD"
 	And I enter Academic Institution as "UQUNI"
 	When I click save
-	Then Update was success 
+	Then Update was successful 
 	
 @graduation_5060_01
 Scenario: 6 Update Registered Post Number - enabled
@@ -124,7 +124,7 @@ Scenario: 6 Update Registered Post Number - enabled
 	And I click Search
 	When I clear Registered Post Number
 	And I click save
-	Then Update was success 
+	Then Update was successful 
 	And Refresh mailing address links is enabled
 
 @graduation_5060_01
@@ -136,7 +136,7 @@ Scenario: 6 Update Registered Post Number - disabled
 	And I click Search
 	When I enter Registered Post Number as "42"
 	And I click save
-	Then Update was success 
+	Then Update was successful 
 	And Refresh mailing address links is disabled
 
 #GD_PTSC_5070.07_Revoke Degree
@@ -170,7 +170,7 @@ Scenario Outline: 1 Generate GAT’s by Graduation Status and ‘List of Graduan
 	And I choose report option as "<Format>"
 	When I click Run
 	Then I should see Process Scheduler Request  
-	And Update was success	
+	And Update was successful	
 
 Examples:
 	|Format|

@@ -316,7 +316,7 @@ public class testStepsDefinitions extends DriverFactory{
 		GraduationPage.markMandatory("1");
 	}
 	
-	@Then("^Update was success$")
+	@Then("^Update was successful$")
 	public void update_was_success() throws Throwable {
 		
 		Assert.assertFalse(GraduationPage.alertmsgPresent());
@@ -989,6 +989,26 @@ public class testStepsDefinitions extends DriverFactory{
 	@Then("^A new service indicator should be deleted$")
 	public void a_new_service_indicator_should_be_deleted() throws Throwable {
 	    StudentFinancialsPage.serviceIndicatorMessage().isDisplayed();
+	}
+	
+	@Given("^I Navigate to: Records and Enrollment > Student Term Information > Term Activate a Student$")
+	public void i_Navigate_to_Records_and_Enrollment_Student_Term_Information_Term_Activate_a_Student() throws Throwable {
+	    menuNavigation("Records and Enrollment > Student Term Information > Term Activate a Student");
+	}
+	
+	@Given("^Enter the student number in the ID field\\. In this case, enter \"([^\"]*)\"$")
+	public void enter_the_student_number_in_the_ID_field_In_this_case_enter(String id) throws Throwable {
+		StudentFinancialsPage.searchStudentNumber(id);
+	}
+	
+	@Then("^I update liability code to \"([^\"]*)\"$")
+	public void i_update_liability_code_to(String code) throws Throwable {
+	    CommonPageElements.enterTextField("SSR_HECS_ELEC_SSR_HECS_XMPT_STAT$0", code);
+	}
+
+	@Then("^I save the record$")
+	public void i_save_the_record() throws Throwable {
+	    CommonPageElements.saveButton().click();
 	}
 }
 
