@@ -25,6 +25,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.opencsv.CSVReader;
 
+import pageclasses.StudentFinancialsPage;
 import stepDefinition.DriverFactory;
 public class CustomFunctions extends DriverFactory {
 	
@@ -72,7 +73,7 @@ public class CustomFunctions extends DriverFactory {
         
         while ((line = reader.readNext()) != null) {
 
-        	hmap.put(line[0], (line[1]).replaceAll("\\s",""));
+        	hmap.put(line[0], (line[1]).replaceAll("^\\s+", "").replaceAll("\\s+$", ""));
         }
         
         /* Display content using Iterator*/
@@ -127,5 +128,63 @@ public class CustomFunctions extends DriverFactory {
 			
 			int value = ThreadLocalRandom.current().nextInt(100000, 9999999);
 			return Integer.toString(value);
+		}
+		
+		public static boolean navigateTo(String id) throws InterruptedException {
+			driver.switchTo().defaultContent();
+			fluentElement(By.id(id)).click();
+			return true;	
+		}
+		
+		public static boolean navigateToByTextField(String linkText) throws InterruptedException {
+			driver.switchTo().defaultContent();
+			fluentElement(By.linkText(linkText)).click();
+			return true;	
+		}
+
+
+		public static void menujourney(String csvFile) throws InterruptedException {
+			
+			HashMap<String, String> hmap = null;
+			try {
+				hmap = CustomFunctions.readCSV(csvFile);
+			} catch (Throwable e) {
+				e.printStackTrace();
+			}
+			
+	        Set<?> set = hmap.entrySet();
+	        Iterator<?> iterator = set.iterator();
+	        
+	        while(iterator.hasNext()) {
+	        	@SuppressWarnings("rawtypes")
+				Map.Entry mentry = (Map.Entry)iterator.next();
+	           	System.out.print("Navigating to menu "+ mentry.getKey() + " with element id: ");
+	           	System.out.println(mentry.getValue());
+	           	Thread.sleep(timeout.SHORT);
+	           	Assert.assertTrue(navigateTo((String) mentry.getValue()));
+	        }
+		}
+		
+		public static void menujourneyByTextFields(String csvFile) throws InterruptedException {
+			
+			HashMap<String, String> hmap = null;
+			try {
+				hmap = CustomFunctions.readCSV(csvFile);
+			} catch (Throwable e) {
+				e.printStackTrace();
+			}
+			
+	        Set<?> set = hmap.entrySet();
+	        Iterator<?> iterator = set.iterator();
+	        
+	        while(iterator.hasNext()) {
+	        	@SuppressWarnings("rawtypes")
+				Map.Entry mentry = (Map.Entry)iterator.next();
+	           	String link = (String) mentry.getValue();
+	           	System.out.print("Navigating to menu item \"" + link + "\"");
+	           	System.out.println(link);
+	           	Thread.sleep(timeout.SHORT);
+	           	Assert.assertTrue(navigateToByTextField(link));
+	        }
 		}
 }

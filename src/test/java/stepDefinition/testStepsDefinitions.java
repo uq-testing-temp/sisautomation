@@ -661,23 +661,21 @@ public class testStepsDefinitions extends DriverFactory{
 	@Given("^I navigate to each menu item specified in \"([^\"]*)\"$")
 	public void i_navigate_to_each_menu_item_specified_in(String csvFile) throws Throwable {
 	    
-		StudentFinancialsPage.navigate();
+		LoginPage.login(null);
 		
-		 HashMap<String, String> hmap = CustomFunctions.readCSV(csvFile);
-		
-        Set<?> set = hmap.entrySet();
-        Iterator<?> iterator = set.iterator();
-        
-        while(iterator.hasNext()) {
-        	@SuppressWarnings("rawtypes")
-			Map.Entry mentry = (Map.Entry)iterator.next();
-           	System.out.print("Navigating to menu "+ mentry.getKey() + " with element id: ");
-           	System.out.println(mentry.getValue());
-           	Thread.sleep(500);
-           	Assert.assertTrue(StudentFinancialsPage.navigateTo((String) mentry.getValue()));
-        }
+		CustomFunctions.menujourney(csvFile);
+
 	}
 
+	@Given("^I navigate to each menu item specified in \"([^\"]*)\" located by text link$")
+	public void i_navigate_to_each_menu_item_specified_in_text(String csvFile) throws Throwable {
+	    
+		LoginPage.login(null);
+		
+		CustomFunctions.menujourneyByTextFields(csvFile);
+
+	}	
+	
 	@Given("^I navigate to Student Financials > International Health Coverage > Student Maintenance$")
 	public void i_navigate_to_Student_Financials_International_Health_Coverage_Student_Maintenance() throws Throwable {
 		StudentFinancialsPage.navigate();

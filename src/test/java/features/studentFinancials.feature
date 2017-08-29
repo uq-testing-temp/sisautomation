@@ -16,10 +16,6 @@ Scenario: All Student Financials pages are acesible for staff account
 	When I click SearchSF
 	Then I should see student account balance
 
-@csv
-	Scenario: Smoke test using external data source (CSV table)
-	Given I navigate to each menu item specified in "rootMenuDictionary.csv"
-	
 @SF051
 	Scenario: Verify if new student OSHC details appear. OSHC details for new students should be displayed correctly
 	Given I navigate to Student Financials > International Health Coverage > Student Maintenance
