@@ -289,16 +289,41 @@ public class StudentFinancialsPage extends DriverFactory {
 		
 	}
 
+	/**
+	 * @return
+	 */
 	public static WebElement serviceIndicator() {
 		switchFrame();
 		return fluentElement(By.id("SRVC_IND_CODE$0"));
 	}
 
+	/**
+	 * @return
+	 */
 	public static WebElement releaseButton() {
 		return frameElement(By.id("SCC_SI_WRK_SCC_SI_RELEASE_BTN"));
 	}
 
+	/**
+	 * @return
+	 */
 	public static WebElement serviceIndicatorMessage() {
 		return fluentElement(By.id("SCC_SI_WRK_SCC_SI_DATA_GRP5"));
+	}
+
+	/**
+	 * @param status
+	 */
+	public static void updateCitizenshipStatus(String status) {
+		CommonPageElements.enterTextField("SCC_CITIZEN_H_COUNTRY$0", status);
+		
+	}
+
+	/**
+	 * @return citizenship status
+	 */
+	public static String getCitizenshipStatus() {
+		
+		return CommonPageElements.getElementValue(By.id("SCC_CITIZEN_H_COUNTRY$0"));
 	}
 }

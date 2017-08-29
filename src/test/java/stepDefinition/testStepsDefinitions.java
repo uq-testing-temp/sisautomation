@@ -1010,5 +1010,21 @@ public class testStepsDefinitions extends DriverFactory{
 	public void i_save_the_record() throws Throwable {
 	    CommonPageElements.saveButton().click();
 	}
+	
+	@Given("^I Navigate to Campus Community > Personal Information > Identification > Citizenship > Citizenship and Passport$")
+	public void i_Navigate_to_Campus_Community_Personal_Information_Identification_Citizenship_Citizenship_and_Passport() throws Throwable {
+	    menuNavigation("Campus Community > Personal Information > Identification > Citizenship > Citizenship and Passport");
+	}
+	
+	@When("^Select citizenship as \"([^\"]*)\"$")
+	public void select_citizenship_as(String status) throws Throwable {
+		StudentFinancialsPage.updateCitizenshipStatus(status);
+	}
+	
+	@Then("^I make sure the citizenship was updated to \"([^\"]*)\"$")
+	public void i_make_sure_the_citizenship_was_updated_to(String status) throws Throwable {
+		System.out.println(StudentFinancialsPage.getCitizenshipStatus());
+	    Assert.assertTrue(StudentFinancialsPage.getCitizenshipStatus().contains(status));
+	}
 }
 

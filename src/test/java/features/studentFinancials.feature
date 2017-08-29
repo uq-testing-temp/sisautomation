@@ -1,9 +1,6 @@
 @regression
 @studentfinances
-	Feature: Search
-	As a user
-	I want to be able to search records
-	so that I can get information of the existing records
+	Feature: Student finances module features suite
 
 	Background:
 		Given I am logged in
@@ -144,18 +141,16 @@ Scenario: All Student Financials pages are acesible for staff account
 	When I save the record
 	Then Update was successful
 
-	
-	Scenario: Verifying Citizenship Status
-	Given I Navigate to:  Campus Community > Personal Information > Add/Update a Person
-	And Enter the student number in the ID field. In this case enter "40001991". 
-	And Click the Search button. 
-	Then The Biographical Details page will display. 
-	And To verify the Citizenship Status, click the Regional tab.
-	Then The Regional page will display. In this  case, the Citizenship Status field is blank. This is a "mandatory" field.
-	When Click the Citizenship Status list.
-	And Select an appropriate value from the list. In this case, the student is an Australian Citizen.
-	When Click the Save button.
-	Then You have now verified a student's Citizenship Status.
+	Scenario: Updating and verifying Citizenship Status
+	Given I Navigate to Campus Community > Personal Information > Identification > Citizenship > Citizenship and Passport
+	And I Enter the student number in the ID field as "40005690"
+	And I click Search
+	And Select citizenship as "AUS"
+	When I click save
+	Given I Navigate to Campus Community > Personal Information > Identification > Citizenship > Citizenship and Passport
+	And I Enter the student number in the ID field as "40005690"
+	And I click Search
+	Then I make sure the citizenship was updated to "AUS"
 	
 	Scenario: Creating a Third Party Contract
 	Given I navigate to Student Financials > Payment Plans > Third Party Contract

@@ -88,5 +88,13 @@ public class CommonPageElements extends DriverFactory {
 		frameElement(By.id(id)).sendKeys(keys);
 		
 	}
+
+	public static String getElementValue(By locator) {
+		return fluentElement(locator).getAttribute("value");
+	}
+	
+	public static String getElementText(By locator) {
+		return fluentElement(locator).getText();
+	}
 	
 }
