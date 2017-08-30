@@ -571,7 +571,7 @@ public class testStepsDefinitions extends DriverFactory{
 	@When("^I click save$")
 	public void i_click_save() throws Throwable {
 		
-		SearchMatchPage.save();
+		CommonPageElements.saveButton().click();
 	
 	}
 	
@@ -599,11 +599,10 @@ public class testStepsDefinitions extends DriverFactory{
 	 * menu journey steps ------------------------------------------------------------------------
 	 */
 	@Given("^I navigate to \"([^\"]*)\"$")
-	public void i_navigate_to(String param) throws Throwable {
+	public void i_navigate_to(String path) throws Throwable {
 		
-		String id = "fldra_" + param;
-			HomePage.navigate(id);
-		}
+		CustomFunctions.menuNavigation(path);
+	}
 	
 	@Then("^I should see \"([^\"]*)\"$")
 	public boolean i_should_see(String param) throws Throwable {
@@ -1023,6 +1022,93 @@ public class testStepsDefinitions extends DriverFactory{
 	public void i_make_sure_the_citizenship_was_updated_to(String status) throws Throwable {
 		System.out.println(StudentFinancialsPage.getCitizenshipStatus());
 	    Assert.assertTrue(StudentFinancialsPage.getCitizenshipStatus().contains(status));
+	}
+	
+	@Given("^Click the Add a New Value tab$")
+	public void click_the_Add_a_New_Value_tab() throws Throwable {
+	    StudentFinancialsPage.addNewValueTPC();
+	}
+	
+	@Given("^Enter \"([^\"]*)\" into the Description fields$")
+	public void enter_into_the_Description_field(String description) throws Throwable {
+	    StudentFinancialsPage.enterDescription(description+description);
+	    StudentFinancialsPage.enterShortDescription(description);
+	    StudentFinancialsPage.enterLongDescription(description+description+description);
+	}
+	
+	@Given("^Enter Org ID as \"([^\"]*)\"$")
+	public void enter_Org_ID_as(String orgID) throws Throwable {
+	    StudentFinancialsPage.TP_CONTRACT_EXT_ORG_ID_textField(orgID);
+	}
+	
+	@Given("^Select Contact type as \"([^\"]*)\"$")
+	public void select_Contact_type_as(String type) throws Throwable {
+	    StudentFinancialsPage.TP_CONTRACT_ORG_CONTACT_TYPE_textField(type);
+	}
+	
+	@Given("^Enter \"([^\"]*)\" into the Contract Max field$")
+	public void enter_into_the_Contract_Max_field(String max) throws Throwable {
+	    StudentFinancialsPage.TP_CONTRACT_TP_CAP_CONTRACT_text_field(max);
+	}
+	
+	@Given("^Enter \"([^\"]*)\" into the Student Max field$")
+	public void enter_into_the_Student_Max_field(String max) throws Throwable {
+	    StudentFinancialsPage.TP_CONTRACT_TP_CAP_STUDENT(max);
+	}
+	
+	@Given("^Enter the standard information \"([^\"]*)\" into the Last Date field$")
+	public void enter_the_standard_information_into_the_Last_Date_field(String date) throws Throwable {
+	    StudentFinancialsPage.TP_CONTRACT_TP_CON_LAST_COR_DT_textField(date);
+	}
+	
+	@Given("^Click the Third Party Item Types tab$")
+	public void click_the_Third_Party_Item_Types_tab() throws Throwable {
+	    StudentFinancialsPage.thirdPartyTab().click();
+	}
+	
+	@Given("^Enter \"([^\"]*)\" into the Account Type field$")
+	public void enter_into_the_Account_Type_field(String tpc) throws Throwable {
+	    StudentFinancialsPage.enterTPC(tpc);
+	}
+	
+	@Given("^I enter credit item type as \"([^\"]*)\"$")
+	public void i_enter_credit_item_type_as(String type) throws Throwable {
+	    StudentFinancialsPage.TP_CONTRACT_PMT_ITEM_TYPE_field(type);
+	}
+	
+	@Given("^I enter charge item type as \"([^\"]*)\"$")
+	public void i_enter_charge_item_type_as(String type) throws Throwable {
+		StudentFinancialsPage.TP_CONTRACT_ITEM_TYPE_field(type);
+	}
+
+	@Given("^I enter Start date as \"([^\"]*)\"$")
+	public void i_enter_Start_date_as(String date) throws Throwable {
+	    StudentFinancialsPage.TP_CONTRACT_START_DT_field(date);
+	}
+
+	@Given("^I enter End date as \"([^\"]*)\"$")
+	public void i_enter_End_date_as(String date) throws Throwable {
+		StudentFinancialsPage.TP_CONTRACT_END_DT_field(date);
+	}
+
+	@Given("^I enter Tree Node as \"([^\"]*)\"$")
+	public void i_enter_Tree_Node_as(String text) throws Throwable {
+	    StudentFinancialsPage.TP_CHARGES_TREE_NODE_field(text);
+	}
+
+	@Given("^I enter Max Amount as \"([^\"]*)\"$")
+	public void i_enter_Max_Amount_as(String amount) throws Throwable {
+	    StudentFinancialsPage.enterMaxAmount(amount);
+	}
+
+	@Given("^I enter Percentage \"([^\"]*)\"$")
+	public void i_enter_Percentage(String percentage) throws Throwable {
+	    StudentFinancialsPage.enter_Percentage(percentage);
+	}
+	
+	@Given("^Click the Third Party Charges tab$")
+	public void click_the_Third_Party_Charges_tab() throws Throwable {
+	    StudentFinancialsPage.thirdPartyChargesTab().click();
 	}
 }
 

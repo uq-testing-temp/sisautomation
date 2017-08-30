@@ -148,61 +148,39 @@ Scenario: All Student Financials pages are acesible for staff account
 	And I click Search
 	Then I make sure the citizenship was updated to "AUS"
 	
+@SF085
 	Scenario: Creating a Third Party Contract
-	Given I navigate to Student Financials > Payment Plans > Third Party Contract
-	And Click the Create link.
-	And Click the Add a New Value tab.
-	And Click the magnifier and select “UQUNI” in the Business Unit field.
-	And Enter the desired information into the Contract Number field. For example, enter "UQIRTA". The Contract Number can be anything - there is no official format.
-	And Click the Add button. 
-	And Enter the desired information into the Description field.
-	And Enter the desired information into the Short Description field.
-	And Enter the desired information into the Long Description field.
-	And Click the Look up External Org ID (Alt+5) button.
-	And Use the fields available to find the Organisation. Enter the desired information into the External Org ID field.
-	And Click the Look Up button.
-	And Select the relevant organisation from the search results. In this scenario, click the UNIAPPLSCIENCEOFFENBURG link.
-	And Click the Look up Contact Type (Alt+5) button.
-	And Select Accountant
-	And The Ext. Contract filed can be left blank.
-	And Enter the standard information "9999999999" into the Contract Max field.
-	And Enter the standard information "999999" into the Student Max field. Contract Max should be entered as high value unless specified as a capped amount by sponsor. Value cannot be changed once students are attached to TPC. Students Max should be entered as high value unless specified as a capped amount by sponsor. Value cannot be changed once students are attached to TPC.
-	And  Enter the standard information "21/12/2030" into the Last Date field.
-	And  Leave the remaining fields (“Delivery Code”, “Requisition Nbr” and “Service Impact”) blank.
-	And Click the Third Party Item Types tab.
-	And Enter the desired information into the Account Type field. Enter "TPC".
-	And Click the Look up Charge Item Type (Alt+5) button.
-	And Make your selection from the Search Results List. It is most likely “Third Party Charge-Tuition” but can be HECS-HELP, OSHC or others.
-	And The Discount Item Type and Credit Account type fields are not used.
-	And Click the Look up (Alt+5) button in the Credit Item Type field.
-	When Click the Third Party Credit link.
-	Then Ensure the “Specific Year or Period” is selected for the Contract Type field and “Date Range” is selected for the Date Type field.
-	And Enter the desired information into the Start Date field. E.g. "01/01/2010".
-	And Enter the standard information "31/12/2030" into the End Date field. 
-	And Click the Third Party Charges tab.
-	And Leave the Item Type Group field blank.
-	And Click the Look up Tree Node (Alt+5) button in the Tree Node field.
-	And Scroll down and then select the “TUITION” link from the Search Results. The Charge Item Type field should be automatically populated with the relevant information.
-	And Enter the desired information into the Max Amount field. E.g. “999999”. The amount has to be less than the amount in the Student Max field from the first Third Party Contract tab.
-	And Enter the desired information into the Charge% field. E.g. "50" or “100”. In some cases, the third party contract can cover 50% of the tuition fees. For example, the remote students have a 50% waiver applied in their student account and are charged 50% of the total tuition fees.
-	And Unselect Include Tax checkbox.
-	And A second row can be added e.g. “OSHC” if the sponsor also pays for the students’ OSHC. However, in this case, it is necessary to manually select “Third Party Charge-OSHC” in the Charge Item Type field
-	And Click the Save button. 
-		
+	Given I navigate to "Student Financials > Payment Plans > Third Party Contract > Create"
+	And Click the Add a New Value tab
+	And Enter "Description" into the Description fields
+	And Enter Org ID as "10000009"
+	And Select Contact type as "ACC"
+	And Enter "999999" into the Contract Max field
+	And Enter "999998" into the Student Max field 
+	And  Enter the standard information "21/12/2030" into the Last Date field
+	And Click the Third Party Item Types tab
+	And Enter "TPC" into the Account Type field
+	And I enter credit item type as "610200000200"
+	And I enter charge item type as "300100000199"
+	And I enter Start date as "30/08/2016"
+	And I enter End date as "30/08/2017"
+	And Click the Third Party Charges tab
+	And I enter Tree Node as "ADJUSTMENTS"
+	And I enter Max Amount as "10"
+	And I enter Percentage "50"
+	And I click save
+
+@debug
 	Scenario: Assigning a student to a Third Party Contract 
-	Given I navigate to Student Financials > Payment Plans > Third Party Contract
-	And Click the Assign link
-	And Enter ’40861999’ into the External Org ID field. 
-	And Click the Search button. 
-	And Select the relevant Contract Number link. E.g. “DV-C (I&D) 100% TUIT&OSHC”
-	And Enter Student ID number into the ID field.
-	And If necessary, enter a comment in the Reference Number field underneath the student ID. E.g. “”BEL – SEM 1 06 ONLY”
-	And The information in the Student Max field is automatically populated. However, it can be manually overridden if required.
-	When Click the Post button. 
-	Then In the Status field, the information is changed from “Not Posted” to “Active”. The Post button has been greyed out
-	And Once the student is attached to the third party contract, the third party credit will be applied into the student’s account when the fee is calculated. 
-	And The “Payment Plans” link on the “Customer Accounts” page also displays the third party information. Go to Student FinancialsView Customer Accounts.
-	And Click the Payment Plans link. 
+	Given I navigate to Student Financials > Payment Plans > Third Party Contract > Assign
+	And Enter "40005618" into the External Org ID field. 
+	And Click the Search button
+	And Select the relevant Contract Number 
+	And Enter Student ID number into the ID field "44751708"
+	And I enter Student Max amount as "2000"
+	When Click the Post button
+	Then Status field is changed to “Active”
+	And The Post button has been greyed out
 	
 	Scenario: View Corporate Accounts
 	Given I Navigate to: Student Financials> >View Corporate Accounts

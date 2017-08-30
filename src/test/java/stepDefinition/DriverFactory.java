@@ -292,7 +292,7 @@ public class DriverFactory {
 	 * @return
 	 * 		  true if navigation was successful
 	 */
-	public boolean menuNavigation(String path) {
+	public static boolean menuNavigation(String path) {
 		
 		String[] links = path.split(">");
 		

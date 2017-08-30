@@ -96,5 +96,11 @@ public class CommonPageElements extends DriverFactory {
 	public static String getElementText(By locator) {
 		return fluentElement(locator).getText();
 	}
+
+	public static WebElement addTab() {
+		switchFrame();
+		return fluentElement(By.id("ICTAB_1"));
+	}
+	
 	
 }

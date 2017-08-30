@@ -326,4 +326,99 @@ public class StudentFinancialsPage extends DriverFactory {
 		
 		return CommonPageElements.getElementValue(By.id("SCC_CITIZEN_H_COUNTRY$0"));
 	}
+
+	public static void addNewValueTPC() throws Throwable {
+		CommonPageElements.addTab().click();
+		CommonPageElements.enterTextField("TP_CONTRACT_CONTRACT_NUM", CustomFunctions.getRandomLong());
+		CommonPageElements.search();
+	}
+
+	public static void enterDescription(String description) {
+		CommonPageElements.enterTextField("TP_CONTRACT_DESCR", description);
+		
+	}
+
+	public static void enterShortDescription(String description) {
+		CommonPageElements.enterTextField("TP_CONTRACT_DESCRSHORT", description);
+	}
+
+	public static void enterLongDescription(String description) {
+		CommonPageElements.enterTextField("TP_CONTRACT_DESCR254", description);
+		
+	}
+
+	public static void TP_CONTRACT_EXT_ORG_ID_textField(String orgID) {
+		CommonPageElements.enterTextField("TP_CONTRACT_EXT_ORG_ID", orgID);
+		
+	}
+
+	public static void TP_CONTRACT_ORG_CONTACT_TYPE_textField(String type) {
+		
+		CommonPageElements.enterTextField("TP_CONTRACT_ORG_CONTACT_TYPE", type);
+		
+	}
+
+	public static void TP_CONTRACT_TP_CAP_CONTRACT_text_field(String max) {
+		CommonPageElements.enterTextField("TP_CONTRACT_TP_CAP_CONTRACT", max);
+		
+	}
+
+	public static void TP_CONTRACT_TP_CAP_STUDENT(String max) {
+		CommonPageElements.enterTextField("TP_CONTRACT_TP_CAP_STUDENT", max);
+	}
+
+	public static void TP_CONTRACT_TP_CON_LAST_COR_DT_textField(String date) {
+		CommonPageElements.enterTextField("TP_CONTRACT_TP_CON_LAST_COR_DT", date);
+		
+	}
+
+	public static WebElement thirdPartyTab() {
+		return fluentElement(By.id("ICTAB_2"));
+	}
+	
+	public static WebElement thirdPartyChargesTab() {
+		return fluentElement(By.id("ICTAB_3"));
+	}
+
+	public static void TP_CONTRACT_PMT_ITEM_TYPE_field(String type) {
+		CommonPageElements.enterTextField("TP_CONTRACT_PMT_ITEM_TYPE", type);
+		
+	}
+
+	public static void TP_CONTRACT_ITEM_TYPE_field(String type) {
+		CommonPageElements.enterTextField("TP_CONTRACT_ITEM_TYPE", type);
+		
+	}
+
+	public static void TP_CONTRACT_START_DT_field(String date) {
+		CommonPageElements.enterTextField("TP_CONTRACT_START_DT", date);
+		
+	}
+
+	public static void TP_CONTRACT_END_DT_field(String date) {
+		CommonPageElements.enterTextField("TP_CONTRACT_END_DT", date);
+		
+	}
+
+	public static void TP_CHARGES_TREE_NODE_field(String text) {
+		CommonPageElements.enterTextField("TP_CHARGES_TREE_NODE$0", text);
+		
+	}
+
+	public static void enterMaxAmount(String amount) {
+		CommonPageElements.enterTextField("TP_CHARGES_TP_ALLOW_CAP$0", amount);
+		
+	}
+
+	public static void enter_Percentage(String percentage) {
+		CommonPageElements.enterTextField("TP_CHARGES_TP_ALLOW_PERCENT$0", percentage);
+		
+	}
+
+	public static void enterTPC(String tpc) {
+		CommonPageElements.enterTextField("TP_CONTRACT_ACCOUNT_TYPE_SF", tpc);
+	}
+	
+
+
 }
