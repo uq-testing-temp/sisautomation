@@ -418,6 +418,33 @@ public class StudentFinancialsPage extends DriverFactory {
 	public static void enterTPC(String tpc) {
 		CommonPageElements.enterTextField("TP_CONTRACT_ACCOUNT_TYPE_SF", tpc);
 	}
+
+	public static void TP_CONTRCT_SRCH_EXT_ORG_ID_field(String id) {
+		CommonPageElements.enterTextField("TP_CONTRCT_SRCH_EXT_ORG_ID", id);
+		
+	}
+
+	public static void IDCourseList(String id) {
+		CommonPageElements.enterTextField("TP_STUDENT_EMPLID$0", id);
+		
+	}
+
+	public static void StudentMaxAmount(String amount) {
+		CommonPageElements.enterTextField("TP_STUDENT_TP_CAP_STUDENT$0", amount);
+		
+	}
+
+	public static WebElement postButton() {
+		return fluentElement(By.id("DERIVED_SF_PROCESS_SFPTPART$0"));
+	}
+
+	public static WebElement getStatus() {
+		return fluentElement(By.id("PSXLATITEM_XLATLONGNAME"));
+	}
+
+	public static WebElement priority() {
+		return fluentElement(By.id("TP_STUDENT_SF_PRIORITY$0"));
+	}
 	
 
 

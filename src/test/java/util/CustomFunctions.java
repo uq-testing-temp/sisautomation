@@ -137,8 +137,7 @@ public class CustomFunctions extends DriverFactory {
 		}
 		
 		public static boolean navigateToByTextField(String linkText) throws InterruptedException {
-//			driver.switchTo().defaultContent();
-//			fluentElement(By.linkText(linkText)).click();
+
 			menuNavigation(linkText);
 			
 			return true;	

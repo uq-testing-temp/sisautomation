@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 import java.util.Set;
+import java.util.concurrent.ThreadLocalRandom;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
@@ -1110,5 +1111,49 @@ public class testStepsDefinitions extends DriverFactory{
 	public void click_the_Third_Party_Charges_tab() throws Throwable {
 	    StudentFinancialsPage.thirdPartyChargesTab().click();
 	}
+
+	@Given("^Enter \"([^\"]*)\" into the External Org ID field\\.$")
+	public void enter_into_the_External_Org_ID_field(String id) throws Throwable {
+	    StudentFinancialsPage.TP_CONTRCT_SRCH_EXT_ORG_ID_field(id);
+	}
+
+	@Given("^Click the Search button$")
+	public void click_the_Search_button() throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new PendingException();
+	}
+
+	@Given("^Select the relevant Contract Number$")
+	public void select_the_relevant_Contract_Number() throws Throwable {
+	    CommonPageElements.selectFirstResult();
+	}
+
+	@Given("^Enter Student ID number into the ID field \"([^\"]*)\"$")
+	public void enter_Student_ID_number_into_the_ID_field(String id) throws Throwable {
+	    StudentFinancialsPage.IDCourseList(id);
+	}
+
+	@Given("^I enter Student Max amount$")
+	public void i_enter_Student_Max_amount() throws Throwable {
+		int amount = ThreadLocalRandom.current().nextInt(1, 997 + 1);
+		StudentFinancialsPage.StudentMaxAmount(String.valueOf(amount));
+	    StudentFinancialsPage.priority().click();
+	}
+
+	@When("^Click the Post button$")
+	public void click_the_Post_button() throws Throwable {
+	    StudentFinancialsPage.postButton().click();
+	}
+
+	@Then("^Status field is changed to Active$")
+	public void status_field_is_changed_to_Active() throws Throwable {
+	    Assert.assertTrue(StudentFinancialsPage.getStatus().getText().contains("Active"));
+	}
+
+	@Then("^The Post button has been greyed out$")
+	public void the_Post_button_has_been_greyed_out() throws Throwable {
+		Assert.assertFalse(StudentFinancialsPage.postButton().isEnabled());
+	}
+	
 }
 

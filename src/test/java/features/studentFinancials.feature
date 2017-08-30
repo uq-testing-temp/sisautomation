@@ -170,16 +170,15 @@ Scenario: All Student Financials pages are acesible for staff account
 	And I enter Percentage "50"
 	And I click save
 
-@debug
 	Scenario: Assigning a student to a Third Party Contract 
-	Given I navigate to Student Financials > Payment Plans > Third Party Contract > Assign
+	Given I navigate to "Student Financials > Payment Plans > Third Party Contract > Assign"
 	And Enter "40005618" into the External Org ID field. 
-	And Click the Search button
+	And I click Search
 	And Select the relevant Contract Number 
 	And Enter Student ID number into the ID field "44751708"
-	And I enter Student Max amount as "2000"
+	And I enter Student Max amount 
 	When Click the Post button
-	Then Status field is changed to “Active”
+	Then Status field is changed to Active
 	And The Post button has been greyed out
 	
 	Scenario: View Corporate Accounts
