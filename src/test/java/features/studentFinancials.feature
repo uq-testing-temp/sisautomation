@@ -180,17 +180,16 @@ Scenario: All Student Financials pages are acesible for staff account
 	When Click the Post button
 	Then Status field is changed to Active
 	And The Post button has been greyed out
-	
+
 	Scenario: View Corporate Accounts
-	Given I Navigate to: Student Financials> >View Corporate Accounts
-	And Enter the desired information into the External Org ID field.
-	And Click the Search button. 
-	And Click the Account Details link for the relevant semester.
-	When Click the OK button.
+	Given I navigate to "Student Financials > View Corporate Accounts"
+	And Enter External Org ID Corp Acc as "10000241"
+	And I click Search
+	And I Click the Account Details link for the relevant semester
 	Then The Account Details page shows all the charges and the payments the third party has made for that semester. 
 	
 	Scenario: Cancelling a Student from the Third Party Contract
-	Given I Navigate to: Student Financials > Payment Plans > Third Party Contract > Assign
+	Given I navigate to "Student Financials > Payment Plans > Third Party Contract > Assign"
 	And Enter ’40861999’ into the External Org ID field.
 	And Click the Search button. 
 	And Select the relevant Contract Number link. E.g. “ DV-C (I%D) 100% TUIT&OSHC”
@@ -208,7 +207,7 @@ Scenario: All Student Financials pages are acesible for staff account
 	Then The Contract Status field shows “Cancelled”
 	
 	Scenario: Inactivating a Student from the Third Party Contract
-	Given I Navigate to: Student Financials > Payment Plans > Third Party Contract> Assign
+	Given I navigate to "Student Financials > Payment Plans > Third Party Contract> Assign"
 	And Enter ’40861999’ into the External Org ID field.
 	And Click the Search button.  
 	And Select the relevant Contract Number link. E.g. “DV-C (I&D) 100% TUIT&OSHC”

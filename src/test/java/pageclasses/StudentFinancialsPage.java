@@ -445,6 +445,18 @@ public class StudentFinancialsPage extends DriverFactory {
 	public static WebElement priority() {
 		return fluentElement(By.id("TP_STUDENT_SF_PRIORITY$0"));
 	}
+
+	public static void enterOrgIDCorpAcc(String id) {
+		CommonPageElements.enterTextField("ACCT_ORG_ALL_VW_EXT_ORG_ID", id);
+	}
+
+	public static WebElement accountLink() {
+		return fluentElement(By.id("SYSTEM_SF_ACCT_ORG_TO_ITEM$0"));
+	}
+
+	public static boolean accountDetailsDisplayed() {
+		return CustomFunctions.checkFrameElementPresense("Account Details");
+	}
 	
 
 

@@ -1117,12 +1117,6 @@ public class testStepsDefinitions extends DriverFactory{
 	    StudentFinancialsPage.TP_CONTRCT_SRCH_EXT_ORG_ID_field(id);
 	}
 
-	@Given("^Click the Search button$")
-	public void click_the_Search_button() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
-	}
-
 	@Given("^Select the relevant Contract Number$")
 	public void select_the_relevant_Contract_Number() throws Throwable {
 	    CommonPageElements.selectFirstResult();
@@ -1153,6 +1147,21 @@ public class testStepsDefinitions extends DriverFactory{
 	@Then("^The Post button has been greyed out$")
 	public void the_Post_button_has_been_greyed_out() throws Throwable {
 		Assert.assertFalse(StudentFinancialsPage.postButton().isEnabled());
+	}
+	
+	@Given("^Enter External Org ID Corp Acc as \"([^\"]*)\"$")
+	public void enter_External_Org_ID_Corp_Acc_as(String id) throws Throwable {
+	    StudentFinancialsPage.enterOrgIDCorpAcc(id);
+	}
+
+	@Given("^I Click the Account Details link for the relevant semester$")
+	public void i_Click_the_Account_Details_link_for_the_relevant_semester() throws Throwable {
+	    StudentFinancialsPage.accountLink().click();
+	}
+
+	@Then("^The Account Details page shows all the charges and the payments the third party has made for that semester\\.$")
+	public void the_Account_Details_page_shows_all_the_charges_and_the_payments_the_third_party_has_made_for_that_semester() throws Throwable {
+	    Assert.assertTrue(StudentFinancialsPage.accountDetailsDisplayed());
 	}
 	
 }

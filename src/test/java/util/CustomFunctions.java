@@ -188,4 +188,11 @@ public class CustomFunctions extends DriverFactory {
 	           	Assert.assertTrue(navigateToByTextField(link));
 	        }
 		}
+
+
+		public static boolean checkFrameElementPresense(String element) {
+			String bodyTextFrame = frameElement(By.tagName("body")).getText();
+			boolean withinFrame = bodyTextFrame.contains(element);
+			return withinFrame;
+		}
 }
