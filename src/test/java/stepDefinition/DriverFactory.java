@@ -65,6 +65,19 @@ public class DriverFactory {
         public static final int UNSUCCESFULL = 8;
         
     }
+    
+    public static class TPCstatus {
+    	/**
+    	 * Graduation statuses enumerator class
+	     */
+        public static final int NA = 0;
+        public static final int ACTIVE = 1;
+        public static final int CANCELLED = 2;
+        public static final int HOLD = 3;
+        public static final int INACTIVE = 4;
+        public static final int NOT_POSTED = 5;
+        
+    }
         
     public static class menu {
     	/**

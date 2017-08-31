@@ -190,21 +190,15 @@ Scenario: All Student Financials pages are acesible for staff account
 	
 	Scenario: Cancelling a Student from the Third Party Contract
 	Given I navigate to "Student Financials > Payment Plans > Third Party Contract > Assign"
-	And Enter ’40861999’ into the External Org ID field.
-	And Click the Search button. 
-	And Select the relevant Contract Number link. E.g. “ DV-C (I%D) 100% TUIT&OSHC”
-	And Find the relevant student in the ID field.
-	When Change the Status from “Active” to “Cancelled”. 
-	Then The “Reversal Detail” page will appear. Today’s date is automatically populated in the “Item Effective Date” field. 
-	Given Enter the desired information in the “Description” field.
-	And Select a relevant option for the “Reason” field.
-	And Click the “OK” button
-	When Click the Post button. 
-	Then In the Status field, the information is changed from “Active” to “Cancelled”. The Post button is greyed out. 
-	Given Go to Student Financials> View Customer Accounts. 
-	Then Check the third party credit has been reversed from the student’s account
-	And Click the Payment Plan link to check the third party information. 
-	Then The Contract Status field shows “Cancelled”
+	And Enter "40005618" into the External Org ID field. 
+	And I click Search
+	And Select the relevant Contract Number 
+	And Enter Student ID number into the ID field "44751708"
+	When Change the Status from Active to Active
+	When Change the Status from Active to Cancelled
+	And Select a Reason as "ACCT"
+	And I Click OK frame button
+
 	
 	Scenario: Inactivating a Student from the Third Party Contract
 	Given I navigate to "Student Financials > Payment Plans > Third Party Contract> Assign"

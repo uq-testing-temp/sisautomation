@@ -7,6 +7,7 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
 
 import stepDefinition.DriverFactory;
 import stepDefinition.DriverFactory.timeout;
@@ -100,6 +101,15 @@ public class CommonPageElements extends DriverFactory {
 	public static WebElement addTab() {
 		switchFrame();
 		return fluentElement(By.id("ICTAB_1"));
+	}
+
+	public static void dropDownMenu(String id, int dropdownIndex) {
+		fluentElement(By.id(id)).click();
+		
+		WebElement gsDropDown = driver.findElement(By.id(id));
+		gsDropDown.click();
+		Select drpdown = new Select(gsDropDown);
+		drpdown.selectByIndex(dropdownIndex);
 	}
 	
 	

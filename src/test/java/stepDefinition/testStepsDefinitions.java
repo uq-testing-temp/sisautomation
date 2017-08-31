@@ -1134,6 +1134,11 @@ public class testStepsDefinitions extends DriverFactory{
 	    StudentFinancialsPage.priority().click();
 	}
 
+	@When("^I Click OK frame button$")
+	public void click_OK_frame_button() throws Throwable {
+	    StudentFinancialsPage.okFrameButton();
+	}
+	
 	@When("^Click the Post button$")
 	public void click_the_Post_button() throws Throwable {
 	    StudentFinancialsPage.postButton().click();
@@ -1162,6 +1167,21 @@ public class testStepsDefinitions extends DriverFactory{
 	@Then("^The Account Details page shows all the charges and the payments the third party has made for that semester\\.$")
 	public void the_Account_Details_page_shows_all_the_charges_and_the_payments_the_third_party_has_made_for_that_semester() throws Throwable {
 	    Assert.assertTrue(StudentFinancialsPage.accountDetailsDisplayed());
+	}
+
+	@When("^Change the Status from Active to Cancelled$")
+	public void change_the_Status_from_Active_to_Cancelled() throws Throwable {
+	    StudentFinancialsPage.changeStatus(TPCstatus.CANCELLED);
+	}
+	
+	@When("^Change the Status from Active to Active$")
+	public void change_the_Status_from_Active_to_Active() throws Throwable {
+	    StudentFinancialsPage.changeStatus(TPCstatus.ACTIVE);
+	}
+	
+	@When("^Select a Reason as \"([^\"]*)\"$")
+	public void i_select_reason(String status) throws Throwable {
+	    StudentFinancialsPage.reason(status);
 	}
 	
 }

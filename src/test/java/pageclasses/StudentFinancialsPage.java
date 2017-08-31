@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import stepDefinition.DriverFactory;
@@ -457,6 +458,20 @@ public class StudentFinancialsPage extends DriverFactory {
 	public static boolean accountDetailsDisplayed() {
 		return CustomFunctions.checkFrameElementPresense("Account Details");
 	}
+
+	public static void changeStatus(int status) {
+		CommonPageElements.dropDownMenu("TP_STUDENT_TP_STATUS$0", status);
+
+	}
+
+	public static void reason(String reason) {
+		CommonPageElements.enterTextFieldFrame("DERIVED_SF_LINE_REASON_CD", reason);
+	}
+
+	public static void okFrameButton() {
+		frameElement(By.id("#ICSave")).click();
+	}
+	
 	
 
 
