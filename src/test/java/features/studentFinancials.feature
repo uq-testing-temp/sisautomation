@@ -199,34 +199,13 @@ Scenario: All Student Financials pages are acesible for staff account
 	And Select a Reason as "ACCT"
 	And I Click OK frame button
 
-	
 	Scenario: Inactivating a Student from the Third Party Contract
-	Given I navigate to "Student Financials > Payment Plans > Third Party Contract> Assign"
-	And Enter ’40861999’ into the External Org ID field.
-	And Click the Search button.  
-	And Select the relevant Contract Number link. E.g. “DV-C (I&D) 100% TUIT&OSHC”
-	And Find the relevant student from the ID field.
-	And Change the Status from “Active” to “Inactive”.
-	When Click the “Save” button.
-	Then If no sponsorship funds remain for the current semester, simply change the Status field from “Active” to “Inactive”, and click Save button. You will need to reverse charges for current semester and re-calculate to remove Third Party Credit for the current term.
-	Given I Navigate to to Student Financials > Tuition and Fees > Tuition Calculation. Enter the relevant student ID number and click the Search button
-	And Find the relevant semester for the tuition calculation page. Select “UNDETUndetermined_HECS 999” in the Override Tuition Group field to reverse the tuition charges in the relevant semester.
-	And Click “Calculate Tuition and Fees” button. 
-	When Remove “UNDET- Undetermined_HECS 999” in the Override Tuition Group field.
-	Then Click “Calculate Tuition and Fees” button. 
-	Given I navigate to Student Financials> View Customer Accounts to check that the third party credit has been reversed.
-	And If a student‘s tuition fee in one semester is partially sponsored by the third party but previously was sponsored for 100% tuition fee (for example the total student tuition fee is $10,000 in semester 1 2011, and only $7000 of this is sponsored by the balance of the third party sponsorship arrangement), the amount in the “Student Max” field needs to be changed to “7,000” and the status is set to “Active’ in the Third Party Contract Assign page. To do this, the previous (100% sponsorship) third party credit needs to first be reversed from the customer account, before the Student Max amount can be overridden. As such, the student’s Status on the Third Party Contract Assign page needs to be made “Inactive” first. Then go to Student Financials > Tuition and Fees > Tuition Calculation. Enter the relevant student ID number and click the Search button. 
-	And Find the relevant semester for the tuition calculation page. Select “UNDETUndetermined_HECS 999” in the Override Tuition Group field to reverse the tuition charges in the relevant semester.
-	And Click “Calculate Tuition and Fees” button.
-	And Go to Student Financials > View Customer Accounts. Check that the Semester 1 2011 tuition fee charge in the student’s account is zero. 
-	And Go to Student Financials > Payment Plans > Third Party Contract > Assign. Enter the relevant ID in the External Org ID field, then select the relevant contract number. 
-	And Change the amount in “Student Max” field to “7,000”. 
-	And Change the Status from “Inactive” to “Active.” 
-	When Click the “Post” button. 
-	Then The Post button is greyed out
-	And Go to Student Financials > Tuition and Fees > Tuition Calculation. Enter the relevant student ID in the ID field. Click the Search button. 
-	And Remove ‘UNDET’ from the Override Tuition Group field.
-	When Click Calculate Tuition and Fees button for the relevant semester. In this scenario, select Sem1 2011. 
-	Then Go back to Student Financials> View Customer Accounts. Check the third party credit $7000 is applied to the student’s account. 
+	Given I navigate to "Student Financials > Payment Plans > Third Party Contract > Assign"
+	And Enter "40005618" into the External Org ID field. 
+	And I click Search
+	And Select the relevant Contract Number 
+	And Enter Student ID number into the ID field "44751708"
+	When Change the Status from Active to Inactive
+	And I click save
 	
 		

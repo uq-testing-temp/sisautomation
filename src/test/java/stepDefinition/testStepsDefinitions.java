@@ -1184,5 +1184,9 @@ public class testStepsDefinitions extends DriverFactory{
 	    StudentFinancialsPage.reason(status);
 	}
 	
+	@When("^Change the Status from Active to Inactive$")
+	public void change_the_Status_from_Active_to_Inactive() throws Throwable {
+		StudentFinancialsPage.changeStatus(TPCstatus.INACTIVE);
+	}
 }
 
