@@ -114,6 +114,12 @@ public class testStepsDefinitions extends DriverFactory{
 		LoginPage.login(null);
 	}
 	
+	@Given("^I am logged in as a student$")
+	public void i_am_logged_in_as_student() throws Throwable {
+		
+		LoginPage.login("STUD");
+	}
+	
 	@Given("^I am on login page$")
 	public void i_am_on_login_page() throws Throwable {
 		LoginPage.navigate();
@@ -669,9 +675,7 @@ public class testStepsDefinitions extends DriverFactory{
 
 	@Given("^I navigate to each menu item specified in \"([^\"]*)\" located by text link$")
 	public void i_navigate_to_each_menu_item_specified_in_text(String csvFile) throws Throwable {
-	    
-		LoginPage.login(null);
-		
+		driver.switchTo().defaultContent();
 		CustomFunctions.menujourneyByTextFields(csvFile);
 
 	}	

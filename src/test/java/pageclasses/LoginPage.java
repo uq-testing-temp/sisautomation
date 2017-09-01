@@ -53,6 +53,10 @@ public class LoginPage extends DriverFactory {
 				username = "UQTAHME4";
 				password = "IT$1Sa$S";
 			}
+			if (securityGroup.equals("STUD")) {
+				username = "s4176185";
+				password= new PropertyReader().readProperty("DEFAULT_PASSWORD");
+			}
 		}
 		navigate();
 		enterUsername(username);
@@ -88,6 +92,11 @@ public class LoginPage extends DriverFactory {
 
 		return driver.findElement(By.className("PSERRORTEXT")).isDisplayed();
 	
+	}
+
+
+	public static void logout() {
+		fluentElement(By.linkText("Sign Out")).click();
 	}
 
 }
