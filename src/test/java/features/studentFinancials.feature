@@ -208,24 +208,24 @@ Scenario: All Student Financials pages are acesible for staff account
 	When Change the Status from Active to Inactive
 	And I click save
 
-@SF053	
-	Scenario: Verify cancellation of OSHC details of a student by staff. 3040.01 Should be able to cancel OSHC for a given student successfully
-	Given I navigate to ""
-	
-	Scenario: Student view: General SF student checks
-	Given I am logged in as a student
-	And I navigate to "myPage > Student Home Page,myPage > Student Home Page"
-	Then I check I'm seeing the correct informations:
-	Correct Semester is coming up (the last day the student enrolled in)
-	Information matches the enrollement that they got
-	Charged the right amount, the payments and differets
-	
-	Scenario: Student view:  INtrnational student should see ECAFs menus
-	
-	Scenario: Student view:  Checking invoices
-	
-	Scenario: Student view: Outstanding charges are reflected in myAccount tab on the home page (same as in invoice menu)
-	
-	Scenario: Student view: Payments student paid are correct (they match what the table in the back end shows)
-	Given I navigate to View Customer Account "s4176185"
-	And Data should match what I have seen in student view
+#@SF053	
+#	Scenario: Verify cancellation of OSHC details of a student by staff. 3040.01 Should be able to cancel OSHC for a given student successfully
+#	Given I navigate to ""
+#	
+#	Scenario: Student view: General SF student checks
+#	Given I am logged in as a student
+#	And I navigate to "myPage > Student Home Page,myPage > Student Home Page"
+#	Then I check I'm seeing the correct informations:
+#	Correct Semester is coming up (the last day the student enrolled in)
+#	Information matches the enrollement that they got
+#	Charged the right amount, the payments and differets
+#	
+#	Scenario: Student view:  INtrnational student should see ECAFs menus
+#	
+#	Scenario: Student view:  Checking invoices
+#	
+#	Scenario: Student view: Outstanding charges are reflected in myAccount tab on the home page (same as in invoice menu)
+#	
+#	Scenario: Student view: Payments student paid are correct (they match what the table in the back end shows)
+#	Given I navigate to View Customer Account "s4176185"
+#	And Data should match what I have seen in student view
