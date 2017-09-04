@@ -27,7 +27,8 @@ Scenario: All Student Financials pages are acesible for staff account
 	Given I navigate to Student Financials > International Health Coverage > Student Maintenance
 	When I search student id IHC as "41761854"
 	Then I should see Balance and Anticipated Aid as 0 AUD
-	
+
+
 @SF104 
 	Scenario: Verify UQ Student Account	All charges, refunds and payments made by the student should be displayed correctly
 	Given I navigate to > Student Financials > View UQ Student Accounts
@@ -56,19 +57,21 @@ Scenario: All Student Financials pages are acesible for staff account
 
 @SF106
     Scenario: Verify TPC for Corporation	Contract details and student details should be displayed correctly
-    Given I navigate to > Student Financials > Payment Plans > Third Party Contract > Create
-    And Enter External Org ID as "40448747"
+    Given I navigate to "Student Financials > Payment Plans > Third Party Contract > Create"
+	And Enter "40448747" into the External Org ID field.     
     When I click Search OrgID
     And I select the latest result
     Then I should see correct TPC details
- 
+
+@skipped 
 @SF108
 	Scenario: Verify Monthly reporting	Monthly reports should be extracted correctly
-	Given I navigate to Student Financials > UQ Student Financials Reports > Payment Allocation
+	Given I navigate to "Student Financials > UQ Student Financials Reports > Payment Allocation"
 	And I add a New Value
 	When I choose reporting option as "monthly"
 	Then I should see Run status as Processing or Queued
 	
+
 @SF109
 	Scenario: Verify Adhoc  reporting.	Adhoc  reports should be extracted correctly
 	Given I navigate to Student Financials > UQ Student Financials Reports > Payment Allocation
@@ -83,7 +86,7 @@ Scenario: All Student Financials pages are acesible for staff account
 	 
 	And I choose reporting option as "overnight"
 	Then I should see Run status as Processing or Queued
-	
+
 @SF077
 	Scenario: Verify the AP interface works correctly for student refunds. 3090.01 3090.02 Refund reports are generated and student and refund details should be listed correctly
 	Given I navigate to Student Financials > Refunds - Student Bank Details
@@ -128,6 +131,7 @@ Scenario: All Student Financials pages are acesible for staff account
 	Then A new service indicator should be displayed
 	When I delete service indicator
 
+
 	Scenario: Re-Coding FEE-HELP Status
 	Given I Navigate to: Records and Enrollment > Student Term Information > Term Activate a Student
 	And Enter the student number in the ID field. In this case, enter "40005690"
@@ -147,7 +151,7 @@ Scenario: All Student Financials pages are acesible for staff account
 	And I Enter the student number in the ID field as "40005690"
 	And I click Search
 	Then I make sure the citizenship was updated to "AUS"
-	
+
 @SF085
 	Scenario: Creating a Third Party Contract
 	Given I navigate to "Student Financials > Payment Plans > Third Party Contract > Create"
@@ -179,7 +183,7 @@ Scenario: All Student Financials pages are acesible for staff account
 	And I enter Student Max amount 
 	When Click the Post button
 	Then Status field is changed to Active
-	And The Post button has been greyed out
+
 
 	Scenario: View Corporate Accounts
 	Given I navigate to "Student Financials > View Corporate Accounts"
@@ -187,7 +191,8 @@ Scenario: All Student Financials pages are acesible for staff account
 	And I click Search
 	And I Click the Account Details link for the relevant semester
 	Then The Account Details page shows all the charges and the payments the third party has made for that semester. 
-	
+
+
 	Scenario: Cancelling a Student from the Third Party Contract
 	Given I navigate to "Student Financials > Payment Plans > Third Party Contract > Assign"
 	And Enter "40005618" into the External Org ID field. 
@@ -208,10 +213,37 @@ Scenario: All Student Financials pages are acesible for staff account
 	When Change the Status from Active to Inactive
 	And I click save
 
-#@SF053	
-#	Scenario: Verify cancellation of OSHC details of a student by staff. 3040.01 Should be able to cancel OSHC for a given student successfully
-#	Given I navigate to ""
-#	
+@SF009
+@SF008
+	Scenario Outline: Verify tution calc for new students. ScenarioTest tuition calc for a   variety of students with a variety of charge types. Test adding anddropping courses and the posting of waivers.
+	Given I navigate to "Student Financials > Tuition and Fees > Tuition Calculation"
+	And I lookup a student wich is term active, program active, enrolled to "<code>"
+	And I make sure Record has been set up in Tuition Calculation Controls page for this term.
+	And I click calculate tution and fees button
+	And I record the fee into the database as reference ID "112233"
+	When I Get the fees charged using the Fees Calculator "http://feecalculator.app.uq.edu.au/" by <code>
+	And I record the fee into the database as reference ID "445566"
+	Then The amount charged should be "<expected>"
+
+	Examples:
+		|StudentID|Class number |Code|code description| expected |
+		|45005985|6660 | 201 |HECS HELP Loan|fees charged using the Fees Calculator |
+#		|45001101|6660 |202 | HECS HELP Upfront (80%)|fees charged using the Fees Calculator |
+#		|45001138|6660 |203 | HECS HELP Upfront (100%)|fees charged using the Fees Calculator |
+#		|45001174|6660 |230 | FEE-HELP Loan|fees charged using the Fees Calculator |
+#		|45001213|6660 |233 | FEE-HELP BOTP Deffered|fees charged using the Fees Calculator |
+#		|45001222|6660 |270 | Aust Extended Research|fees charged using the Fees Calculator |
+#		|StudentID|6660 |301 | Domestic Non Award Fee Paying|fees charged using the Fees Calculator |
+#		|StudentID|6660 |302 | Domestic Award Fee Paying|fees charged using the Fees Calculator |
+#		|StudentID|6660 |310 | Overseas Fee Paying|fees charged using the Fees Calculator |
+#		|StudentID|6660 |311 | Overses Fully Sponsored| fees charged using the Fees Calculator |
+#		|StudentID|6660 |320 | Research HECS Exemption|fees charged using the Fees Calculator |
+#		|StudentID|6660 |330 | Research Training Scheme|fees charged using the Fees Calculator |
+#		|StudentID|6660 |666 |Non DEEWR –   Exempt HECS|fees charged using the Fees Calculator |
+
+	
+
+
 #	Scenario: Student view: General SF student checks
 #	Given I am logged in as a student
 #	And I navigate to "myPage > Student Home Page,myPage > Student Home Page"
@@ -229,3 +261,7 @@ Scenario: All Student Financials pages are acesible for staff account
 #	Scenario: Student view: Payments student paid are correct (they match what the table in the back end shows)
 #	Given I navigate to View Customer Account "s4176185"
 #	And Data should match what I have seen in student view
+
+#@SF053	
+#	Scenario: Verify cancellation of OSHC details of a student by staff. 3040.01 Should be able to cancel OSHC for a given student successfully
+#	Given I navigate to ""

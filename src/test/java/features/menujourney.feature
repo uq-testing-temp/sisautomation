@@ -13,7 +13,6 @@
 	Given I am logged in
 	Given I navigate to each menu item specified in "rootMenuDictionary.csv"
 
-@debug
 @csvtext
 	Scenario: Smoke test using external data source (CSV table) locating by text link
 	Given I am logged in

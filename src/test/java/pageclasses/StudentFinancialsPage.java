@@ -471,6 +471,36 @@ public class StudentFinancialsPage extends DriverFactory {
 	public static void okFrameButton() {
 		frameElement(By.id("#ICSave")).click();
 	}
+
+	public static String lookupStudent(String arg1) {
+		// TODO Auto-generated method stub
+//		TODO implement DB lookup
+		return "45005985";
+	}
+
+	public static void searchStudentID(String studentID) throws InterruptedException {
+		CommonPageElements.enterTextField("SF_STUDENT_SRCH_EMPLID", studentID);
+		CommonPageElements.search();
+		
+	}
+
+	public static void checkStudentIsTermActive() {
+		// TODO Lookup the DB
+	}
+
+	public static void checkStudentIsProgramActive() {
+		// TODO Lookup the DB
+		
+	}
+
+	public static void checkStudentIsEnrolled() {
+		// TODO Lookup the DB
+		
+	}
+
+	public static WebElement CalculatetutionAndFeesButton() {
+		return fluentElement(By.id("DERIVED_SF_TUIT_CALC_PB$0"));
+	}
 	
 	
 

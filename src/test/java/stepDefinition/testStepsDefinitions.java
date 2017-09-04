@@ -1192,5 +1192,54 @@ public class testStepsDefinitions extends DriverFactory{
 	public void change_the_Status_from_Active_to_Inactive() throws Throwable {
 		StudentFinancialsPage.changeStatus(TPCstatus.INACTIVE);
 	}
+	
+	@Given("^I lookup a student wich is term active, program active, enrolled to \"([^\"]*)\"$")
+	public void i_lookup_a_student_wich_is_term_active_program_active_enrolled_as(String arg1) throws Throwable {
+	    String studentID=StudentFinancialsPage.lookupStudent(arg1);
+	    StudentFinancialsPage.searchStudentID(studentID);
+	}
+
+	@Given("^I chose students with the status code <code>$")
+	public void i_chose_students_with_the_status_code_code() throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new PendingException();
+	}
+
+	@When("^I Get the fees charged using the Fees Calculator \"([^\"]*)\"$")
+	public void i_Get_the_fees_charged_using_the_Fees_Calculator(String arg1) throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new PendingException();
+	}
+
+	@Then("^The amount charged should be \"([^\"]*)\"$")
+	public void the_amount_charged_should_be_fees_charged_using_the_Fees_Calculator(String arg1) throws Throwable {
+	    String calculatedFee = CustomFunctions.getRecordToDB(arg1);
+	    String referenceFee = CustomFunctions.getRecordToDB(arg1);
+	    Assert.assertTrue(calculatedFee.equalsIgnoreCase(referenceFee));
+	}
+	
+	@When("^I Get the fees charged using the Fees Calculator \"([^\"]*)\" by <code>$")
+	public void i_Get_the_fees_charged_using_the_Fees_Calculator_by_code(String arg1) throws Throwable {
+	    CustomFunctions.navigateToWEB(arg1);
+	    CustomFunctions.getFees(arg1);
+	}
+	
+	@Given("^I make sure Record has been set up in Tuition Calculation Controls page for this term\\.$")
+	public void i_make_sure_Record_has_been_set_up_in_Tuition_Calculation_Controls_page_for_this_term() throws Throwable {
+	    StudentFinancialsPage.checkStudentIsTermActive();
+	    StudentFinancialsPage.checkStudentIsProgramActive();
+	    StudentFinancialsPage.checkStudentIsEnrolled();
+	}
+
+	@Given("^I click calculate tution and fees button$")
+	public void i_click_calculate_tution_and_fees_button() throws Throwable {
+	    StudentFinancialsPage.CalculatetutionAndFeesButton().click();
+//	    CommonPageElements.OKButton().clicdk(); //TODO - remove when DB lookup is implemented
+	}
+	
+	@Given("^I record the fee into the database as reference ID \"([^\"]*)\"$")
+	public void i_record_the_fee_into_the_database_as_reference_ID(String arg1) throws Throwable {
+	    CustomFunctions.recordToDB(arg1);
+	}
 }
 

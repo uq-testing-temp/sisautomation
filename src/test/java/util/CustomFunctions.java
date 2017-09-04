@@ -195,4 +195,29 @@ public class CustomFunctions extends DriverFactory {
 			boolean withinFrame = bodyTextFrame.contains(element);
 			return withinFrame;
 		}
+
+
+		public static void recordToDB(String arg1) {
+			// TODO Implement connector to artefacts DB
+			
+		}
+
+
+		public static void navigateToWEB(String arg1) {
+			driver.navigate();
+			
+		}
+
+
+		public static void getFees(String arg2) {
+			// TODO Lookup fees via DB
+			
+		}
+
+
+		public static String getRecordToDB(String arg1) {
+			// TODO Implement connector to artefacts DB
+			return "1440";
+			
+		}
 }

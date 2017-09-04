@@ -67,6 +67,10 @@ public class CommonPageElements extends DriverFactory {
 		return frameElement(By.id("#ICSave"));
 	}
 	
+	public static WebElement OKButtonFrame() {
+		return frameElement(By.id("#ICOK"));
+	}
+	
 	public static WebElement saveButton() {
 		return fluentElement(By.id("#ICSave"));
 	}
@@ -110,6 +114,10 @@ public class CommonPageElements extends DriverFactory {
 		gsDropDown.click();
 		Select drpdown = new Select(gsDropDown);
 		drpdown.selectByIndex(dropdownIndex);
+	}
+
+	public static WebElement OKButton() {
+		return fluentElement(By.id("#ICOK"));
 	}
 	
 	
