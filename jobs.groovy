@@ -73,7 +73,8 @@ systems.each { system ->
                     remote {
                         name('origin')
                         url("${gitUrl}${system}.git")
-                        credentials('ed45b22c-3198-4f74-b334-c24cf6d3b6ee')
+                        //credentials('ed45b22c-3198-4f74-b334-c24cf6d3b6ee') // redhat
+                        credentials("05faefb2-91e4-4b94-ad13-5a8152d992cc") // ubuntu 	
                     }
                     branch('**/master')
                 }
