@@ -1248,5 +1248,31 @@ public class testStepsDefinitions extends DriverFactory{
 		StudentFinancialsPage.runControlID("random");
 		CommonPageElements.search();
 	}
+	
+	@Given("^I select charges and waivers for all students$")
+	public void i_select_charges_and_waivers_for_all_students() throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	    StudentFinancialsPage.getStudentWaivers();
+	}
+	@Given("^I choose Calc Total Employees as \"([^\"]*)\"$")
+	public void i_choose_Calc_Total_Employees_as(String arg1) throws Throwable {
+	    StudentFinancialsPage.selectCalcTotalEmployees(arg1);
+	}
+	
+	@Given("^I choose current term \"([^\"]*)\"$")
+	public void i_choose_current_term(String arg1) throws Throwable {
+	    StudentFinancialsPage.chooseTerm(arg1);
+	}
+	
+	@Given("^I click run$")
+	public void i_click_run() throws Throwable {
+	    CommonPageElements.runButton().click();
+	}
+	
+	@Given("^I click OK in the frame$")
+	public void i_click_OK_in_the_frame() throws Throwable {
+	    CommonPageElements.saveButtonFrame().click();
+	}
+
 }
 

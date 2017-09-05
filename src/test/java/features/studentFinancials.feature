@@ -244,14 +244,14 @@ Scenario: All Student Financials pages are acesible for staff account
 @SF017
 @skipped_DBconnector
 Scenario: Verify the charges and waivers for all students. 3020.02.	Verify tuition calc for all students and compare charges and waivers prior to running batch tuition calc for a semester with those posted after the run has finished
-	Given I navigate to "UQ Support Processes > UQ SF Processes > Multi Stream Tuit Calc"
+	Given I select charges and waivers for all students
+	And I navigate to "UQ Support Processes > UQ SF Processes > Multi Stream Tuit Calc"
 	And I Add a New Value
 	And I choose Calc Total Employees as "10"
-	And I choose current term 
-	And I select  charges and waivers for all students.
+	And I choose current term "6760"
+	And I click run
 	And I click OK in the frame
-	When I go to the process monitor
-	Then I should see my instance queued 
+	Then I should see Run status as Processing or Queued
 	And Process ran to success
 	When I Compare the charges and waivers taken before and after tuition calc
 	Then Charge and waivers extracted before tuition calc run should match charges and waivers after tuitioncalc has run

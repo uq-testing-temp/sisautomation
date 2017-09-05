@@ -501,7 +501,20 @@ public class StudentFinancialsPage extends DriverFactory {
 	public static WebElement CalculatetutionAndFeesButton() {
 		return fluentElement(By.id("DERIVED_SF_TUIT_CALC_PB$0"));
 	}
+
+	public static void getStudentWaivers() {
+		// TODO Implement db connector
+		
+	}
+
+	public static void selectCalcTotalEmployees(String arg1) {
+		CommonPageElements.enterTextField("UQ_RUNCNTL_CALC_CALC_EMP_CNT", arg1);
+	}
+
+	public static void chooseTerm(String arg1) {
+		CommonPageElements.enterTextField("RUN_CNTL_CALC_T_STRM$0", arg1);
+	}
 	
-	
+
 
 }
