@@ -90,7 +90,7 @@ Scenario: No Honours Class allowed without a degree:
 #GD_PTSC_5050.01_Graduation Event and Meeting Setup.
 @graduation_5050_01
 Scenario: 1 New Event is saved
-	Given I navigate to Event Management Events
+	Given I navigate to "Campus Community > Campus Event Planning > Event Management > Events"
 	And I navigate to add new event
 	And I enter Event ID
 	And I click add

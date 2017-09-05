@@ -228,22 +228,38 @@ Scenario: All Student Financials pages are acesible for staff account
 	Examples:
 		|StudentID|Class number |Code|code description| expected |
 		|45005985|6660 | 201 |HECS HELP Loan|fees charged using the Fees Calculator |
-#		|45001101|6660 |202 | HECS HELP Upfront (80%)|fees charged using the Fees Calculator |
-#		|45001138|6660 |203 | HECS HELP Upfront (100%)|fees charged using the Fees Calculator |
-#		|45001174|6660 |230 | FEE-HELP Loan|fees charged using the Fees Calculator |
-#		|45001213|6660 |233 | FEE-HELP BOTP Deffered|fees charged using the Fees Calculator |
-#		|45001222|6660 |270 | Aust Extended Research|fees charged using the Fees Calculator |
-#		|StudentID|6660 |301 | Domestic Non Award Fee Paying|fees charged using the Fees Calculator |
-#		|StudentID|6660 |302 | Domestic Award Fee Paying|fees charged using the Fees Calculator |
-#		|StudentID|6660 |310 | Overseas Fee Paying|fees charged using the Fees Calculator |
-#		|StudentID|6660 |311 | Overses Fully Sponsored| fees charged using the Fees Calculator |
-#		|StudentID|6660 |320 | Research HECS Exemption|fees charged using the Fees Calculator |
-#		|StudentID|6660 |330 | Research Training Scheme|fees charged using the Fees Calculator |
-#		|StudentID|6660 |666 |Non DEEWR –   Exempt HECS|fees charged using the Fees Calculator |
+		|45001101|6660 |202 | HECS HELP Upfront (80%)|fees charged using the Fees Calculator |
+		|45001138|6660 |203 | HECS HELP Upfront (100%)|fees charged using the Fees Calculator |
+		|45001174|6660 |230 | FEE-HELP Loan|fees charged using the Fees Calculator |
+		|45001213|6660 |233 | FEE-HELP BOTP Deffered|fees charged using the Fees Calculator |
+		|45001222|6660 |270 | Aust Extended Research|fees charged using the Fees Calculator |
+		|StudentID|6660 |301 | Domestic Non Award Fee Paying|fees charged using the Fees Calculator |
+		|StudentID|6660 |302 | Domestic Award Fee Paying|fees charged using the Fees Calculator |
+		|StudentID|6660 |310 | Overseas Fee Paying|fees charged using the Fees Calculator |
+		|StudentID|6660 |311 | Overses Fully Sponsored| fees charged using the Fees Calculator |
+		|StudentID|6660 |320 | Research HECS Exemption|fees charged using the Fees Calculator |
+		|StudentID|6660 |330 | Research Training Scheme|fees charged using the Fees Calculator |
+		|StudentID|6660 |666 |Non DEEWR –   Exempt HECS|fees charged using the Fees Calculator |
 
+@SF017
+@skipped_DBconnector
+Scenario: Verify the charges and waivers for all students. 3020.02.	Verify tuition calc for all students and compare charges and waivers prior to running batch tuition calc for a semester with those posted after the run has finished
+	Given I navigate to "UQ Support Processes > UQ SF Processes > Multi Stream Tuit Calc"
+	And I Add a New Value
+	And I choose Calc Total Employees as "10"
+	And I choose current term 
+	And I select  charges and waivers for all students.
+	And I click OK in the frame
+	When I go to the process monitor
+	Then I should see my instance queued 
+	And Process ran to success
+	When I Compare the charges and waivers taken before and after tuition calc
+	Then Charge and waivers extracted before tuition calc run should match charges and waivers after tuitioncalc has run
+	And I Check Equation Values using surveillancequeries using Query C
+	And I Check waiver codes
+	And I Check class number
+	And I check course ids
 	
-
-
 #	Scenario: Student view: General SF student checks
 #	Given I am logged in as a student
 #	And I navigate to "myPage > Student Home Page,myPage > Student Home Page"

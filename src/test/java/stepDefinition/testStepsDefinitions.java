@@ -391,7 +391,7 @@ public class testStepsDefinitions extends DriverFactory{
     @Given("^I navigate to add new event$")
     public void i_navigate_to_add_new_event() throws Throwable {
     
-    	CampusCommunityPage.addNewEvent();
+    	CommonPageElements.addTab();
     }
     
     @Given("^I navigate to add new meeting$")
@@ -1240,6 +1240,13 @@ public class testStepsDefinitions extends DriverFactory{
 	@Given("^I record the fee into the database as reference ID \"([^\"]*)\"$")
 	public void i_record_the_fee_into_the_database_as_reference_ID(String arg1) throws Throwable {
 	    CustomFunctions.recordToDB(arg1);
+	}
+	
+	@Given("^I Add a New Value$")
+	public void i_Add_a_New_Value() throws Throwable {
+		CommonPageElements.addTab().click();
+		StudentFinancialsPage.runControlID("random");
+		CommonPageElements.search();
 	}
 }
 
